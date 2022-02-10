@@ -33,6 +33,6 @@ Para a entrega o aluno deverá colocar o nome completo no README do arquivo e cr
 
 ## Observações
 
-Não será aceito trabalhos após essa data
-Se o sistema não rodar o aluno ficará com a nota 0
-Não será permitido copias e se isso for detectado os alunos envolvidos ficarão com a nota 0
+- Não será aceito trabalhos após essa data
+- Se o sistema não rodar o aluno ficará com a nota 0
+- Não será permitido copias e se isso for detectado os alunos envolvidos ficarão com a nota 0
