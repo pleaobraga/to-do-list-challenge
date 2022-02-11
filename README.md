@@ -8,6 +8,7 @@ Criar uma to-do list que consiste em adicionar elementos a uma lista e poder mar
 
 - Utilizar JS, HTML e CSS puro, ou seja sem qualquer tipo de biblioteca ou framework
 - A solução deve apresentar um campo para inserir o nome da tarefa a ser feita e um botao para adicionar a tarefa a lista
+- Ao adicionar um elemento novo a lista esperar 1 segundo para que esse elemento seja exibido.
 - A solução deve apresentar uma lista para listar os items da lista de items a se fazer
 - Cada elemento da lista deverá apresentar 2 estados diferentes, um pra item a se fazer e um para item feito
 - Ao clicar no item da lista o mesmo deve mudar se estado, feito -> a fazer ou a fazer -> feito
