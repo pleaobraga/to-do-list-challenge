@@ -11,7 +11,7 @@ Criar uma to-do list que consiste em adicionar elementos a uma lista e poder mar
 - A solução deve apresentar uma lista para listar os items da lista de items a se fazer
 - Cada elemento da lista deverá apresentar 2 estados diferentes, um pra item a se fazer e um para item feito
 - Ao clicar no item da lista o mesmo deve mudar se estado, feito -> a fazer ou a fazer -> feito
-- Deve ser possível armazenar quantos item o usuario quiser a lista
+- Deve ser possível armazenar quantos items o usuario quiser a lista
 - A lista deve ser armazenada de uma forma que se o usuario entrar novamente na pagina ele poderá ver todos os itens ja cadastrados e seus respectivos estados
 - Criar uma boa documentação para a solução (README).
 
