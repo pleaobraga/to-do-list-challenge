@@ -11,7 +11,7 @@ Criar uma to-do list que consiste em adicionar elementos a uma lista e poder mar
 - Ao adicionar uma nova tarefa esperar 2 segundos para que seja exibido na lista de tarefas.
 - Ao adicionar uma nova tarefa ela deverá vir por padrão no estado de a fazer
 - A solução deve apresentar uma lista para listar as tarefas
-- Cada elemento da lista deverá apresentar 2 estados diferentes, um pra item a se fazer e um para item feito
+- Cada elemento da lista deverá apresentar 2 estados diferentes, um pra item a se fazer e um para item feito e tem que ter uma diferença visual entre eles
 - Ao clicar no item da lista o mesmo deve mudar se estado, feito -> a fazer ou a fazer -> feito
 - Deve ser possível armazenar quantos items o usuario quiser a lista
 - A lista deve ser armazenada de uma forma que se o usuario entrar novamente na pagina ele poderá ver todos os itens ja cadastrados e seus respectivos estados
