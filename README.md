@@ -12,7 +12,7 @@ de biblioteca ou framework.
 
 ## Como utilizar
 
-Abra o [link](https://antuneslv.github.io/to-do-list-challenge/index.html#)do projeto ou abra o arquivo index.html.
+Abra o [link](https://antuneslv.github.io/to-do-list-challenge/index.html#) do projeto ou abra o arquivo index.html.
 
 Digite uma tarefa no campo e clique no botão "Adicionar Tarefa" para que ela 
 seja adicionada na lista.
