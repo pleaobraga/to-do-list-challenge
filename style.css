@@ -1,0 +1,95 @@
+.main {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0 auto;
+  max-width: 800px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 40px;
+}
+
+#task {
+  padding: 5px;
+  width: 200px;
+}
+
+label {
+  font-weight: bolder;
+}
+
+#add-task {
+  margin: 2px;
+  background-color: rgba(29, 118, 202);
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  color: white;
+  font-weight: bolder;
+}
+
+#add-task:hover {
+  background-color: rgb(35, 149, 255);
+}
+
+.remove {
+  margin: 2px;
+  background-color: rgba(200, 75, 75);
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  color: white;
+  font-weight: bolder;
+}
+
+.remove:hover{
+  background-color: rgb(255, 97, 97);
+}
+
+.done {
+  color: green;
+  font-weight: bold;
+  list-style: none;
+}
+
+.done::before {
+  content: '\2713'; 
+  margin-right: 20px; 
+}
+
+.wrapper {
+  margin-top: 50px;
+  padding: 20px;
+  align-self: center;
+  border: 1px solid black;
+  border-radius: 15px;
+  background-color: rgba(211, 211, 211, 0.5);
+}
+
+table {
+  border-collapse: collapse;
+}
+
+thead {
+  background-color: lightgrey;
+}
+
+th, td {
+  padding: 10px 20px;
+  border: 1px solid black;
+  text-align: center;
+  pointer-events: none;
+}
+
+th:first-child {
+  width: 80vw;
+}
+
+td:first-child {
+  width: 80vw;
+  text-align: start;
+}
+
+li, button {
+  cursor: pointer;
+  pointer-events: initial;
+}

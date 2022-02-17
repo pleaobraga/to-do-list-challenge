@@ -1,40 +1,44 @@
-# to-do-list-challenge
+# Projeto Módulo 5
 
-## Proposta de Teste
+## Leandro Vendemiatto Antunes
 
-Criar uma to-do list que consiste em adicionar elementos a uma lista e poder marca-los como feito ou não
+Este projeto consiste em criar uma to-do list onde se pode adicionar 
+elementos a uma lista e poder marcá-los como feito ou não.
 
-## Requisitos Obrigatórios
+A aplicação foi feita em HTML, CSS e Javascript puro, ou seja, sem qualquer tipo 
+de biblioteca ou framework.
 
-- Utilizar JS, HTML e CSS puro, ou seja sem qualquer tipo de biblioteca ou framework
-- A solução deve apresentar um campo para inserir o nome da tarefa a ser feita e um botao para adicionar a tarefa a lista
-- Ao adicionar uma nova tarefa esperar 2 segundos para que seja exibido na lista de tarefas.
-- Ao adicionar uma nova tarefa ela deverá vir por padrão no estado de a fazer
-- A solução deve apresentar uma lista para listar as tarefas
-- Cada elemento da lista deverá apresentar 2 estados diferentes, um pra item a se fazer e um para item feito e tem que ter uma diferença visual entre eles
-- Ao clicar no item da lista o mesmo deve mudar se estado, feito -> a fazer ou a fazer -> feito
-- Deve ser possível armazenar quantos items o usuario quiser a lista
-- A lista deve ser armazenada de uma forma que se o usuario entrar novamente na pagina ele poderá ver todos os itens ja cadastrados e seus respectivos estados
-- Criar uma boa documentação para a solução (README).
+## Como utilizar
 
+Abra o link do projeto ou abra o arquivo index.html.
 
-## Requisitos Opcionais (Plus)
+Digite uma tarefa no campo e clique no botão "Adicionar Tarefa" para que ela 
+seja adicionada na lista.
 
-- Implementar uma solução otimizada
-- Em cada elemento da lista apresentar um botao de deletar e caso o usuario aperte esse botao o item some da lista
-- Implementar uma boa interface gráfica para a solução
-- caso o aluno queira implementar mais alguma funcionalidade fique a vontade, mas deixe explicado no README
+Adicione quantas tarefas forem necessárias.
 
+Clique na tarefa para mudar o status dela de "a fazer" para "feito" (o status
+é somente visual, mudando a cor para verde e trocando a bolinha da lista por um
+simbolo de "check").
 
-## Entrega
+Caso a precise voltar o status de "feito" para "a fazer" devolta, é só clicar 
+novamente em cima da tarefa.
 
-A entrega deverá ser feita ate o dia 28/02/2022
+Clique no botão "Remover" para apagar aquela tarefa da lista.
 
-Para a entrega o aluno deverá colocar o nome completo no README do arquivo e criar um pull request(PR) para esse repositório.
+## A solução do problema
 
+Para adicionar as tarefas a lista, foi criado uma função com evento de click que 
+cria elementos de tabela e de lista e adiciona ao DOM. Neste evento foi 
+implementado um setTimeout() para a lista aparecer depois de 2 segundos da 
+chamada do evento.
 
-## Observações
+Foi criado um botão "Remover", como um plus para o projeto que também tem um 
+evento de click que remove da lista a tarefa já inserida.
 
-- Não será aceito trabalhos após essa data
-- Se o sistema não rodar o aluno ficará com a nota 0
-- Não será permitido copias e se isso for detectado os alunos envolvidos ficarão com a nota 0
+Para mudar o status da lista para "feito" e "a fazer", ou vice e versa, foi 
+criado um evento de click que adicina ou remove uma classe no elemento HTML.
+
+Para que a lista não se perdesse quando o usuário saísse da página, foi 
+implementado no script um localStorage.setItem() que possibilita salvar 
+localmente os dados.
