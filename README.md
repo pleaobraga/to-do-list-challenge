@@ -1,6 +1,8 @@
-# Projeto Módulo 5
+# To-Do List Challenge
 
-## Leandro Vendemiatto Antunes
+[To-Do List Challenge](https://antuneslv.github.io/to-do-list-challenge/index.html#)
+
+## Leandro Vendemiatto Antunes - Projeto final do Módulo 5 do curso de Web Full Stack da Let's Code
 
 Este projeto consiste em criar uma to-do list onde se pode adicionar 
 elementos a uma lista e poder marcá-los como feito ou não.
@@ -10,7 +12,7 @@ de biblioteca ou framework.
 
 ## Como utilizar
 
-Abra o link do projeto ou abra o arquivo index.html.
+Abra o [link](https://antuneslv.github.io/to-do-list-challenge/index.html#)do projeto ou abra o arquivo index.html.
 
 Digite uma tarefa no campo e clique no botão "Adicionar Tarefa" para que ela 
 seja adicionada na lista.
@@ -21,7 +23,7 @@ Clique na tarefa para mudar o status dela de "a fazer" para "feito" (o status
 é somente visual, mudando a cor para verde e trocando a bolinha da lista por um
 simbolo de "check").
 
-Caso a precise voltar o status de "feito" para "a fazer" devolta, é só clicar 
+Caso precise voltar o status de "feito" para "a fazer" devolta, é só clicar 
 novamente em cima da tarefa.
 
 Clique no botão "Remover" para apagar aquela tarefa da lista.
