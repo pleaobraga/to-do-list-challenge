@@ -30,7 +30,7 @@ Criar uma to-do list que consiste em adicionar elementos a uma lista e poder mar
 
 A entrega deverá ser feita ate o dia 28/02/2022
 
-Para a entrega o aluno deverá colocar o nome completo no README do arquivo e criar um pull request(PR) para esse repositório.
+Para a entrega o aluno deverá criar um pull request(PR) para esse repositório.
 
 
 ## Observações
