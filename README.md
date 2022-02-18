@@ -23,6 +23,7 @@ Criar uma to-do list que consiste em adicionar elementos a uma lista e poder mar
 - Implementar uma solução otimizada
 - Em cada elemento da lista apresentar um botao de deletar e caso o usuario aperte esse botao o item some da lista
 - Implementar uma boa interface gráfica para a solução
+- Publicar a aplicação em algum ambiente (GitHub Pages,...)
 - caso o aluno queira implementar mais alguma funcionalidade fique a vontade, mas deixe explicado no README
 
 
