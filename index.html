@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./stylesheets/reset.css" />
+    <link rel="stylesheet" href="./stylesheets/index.css" />
+    <script src="./scripts/index.js" defer></script>
+    <title>Hoje não - Sua Lista de Tarefas</title>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Hoje não</h1>
+      </header>
+
+      <main>
+        <form>
+          <input
+            type="text"
+            id="new-task"
+            placeholder="Insira nova tarefa"
+            autocomplete="off"
+          />
+          <button type="submit">Adicionar</button>
+        </form>
+
+        <section>
+          <h2>Lista de Tarefas</h2>
+
+          <section class="filters-wrapper">
+            <form class="filters">
+              <fieldset>
+                <span>
+                  <legend class="filters__title">Filtros</legend>
+                </span>
+
+                <div class="filters__option">
+                  <input
+                    type="radio"
+                    name="active-filter"
+                    id="all"
+                    value="all"
+                    checked
+                  />
+                  <label for="all">Todos</label>
+                </div>
+
+                <div class="filters__option">
+                  <input
+                    type="radio"
+                    name="active-filter"
+                    id="uncompleted"
+                    value="uncompleted"
+                  />
+                  <label for="uncompleted">Abertas</label>
+                </div>
+
+                <div class="filters__option">
+                  <input
+                    type="radio"
+                    name="active-filter"
+                    id="completed"
+                    value="completed"
+                  />
+                  <label for="completed">Finalizadas</label>
+                </div>
+              </fieldset>
+            </form>
+          </section>
+
+          <section>
+            <ul id="list"></ul>
+          </section>
+
+          <div class="remove-completed">
+            <button id="rm-completed-btn" type="button">
+              Excluir tarefas feitas
+            </button>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
