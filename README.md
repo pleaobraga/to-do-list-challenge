@@ -7,7 +7,7 @@
 
 ## Como utilizar
 
-1. Abra o [link]
+1. Abra o [link] (https://github.com/pleaobraga/to-do-list-challenge#requisitos-opcionais-plus)
 2. Insira a tarefa desejada no campo "Insira sua tarefa aqui"
 3. Adicione a tarefa à lista, clicando no botão '+' ou apertando Enter;
     3.1. Note que caso o campo esteja vazio, será disparado um alerta e a tarefa não será adicionada;
