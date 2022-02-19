@@ -45,6 +45,9 @@ class tasksList {
     } else if (!data.done && this.#activeFilter === "completed") {
       listItem.style.display = "none";
     }
+
+    const checkbox = listItem.querySelector("input[type='checkbox']");
+    this.changeItemStatus(listItem, checkbox, data);
   }
 
   createListItem(data) {
@@ -105,7 +108,7 @@ class tasksList {
           break;
 
         case "checkbox":
-          this.changeItemStatus(e.target, data);
+          this.changeItemStatus(li, e.target, data);
           this.filterItems();
           break;
       }
@@ -236,8 +239,16 @@ class tasksList {
     }
   }
 
-  changeItemStatus(elem, data) {
-    data.done = elem.checked;
+  changeItemStatus(item, checkbox, data) {
+    const title = item.querySelector("h3");
+    data.done = checkbox.checked;
+
+    if (data.done) {
+      title.classList.add("cross-item");
+    } else {
+      title.classList.remove("cross-item");
+    }
+
     this.saveData();
   }
 

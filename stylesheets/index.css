@@ -236,10 +236,63 @@ li:hover {
 }
 
 h3 {
+  position: relative;
   padding: 0.5rem;
   text-align: center;
   font-size: 2.1rem;
   word-break: break-all;
+}
+
+.cross-item::after {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  content: "";
+  border: 3px solid #f08080;
+  background-color: #f08080;
+  width: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  z-index: 3;
+  animation-name: cross-after;
+  animation-duration: 2000ms;
+}
+
+.cross-item::before {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  content: "";
+  border: 3px solid #f08080;
+  background-color: #f08080;
+  width: 50%;
+  transform: translateX(-50%) rotate(-45deg);
+  z-index: 3;
+  animation-name: cross-before;
+  animation-duration: 2000ms;
+}
+
+@keyframes cross-after {
+  0% {
+    width: 0%;
+  }
+
+  50% {
+    width: 50%;
+  }
+}
+
+@keyframes cross-before {
+  0% {
+    width: 0%;
+  }
+
+  50% {
+    width: 0%;
+  }
+
+  100% {
+    width: 50%;
+  }
 }
 
 li > div,
