@@ -3,6 +3,7 @@
 ## Renan Fayad - Projeto Módulo 5 - Front End Dinâmico - Web Full Stack - Let's Code
 - Este projeto consiste em criar uma to-do list, permitindo a criação e inserção de tarefas, a alteração de seus respectivos status (feita ou não) e a exclusão de cada tarefa.
 - A aplicação é baseada apenas HTML, CSS e JS, sem bibliotecas ou frameworks.
+- O projeto é responsivo.
 
 ## Como utilizar
 
@@ -46,3 +47,5 @@
     c. Cada Tarefa da lista (de tarefas já salvas) recebe um eventListener de clique para seu funcionamento (alterar status e salvar);
     d. O Botão de Input (+) recebe um eventListener de clique para seu funcionamento (executar addTask);
     e. O campo de Input recebe um eventListener de keypress, para seu funcionamento (executar addTask) quando o usuário aperte Enter
+    
+4. Com relação ao estilo cabe ressaltar que o projeto foi desenvolvido com responsividade, buscando as melhores adequações aos diferentes devices.
