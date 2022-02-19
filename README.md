@@ -1,41 +1,54 @@
 # to-do-list-challenge
 
-## Proposta de Teste
+## Renan Fayad - Projeto Módulo 5 - Front End Dinâmico - Web Full Stack - Let's Code
+- Este projeto consiste em criar uma to-do list, permitindo a criação e inserção de tarefas, a alteração de seus respectivos status (feita ou não) e a exclusão de cada tarefa.
+- A aplicação é baseada apenas HTML, CSS e JS, sem bibliotecas ou frameworks.
+- O projeto foi desenvolvido de forma a trazer uma **solução responsiva**.
 
-Criar uma to-do list que consiste em adicionar elementos a uma lista e poder marca-los como feito ou não
+## Como utilizar
 
-## Requisitos Obrigatórios
+1. Abra o [link](https://rrfayad.github.io/to-do-list-challenge/index.html#)
+2. Insira a tarefa desejada no campo "Insira sua tarefa aqui"
+3. Adicione a tarefa à lista, clicando no botão '+' ou apertando Enter;
+    3.1. Note que caso o campo esteja vazio, será disparado um alerta e a tarefa não será adicionada;
+4. Aguarde 02 e segundos e...
+5. Voilá! Sua tarefa foi adicionada à lista.
+6. Para cada tarefa, há 02 possíveis ações, sendo:
+    6.1. Alterar status da tarefa para feita (e alterar de volta para não feita):
+        Para isso, basta clicar em cima de cada tarefa (note que o mouse muda de forma no espaço 'clicável');
+    6.2. Deletar tarefa da lista:
+        Para deletar, basta clicar no botão com uma lixeira ao lado de cada tarefa.
+7. Por fim, fique tranquilo, pois mesmo que feche o navegador, as tarefas (e seu respectivo status) se manterão em sua lista!
 
-- Utilizar JS, HTML e CSS puro, ou seja sem qualquer tipo de biblioteca ou framework
-- A solução deve apresentar um campo para inserir o nome da tarefa a ser feita e um botao para adicionar a tarefa a lista
-- Ao adicionar uma nova tarefa esperar 2 segundos para que seja exibido na lista de tarefas.
-- Ao adicionar uma nova tarefa ela deverá vir por padrão no estado de a fazer
-- A solução deve apresentar uma lista para listar as tarefas
-- Cada elemento da lista deverá apresentar 2 estados diferentes, um pra item a se fazer e um para item feito e tem que ter uma diferença visual entre eles
-- Ao clicar no item da lista o mesmo deve mudar se estado, feito -> a fazer ou a fazer -> feito
-- Deve ser possível armazenar quantos items o usuario quiser a lista
-- A lista deve ser armazenada de uma forma que se o usuario entrar novamente na pagina ele poderá ver todos os itens ja cadastrados e seus respectivos estados
-- Criar uma boa documentação para a solução (README).
+## A solução do problema
 
+1. Foram criadas no script as constantes dos elementos da página (conceito DOM).
 
-## Requisitos Opcionais (Plus)
+2. Foram criadas as principais funções para execução da ferramenta, sendo:
+    a. saveData: salva as informações da lista de tarefas (copiando o innerHTML) no localStorage;
+    b. createWrapper: cria (e retorna) um elemento div ('wrapper') no HTML;
+    c. createTask: cria (e retorna) um elemento de lista no HTML, sendo que:
+        i. Recebe o valor do input;
+        ii. É adicionado um eventListener para que, em cada clique, altere o status para tafera feita, ou desfaz esta ação (por meio da inclusão de uma classe que altera visualmente o item, incluindo strikeThrogh quando feita) e execute saveData;
+    d. createDelBtn: cria (e retorna) um botão, que tem um eventListener para Clique, que:
+        i. executa a função de remover o parentNode (que será o respectivo wrapper contendo uma tarefa)
+        ii. executa saveData;
+    e. addTask: verifica se há informação no campo tarefa (se não houver retorna um alerta) e, consumindo as quatro funções descritas acima, vai:
+        i. criar elemento wrapper (createWrapper);
+        ii. criar nova tarefa (createTask);
+        iii. criar o botão de delete (createDelBtn);
+        iv. organizar tarefa e botão de deletar dentro do wrapper;
+        v. adicionar um temporizador para aguardar 02 segundos para a adição de uma tarefa à lista;
+        vi. salvar as informações com saveData.
 
-- Implementar uma solução otimizada
-- Em cada elemento da lista apresentar um botao de deletar e caso o usuario aperte esse botao o item some da lista
-- Implementar uma boa interface gráfica para a solução
-- Publicar a aplicação em algum ambiente (GitHub Pages,...)
-- caso o aluno queira implementar mais alguma funcionalidade fique a vontade, mas deixe explicado no README
-
-
-## Entrega
-
-A entrega deverá ser feita ate o dia 28/02/2022
-
-Para a entrega o aluno deverá criar um pull request(PR) para esse repositório.
-
-
-## Observações
-
-- Não será aceito trabalhos após essa data
-- Se o sistema não rodar o aluno ficará com a nota 0
-- Não será permitido copias e se isso for detectado os alunos envolvidos ficarão com a nota 0
+3. Cada vez que a página é iniciada, para o funcionamento de todos elementos, são executadas os seguintes algoritmos:
+    a. É copiada a lista de tarefas do usuário, a qual está salva como um item HTML no localStorage;
+    b. Cada botão de deletar existente na página (de tarefas já salvas) recebe um eventListener de clique para seu funcionamento (deletar tarefa e salvar);
+    c. Cada Tarefa da lista (de tarefas já salvas) recebe um eventListener de clique para seu funcionamento (alterar status e salvar);
+    d. O Botão de Input (+) recebe um eventListener de clique para seu funcionamento (executar addTask);
+    e. O campo de Input recebe um eventListener de keypress, para seu funcionamento (executar addTask) quando o usuário aperte Enter
+    
+4. Com relação ao estilo cabe ressaltar que:
+  a. O projeto foi desenvolvido com responsividade, buscando as melhores adequações aos diferentes devices;
+  b. Foram observados itens de usabilidade, como mensangem no campo de input ao longo do processamento;
+  c. Efeitos visuais quando passamos o mouse por cima de determinados itens (se aplicável)
