@@ -1,7 +1,5 @@
-## To-Do List Challenge
-POR LINK
-
-## Renan Fayad - Projeto Módulo 5 - Front End Dinâmico - Web Full Stack - Let's Code
+## Renan Fayad
+##Projeto Módulo 5 - Front End Dinâmico - Web Full Stack - Let's Code
 - Este projeto consiste em criar uma to-do list, permitindo a criação e inserção de tarefas, a alteração de seus respectivos status (feita ou não) e a exclusão de cada tarefa.
 - A aplicação é baseada apenas HTML, CSS e JS, sem bibliotecas ou frameworks.
 - Para maiores detalhes de escopo, consultar https://github.com/pleaobraga/to-do-list-challenge#requisitos-opcionais-plus.
