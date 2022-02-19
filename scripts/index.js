@@ -348,12 +348,15 @@ addForm.addEventListener("submit", (e) => {
   e.preventDefault();
 
   if (taskInput.value !== "") {
-    myTasks.add(taskInput.value);
+    let taskName = taskInput.value;
+    setTimeout(() => {
+      myTasks.add(taskName);
+    }, 2000);
+
     addForm.classList.remove("error-message");
   } else {
     addForm.classList.add("error-message");
   }
-
   taskInput.value = "";
   taskInput.focus();
 });
