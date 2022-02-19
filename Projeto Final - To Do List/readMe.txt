@@ -1,5 +1,4 @@
 ## To-Do List Challenge
-POR LINK
 
 ## Renan Fayad - Projeto Módulo 5 - Front End Dinâmico - Web Full Stack - Let's Code
 - Este projeto consiste em criar uma to-do list, permitindo a criação e inserção de tarefas, a alteração de seus respectivos status (feita ou não) e a exclusão de cada tarefa.
@@ -7,18 +6,17 @@ POR LINK
 - Para maiores detalhes de escopo, consultar https://github.com/pleaobraga/to-do-list-challenge#requisitos-opcionais-plus.
 
 ## Como utilizar
-1. Abra o [link]
-2. Insira a tarefa desejada no campo "Insira sua tarefa aqui"
-3. Adicione a tarefa à lista, clicando no botão '+' ou apertando Enter;
-    3.1. Note que caso o campo esteja vazio, será disparado um alerta e a tarefa não será adicionada;
-4. Aguarde 02 e segundos e...
-5. Voilá! Sua tarefa foi adicionada à lista.
-6. Para cada tarefa, há 02 possíveis ações, sendo:
-    6.1. Alterar status da tarefa para feita (e alterar de volta para não feita):
+1. Insira a tarefa desejada no campo "Insira sua tarefa aqui"
+2. Adicione a tarefa à lista, clicando no botão '+' ou apertando Enter;
+    2.1. Note que caso o campo esteja vazio, será disparado um alerta e a tarefa não será adicionada;
+3. Aguarde 02 e segundos e...
+4. Voilá! Sua tarefa foi adicionada à lista.
+5. Para cada tarefa, há 02 possíveis ações, sendo:
+    5.1. Alterar status da tarefa para feita (e alterar de volta para não feita):
         Para isso, basta clicar em cima de cada tarefa (note que o mouse muda de forma no espaço 'clicável');
-    6.2. Deletar tarefa da lista:
+    5.2. Deletar tarefa da lista:
         Para deletar, basta clicar no botão com uma lixeira ao lado de cada tarefa.
-7. Por fim, fique tranquilo, pois mesmo que feche o navegador, as tarefas (e seu respectivo status) se manterão em sua lista!
+6. Por fim, fique tranquilo, pois mesmo que feche o navegador, as tarefas (e seu respectivo status) se manterão em sua lista!
 
 
 ## A solução do problema
