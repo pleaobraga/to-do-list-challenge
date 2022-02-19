@@ -1,40 +1,50 @@
 # to-do-list-challenge
 
-## Proposta de Teste
+## Autoria
+Pedro Yure Nogueira da Silva.
+Projeto feito como trabalho final do módulo 5 (Front End Dinâmico), do curso Web Full Stack da Let's Code.
 
-Criar uma to-do list que consiste em adicionar elementos a uma lista e poder marca-los como feito ou não
+## Lista de Tarefas
 
-## Requisitos Obrigatórios
+Este projeto consiste em um Web App responsivo que permite a criação de uma lista de tarefas com funcionalidades como inserção, edição, exclusão, filtro e marcação de status de tarefas.
 
-- Utilizar JS, HTML e CSS puro, ou seja sem qualquer tipo de biblioteca ou framework
-- A solução deve apresentar um campo para inserir o nome da tarefa a ser feita e um botao para adicionar a tarefa a lista
-- Ao adicionar uma nova tarefa esperar 2 segundos para que seja exibido na lista de tarefas.
-- Ao adicionar uma nova tarefa ela deverá vir por padrão no estado de a fazer
-- A solução deve apresentar uma lista para listar as tarefas
-- Cada elemento da lista deverá apresentar 2 estados diferentes, um pra item a se fazer e um para item feito e tem que ter uma diferença visual entre eles
-- Ao clicar no item da lista o mesmo deve mudar se estado, feito -> a fazer ou a fazer -> feito
-- Deve ser possível armazenar quantos items o usuario quiser a lista
-- A lista deve ser armazenada de uma forma que se o usuario entrar novamente na pagina ele poderá ver todos os itens ja cadastrados e seus respectivos estados
-- Criar uma boa documentação para a solução (README).
+A aplicação é baseada em HTML, CSS e Vanilla JavaScript.
+
+## Manual do Usuário
+
+### Inserir tarefa
+1. Insira o nome de uma tarefa no campo "Insira nova tarefa".
+2. Clique no botão "adicionar" ou aperta a tecla enter. A tarefa será adicionada à lista após 2 segundos.
+
+### Marcar tarefa como feita
+1. Clique no checkbox (botão mais a esquerda que aparece no bloco da tarefa) para marcar a tarefa como feita. Quando marcada como feita, na parte interna do checkbox aparecerá um símbolo de "check" e sobre o nome da tarefa aparecerá um X sinalizando sua compleção.
+2. A compleção da tarefa pode ser revertida clicando outra vez no checkbox.
+
+### Filtrar tarefas
+É possível selecionar quais tarefas estarão à mostra na tela. As opções são:
+- Todas
+- Abertas (não completas)
+- Finalizadas
+
+### Editar Tarefa 
+1. Clique no botão do meu para editar a tarefa desejada. A caixa de edição aparecerá no centro da tela.
+2. Na caixa de edição, clique no espaço para editar o nome atual da tarefa.
+3. Para completar a operação:
+  - Clique no botão de confirmar ou,
+  - Clique no botão de cancelar para cancelar a edição.
+ 
+### Excluir tarefa
+1. Clique no botão de excluir (botão a direita na tarefa que deseja excluir). Uma caixa de exclusão aparecerá no centro da tela.
+2. Para completar a operação:
+  - Clique no botão de confirmar ou,
+  - Clique no botão de cancelar para cancelar a exclusão da tarefa.
+
+### Excluir todas as tarefas completadas de uma vez
+Para excluir todas as tarefas completadas com apenas um clique, selecione o filtro "finalizadas". O botão para excluir todas as tarefas de uma vez aparecerá no canto inferior esquerdo da tela. Para excluir todas as tarefas:
+1. Clique no botão
+2. Para completar a operação:
+  - Confirme a exclusão ou,
+  - Cancele a exclusão.
 
 
-## Requisitos Opcionais (Plus)
 
-- Implementar uma solução otimizada
-- Em cada elemento da lista apresentar um botao de deletar e caso o usuario aperte esse botao o item some da lista
-- Implementar uma boa interface gráfica para a solução
-- caso o aluno queira implementar mais alguma funcionalidade fique a vontade, mas deixe explicado no README
-
-
-## Entrega
-
-A entrega deverá ser feita ate o dia 28/02/2022
-
-Para a entrega o aluno deverá criar um pull request(PR) para esse repositório.
-
-
-## Observações
-
-- Não será aceito trabalhos após essa data
-- Se o sistema não rodar o aluno ficará com a nota 0
-- Não será permitido copias e se isso for detectado os alunos envolvidos ficarão com a nota 0
