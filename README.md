@@ -7,7 +7,7 @@
 
 ## Como utilizar
 
-1. Abra o [link](https://rrfayad.github.io/to-do-list-challenge/index.html#)
+1. Abra o [link](https://rrfayad.github.io/to-do-list-challenge/)
 2. Insira a tarefa desejada no campo "Insira sua tarefa aqui"
 3. Adicione a tarefa à lista, clicando no botão '+' ou apertando Enter;
    * Note que caso o campo esteja vazio, será disparado um alerta e a tarefa não será adicionada;
