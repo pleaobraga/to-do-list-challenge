@@ -44,4 +44,4 @@
     b. Cada botão de deletar existente na página (de tarefas já salvas) recebe um eventListener de clique para seu funcionamento (deletar tarefa e salvar);
     c. Cada Tarefa da lista (de tarefas já salvas) recebe um eventListener de clique para seu funcionamento (alterar status e salvar);
     d. O Botão de Input (+) recebe um eventListener de clique para seu funcionamento (executar addTask);
-    e. O campo de Input recebe um eventListener de keypress, para seu funcionamento (executar addTask) quando o usuário aperte Enter
+    e. O campo de Input recebe um eventListener de keypress, para seu funcionamento (executar addTask) quando o usuário aperta Enter
