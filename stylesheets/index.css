@@ -19,6 +19,7 @@ html {
 
 body {
   display: flex;
+  align-items: center;
   flex-direction: column;
   height: 100%;
   width: 100%;
@@ -34,20 +35,16 @@ div.wrapper {
   max-width: 1400px;
 }
 
-header,
-main {
-  padding: 1.5rem 1rem;
-}
-
 header {
   display: flex;
   justify-content: center;
+  padding: 1.5rem 1rem;
   background-color: #1d1128;
 }
 
 h1 {
-  width: 80px;
-  height: 48px;
+  width: 120px;
+  height: 72px;
   text-indent: -9999px;
   background-image: url(../icons/logo.jpg);
   background-size: contain;
@@ -60,20 +57,23 @@ main {
   flex-direction: column;
   align-items: center;
   gap: 2rem;
+  padding: 4rem;
 }
 
 form {
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 1rem;
   width: 100%;
-  max-width: 22rem;
+  max-width: 32rem;
   padding: 1rem;
+  font-size: 1.75rem;
 }
 
 form.error-message::before {
   content: "tarefa deve conter caracteres visíveis";
+  font-size: 1.75rem;
   position: absolute;
   bottom: calc(100% - 0.5rem);
   color: #1d1128;
@@ -104,15 +104,17 @@ input,
 button {
   padding: 0.5rem;
   text-align: center;
+  font-size: 3.75rem;
   border: none;
   border-radius: 0.3rem;
   cursor: pointer;
 }
 
 button {
-  background-color: #eee;
   font-weight: 700;
   color: #5941a9;
+  background-color: #eee;
+  background-size: contain;
 }
 
 section {
@@ -122,7 +124,7 @@ section {
 h2 {
   margin-bottom: 1rem;
   padding-bottom: 0.5rem;
-  font-size: 1.2rem;
+  font-size: 2.3rem;
   font-weight: 700;
   color: inherit;
   text-align: center;
@@ -175,8 +177,8 @@ h2 {
   -moz-appearance: none;
   -webkit-appearance: none;
   appearance: none;
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 2.625rem;
+  height: 2.625rem;
   border: 3px solid #1d1128;
   background-color: #e5d4ed;
 }
@@ -188,8 +190,8 @@ h2 {
   top: 50%;
   transform: translate(-50%, -50%) scale(0.5);
   display: block;
-  width: 0.8rem;
-  height: 0.8rem;
+  width: 1.4rem;
+  height: 1.4rem;
   background-color: #5941a9;
   border-radius: 0.1rem;
   opacity: 0;
@@ -211,16 +213,16 @@ ul {
 }
 
 li {
-  flex: 1 0 15rem;
+  flex: 1 0 20rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
   width: 100%;
-  min-width: 15rem;
-  max-width: calc(100% / 2 - 1rem);
-  padding: 0.5rem;
+  min-width: 20rem;
+  max-width: 70%;
+  padding: 1.5rem 1rem;
   background-color: #1d1128;
   box-shadow: 0px 0px 8px #000;
   border-radius: 0.5rem;
@@ -236,7 +238,7 @@ li:hover {
 h3 {
   padding: 0.5rem;
   text-align: center;
-  font-size: 1.2rem;
+  font-size: 2.1rem;
   word-break: break-all;
 }
 
@@ -247,7 +249,7 @@ li > div,
   justify-content: center;
   gap: 0.5rem;
   width: 100%;
-  max-width: 7rem;
+  max-width: 12.25rem;
 }
 
 li > div::before {
@@ -261,8 +263,8 @@ li > div::before {
 li > div > *,
 #apply-change,
 #cancel-change {
-  width: 2rem;
-  height: 2rem;
+  width: 3.5rem;
+  height: 3.5rem;
   border-radius: 50%;
   background-color: #e5d4ed;
   background-repeat: no-repeat;
@@ -330,7 +332,7 @@ input[type="checkbox"]:not(:checked) {
   align-items: center;
   gap: 1rem;
   width: 80%;
-  max-width: 20rem;
+  max-width: 30rem;
   padding: 1.5rem 1rem;
   background-color: #5941a9;
   border: 2px solid #1d1128;
@@ -339,8 +341,13 @@ input[type="checkbox"]:not(:checked) {
   z-index: 2;
 }
 
+.modal .modal__input {
+  font-size: 1.75rem;
+  max-width: 100%;
+}
+
 .modal__buttons {
-  max-width: 4.5rem;
+  max-width: 7.875rem;
 }
 
 .remove-completed {
@@ -351,8 +358,8 @@ input[type="checkbox"]:not(:checked) {
 }
 
 .remove-completed > button {
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 2.625rem;
+  height: 2.625rem;
   text-indent: -9999px;
   border-radius: 50%;
   background-image: url(../icons/delete.svg);
@@ -375,7 +382,7 @@ input[type="checkbox"]:not(:checked) {
   }
 }
 
-@media screen and (min-width: 425.1px) {
+@media screen and (min-width: 764px) {
   .filters > fieldset {
     flex-direction: row;
   }
@@ -389,11 +396,13 @@ input[type="checkbox"]:not(:checked) {
     margin-top: 0;
     margin-left: 1rem;
   }
-}
 
-@media screen and (min-width: 764.1px) {
   h1 {
     width: 12%;
     padding-top: 7%;
+  }
+
+  li {
+    max-width: calc(100% / 2 - 1rem);
   }
 }
