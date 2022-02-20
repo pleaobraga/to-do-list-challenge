@@ -1,0 +1,104 @@
+body {
+  background-color: rgb(77, 1, 77);
+}
+.container-fieldset {
+  width: 250px;
+  background-color: white;
+  margin: auto;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+  border: none;
+  padding-top: 10px;
+  border-radius: 7px;
+  text-align: center;
+}
+h1 {
+  width: 160px;
+  color: white;
+  margin: 20px auto;
+}
+#to-add {
+  border: none;
+  font-size: medium;
+}
+
+#btn-to-add {
+  border: none;
+  background-color: white;
+  color: rgb(103, 103, 247);
+  font-weight: bold;
+}
+  #btn-to-add:hover {
+    cursor: pointer;
+    color: greenyellow;
+  }
+  #to-add:focus {
+    outline: 0;
+  }
+
+/* .list-container {
+  width: 250px;
+  background-color: white;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  border: none;
+  padding-top: 10px;
+  text-align: center;
+  border-radius: 5px;
+} */
+
+#container-new-list{
+  width: 235px;
+  background-color: white;
+  margin: auto;
+  justify-content: space-between;
+  border: none;
+  padding-top: 10px;
+  border-radius: 7px;
+  text-align: center;
+  /* visibility: hidden */
+}
+  .new-list {
+    width: 250px;
+    justify-content: space-between;
+    margin-left: -20px;
+    border: none;
+    text-align: start;
+    list-style: none;
+  }
+
+.line {
+  margin-left: -10px;
+  margin-bottom: 20px;
+  width: 250px;
+  height: 3px;
+  background-color: rgba(196, 196, 196, 0.548);
+  border-radius: 1rem;
+  border:none;
+}
+
+.delete {
+  border: none;
+  background-color: rgb(253, 74, 74);
+  color: white;
+  border-radius: 3px;
+  padding: 2px 5px 2px 5px;
+  margin-bottom: 9px;
+  margin-right: 5px;
+}
+  .delete:hover {
+    cursor: pointer;
+    background-color: red;
+  }
+
+.checkbox {
+  margin: 0 10px 0 0;
+}
+
+.list-made{
+  font-weight: bolder;
+  color: red;
+  text-decoration: line-through;
+}
