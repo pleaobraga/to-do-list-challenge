@@ -1,0 +1,190 @@
+a{
+    color:inherit;
+    text-decoration: inherit;
+}
+
+body {
+    font: 100%/1 arial, verdana, sans-serif;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+.div-only-desing{
+    background-color: #00A6BD;
+    width: calc(100% - 6px);
+    height: 10rem;
+    position: fixed;
+    top: 3px;
+    left: 3px;
+    z-index: -1;
+}
+
+.container{
+    max-width: 800px;
+    margin: auto;
+    margin-top: 2.5rem;
+}
+
+header {
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    font-size: 2rem;
+    padding-bottom: 1rem;
+}
+
+main{
+    background-color: #E4E4E4;
+}
+
+.about-user {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1.5rem;
+    padding-left: 5px;
+    font-size: 0.75rem;
+}
+
+.abstract {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 0.5rem;
+    grid-row: 1fr, 1fr, 1fr;
+}
+
+.card {
+    background-color: white;
+    font-size: 2.5rem;
+    width: 25%;
+}
+
+.card h3{
+    font-size: 1rem;
+}
+
+.card p{
+    text-align: center;
+}
+
+.card p.abstractCounters{
+    font-size: 0.75rem;
+    margin: 00.5rem;
+}
+
+.controllers{
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    display: block;
+    margin-left: 5px;
+    font-size: 0.75rem;
+}
+
+.menuTask{
+    display: flex;
+}
+
+.menuTask>ul{
+    list-style: none;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.menuTask>ul>li{
+    float:left; 
+    padding: 2px;
+}
+
+.menuTask ul ul{
+    position: absolute;
+    visibility: hidden;
+    background-color: inherit;
+}
+
+.menuTask>ul>li:hover{
+    background-color: white;
+}
+
+.menuTask>ul>li:hover ul{
+    visibility: visible;
+}
+
+.menuTask>ul>li>ul {
+    background-color: white;
+}
+
+.menuTask>ul>li>ul>li {
+    padding: 4px;
+}
+
+.tasks{
+    display: flex;
+    width: 10calc(100% - 20px);
+    margin: auto;
+    font-size: 1rem;
+}
+
+.div-tasks{
+    width: calc(100% - 20px);
+    margin: auto;
+    background-color: #C4C4C4;
+    border-radius: 10px;
+}
+
+.table-tasks{
+    width: calc(100% - 20px);
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-size: 1.25rem;
+}
+
+.thead-tasks{
+    display: table;
+    width: 100%;
+    background-color: #00A6BD;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.tr-tasks{
+    display: table;
+    width: 100%;
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+.td-tasks{
+    padding: 5px;
+}
+
+.tr-tasks:last-child{
+    margin-bottom: 5px;
+}
+
+.tr-tasks:nth-child(odd){
+    background-color: white;
+}
+
+.tr-tasks:nth-child(even){
+    background-color: #00E0FF;
+} 
