@@ -2,9 +2,13 @@
 <h1>To-do List Challenge</h1>
 </div>
 
-Autor: [José Otavio Pires de Carvalho](https://github.com/joseotaviopc/)
+Autor: José Otavio Pires de Carvalho
 
----
+<a href="https://github.com/joseotaviopc/"> ![  ](https://img.shields.io/badge/GitHub-100000?style=flat&logo=github&logoColor=white)</a> 
+<a href="https://www.linkedin.com/in/jose-otavio-pires-de-carvalho/">![  ](https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white)</a>
+<a href="mailto:carvalho.jose@gmail.com">![  ](https://img.shields.io/badge/Gmail-D14836?style=flat&logo=gmail&logoColor=white)</a><br>
+
+
 ## Índice
 
 - [Descrição](#descricao)
@@ -14,15 +18,21 @@ Autor: [José Otavio Pires de Carvalho](https://github.com/joseotaviopc/)
 - [Lógica Utilizada](#logica)
 - [Conclusão](#conclusao)
 
----
+<br>
+
+
 <h2 id="descricao">Descrição</h2>
 
----
+<br>
+
+
 <h2 id="tecnologias">Tecnologias utilizadas</h2>
 
 ![Html](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white)  ![Css](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white) ![Javascript](https://img.shields.io/badge/JavaScript-323330?style=flat&logo=javascript&logoColor=F7DF1E)
 
----
+<br>
+
+
 <h2 id="funcionalidades">Funcionalidades</h2>
 
 >
@@ -32,16 +42,22 @@ Autor: [José Otavio Pires de Carvalho](https://github.com/joseotaviopc/)
 - Podem ser criadas quantas tarefas quiser.
 - Ao voltar para o site, as tarefas são carregadas automaticamente.
 
----
+<br>
+
+
 <h2 id="demonstracao">Demonstração</h2>
 
 
 Aplicativo funcional está disponível no link: [To-do List](https://to-do-list-challenge-joseotaviopc.vercel.app/)
 
----
+<br>
+
+
 <h2 id"logica">Lógica utilizada para a resolução</h2>
 
----
+<br>
+
+
 <h2 id="conclusao">Conclusão</h2>
 
 ### *Requisitos Obrigatórios*
@@ -53,8 +69,11 @@ Aplicativo funcional está disponível no link: [To-do List](https://to-do-list-
 - [x] Ao clicar no item da lista o mesmo deve mudar se estado, feito => a fazer ou a fazer => feito
 - [x] Deve ser possível armazenar quantos item o usuário quiser a lista
 - [x] Criar uma boa documentação para a solução (README).
-- [ ] <mark>A solução deve apresentar uma lista para listar as tarefas</mark>
-- [ ] <mark>A lista deve ser armazenada de uma forma que se o usuario entrar novamente na pagina ele poderá ver todos os itens ja cadastrados e seus respectivos estados</mark>
+>- [ ] A solução deve apresentar uma lista para listar as tarefas - DOING
+>- [ ] A lista deve ser armazenada de uma forma que se o usuario entrar novamente na pagina ele poderá ver todos os itens ja cadastrados e seus respectivos estados - DOING
+
+<br>
+
 ### *Requisitos Opcionais (Plus)*
 >
 - [x] Implementar uma boa interface gráfica para a solução
@@ -65,19 +84,23 @@ Aplicativo funcional está disponível no link: [To-do List](https://to-do-list-
 - [x] Publicar a aplicação em algum ambiente
 - [x] Mobile First
 
+<br>
+
 ### *Sugestões adicionais*
 >
-- [ ] _Em cada elemento da lista apresentar um botão de deletar e caso o usuário aperte esse botão o item some da lista - DOING_
-- [ ] _Tema escuro - DOING_
-- [ ] _Desktop - DOING_
+>- [ ] _Em cada elemento da lista apresentar um botão de deletar e caso o usuário aperte esse botão o item some da lista - DOING_
+>- [ ] _Tema escuro - DOING_
+>- [ ] _Desktop - DOING_
 - [ ] _Implementar uma solução otimizada_
 - [ ] _Editar o item_
 - [ ] _Colocar prazo nas tarefas_
 - [ ] _Mostrar tarefas atrasadas/próximas_
----
-<p></p>
 
-![Linhas](https://img.shields.io/tokei/lines/github.com/joseotaviopc/to-do-list-challenge) ![w3c](https://img.shields.io/w3c-validation/html?targetUrl=http%3A%2F%2Fto-do-list-challenge-ten.vercel.app%2F)
+<br>
+
+
+
+![Linhas](https://img.shields.io/tokei/lines/github.com/joseotaviopc/to-do-list-challenge) ![w3c](https://img.shields.io/w3c-validation/html?targetUrl=https%3A%2F%2Fto-do-list-challenge-ten.vercel.app%2F)
 ## Entrega
 <mark>A entrega deverá ser feita ate o dia 28/02/2022
 
