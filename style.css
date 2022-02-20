@@ -74,14 +74,31 @@ body {
   }
 
 /* INSERT */
-.insert {
-  align-items: center;
+.insert {  
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   margin: 1rem 0;
   max-width: 600px;
   padding: 1rem 0;
   width: 80%;
+}
+
+.insert-title {
+  align-self: center;
+  margin-bottom: 1rem;
+  text-align: center;
+  border-bottom: 1px solid grey;
+  border-radius: 25px;
+  border-top: 1px solid grey;
+  height: 25px;
+  line-height: 23px;
+  padding: 0 1rem;
+  width: 100%;
+}
+
+.insert-entry {
+  display: flex;
+  justify-content: space-between;
 }
 
 .insert-input {
@@ -117,6 +134,20 @@ body {
   margin: 1rem 0;
   max-width: 600px;
   width: 80%;
+}
+
+.list-title,
+.list-filter {
+  align-self: center;
+  margin-bottom: 1rem;
+  text-align: center;
+  border-bottom: 1px solid grey;
+  border-radius: 25px;
+  border-top: 1px solid grey;
+  height: 25px;
+  line-height: 23px;
+  padding: 0 1rem;
+  width: 100%;
 }
 
 .list ul {
