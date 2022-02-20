@@ -368,6 +368,7 @@ addForm.addEventListener("submit", (e) => {
   } else {
     addForm.classList.add("error-message");
   }
+
   taskInput.value = "";
   taskInput.focus();
 });
