@@ -1,0 +1,169 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500&display=swap");
+
+* {
+  box-sizing: border-box;
+  color: hsl(182, 29%, 10%);
+  font-family: Roboto, sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: rgb(48 86 87 / 10%);
+}
+
+.app {
+  align-items: center;
+  border: 1px solid rgb(204 204 204 / 55%);
+  border-radius: 2rem;
+  box-shadow: 0 17px 12px -5px rgb(48 86 87 / 75%), 0 -7px 12px -5px rgb(48 86 87 / 75%);
+  background: rgb(48 86 87 / 10%);
+  background: linear-gradient(135deg, hsl(181deg 70% 20% / 30%) 0%, hsl(26deg 76% 20% / 30%) 100%);
+  display: flex;
+  flex-direction: column;
+  margin: 0.25rem 0;
+  max-height: fit-content;
+  min-height: 95vh;
+  padding: 1rem 0.5rem;
+  position: relative;
+}
+
+/* HEADER */
+  .header {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+  .header-title {
+    font-size: 2rem;
+    font-weight: 500;
+  }
+  .date {
+    font-weight: 300;
+    font-size: 0.85em;
+    margin-top: 0.5rem;
+  }
+
+  .theme-change {
+    align-items: center;
+    align-self: end;
+    display: flex;
+    margin: 0.25rem 1rem;
+    position: absolute;
+  }
+
+  .theme-btn {
+    align-items: center;
+    background-color: rgb(204 204 204 / 55%);
+    border-radius: 25px;
+    cursor: pointer;
+    display: flex;
+    height: 25px;
+    margin-left: 1rem;
+    width: 50px;
+  }
+
+  .theme-btn-choice {
+    background-color: hsl(182, 29%, 10%);
+    border-radius: 50%;
+    height: 23px;
+    margin: 0 2px;
+    width: 23px;
+  }
+
+/* INSERT */
+.insert {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem 0;
+  max-width: 600px;
+  padding: 1rem 0;
+  width: 80%;
+}
+
+.insert-input {
+  background-color: rgb(0 0 0 / 5%);
+  border: 1px solid rgb(0 0 0 / 25%);
+  border-radius: 3px;
+  font-weight: 300;
+  padding: 0.25em 0.5em;
+}
+
+.insert-btn {
+  background-color: hsl(166deg 27% 10% / 75%);
+  border: 1px solid rgb(255 255 255 / 30%);
+  border-radius: 3px;
+  color: hsl(0, 0%, 90%);
+  cursor: pointer;
+  font-weight: 300;
+  margin-left: 0.5em;
+  padding: 0.25em 0.5em;
+  width: 60px;
+}
+
+.insert-btn:hover {
+  background-color: hsl(166deg 27% 20% / 75%);
+}
+
+/* LIST */
+.list {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  margin: 1rem 0;
+  max-width: 600px;
+  width: 80%;
+}
+
+.list ul {
+  width: 100%;
+}
+
+.task {
+  align-items: center;
+  cursor: pointer;
+  color: rgba(175, 2, 2, 0.85);
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  line-break: anywhere;
+  /* margin-top: 0.25rem; */
+  margin: 0.5rem 0;
+  padding: 0.25rem 0;
+  vertical-align: middle;
+}
+
+.task-text {
+  flex: 1;
+  font-weight: 300;
+}
+
+.task-text:hover {
+  font-size: 1.05em;
+}
+
+.done {
+  color: hsl(182, 29%, 40%);
+  text-decoration: line-through;
+}
+
+.remove-btn {
+  background-color: hsl(355deg 91% 20% / 50%);
+  border: 1px solid rgb(255 255 255 / 30%);
+  border-radius: 3px;
+  color: hsl(0, 0%, 90%);
+  cursor: pointer;
+  font-size: .9rem;
+  font-weight: 300;
+  margin-left: 0.5em;
+  padding: 0.25em;
+  width: 60px;
+}
+
+.remove-btn:hover {
+  background-color: hsl(355deg 91% 30% / 70%);
+}

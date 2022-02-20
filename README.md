@@ -33,7 +33,7 @@ Autor: [José Otavio Pires de Carvalho](https://github.com/joseotaviopc/)
 >
 - ~~Utilizar JS, HTML e CSS puro, ou seja sem qualquer tipo de biblioteca ou framework~~
 - ~~A solução deve apresentar um campo para inserir o nome da tarefa a ser feita e um botão para adicionar a tarefa a lista~~
-- <mark>Ao adicionar um elemento novo a lista esperar 2 segundos para que esse elemento seja exibido.</mark>
+- ~~Ao adicionar um elemento novo a lista esperar 2 segundos para que esse elemento seja exibido.~~
 - <mark>A solução deve apresentar uma lista para listar as tarefas</mark>
 - ~~Cada elemento da lista deverá apresentar 2 estados diferentes, um pra item a se fazer e um para item feito~~
 - ~~Ao clicar no item da lista o mesmo deve mudar se estado, feito => a fazer ou a fazer => feito~~

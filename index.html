@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-do list</title>
+    <!-- <link rel="stylesheet" href="style-dark.css" /> -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main id="app" class="app">
+      <span class="theme-change">
+        <span class="theme-btn">
+          <span class="theme-btn-choice"></span>
+        </span>
+      </span>
+
+      <header class="header">
+        <h1 class="header-title">To-do list</h1>
+        <p class="date"></p>
+      </header>
+
+      <section class="insert">
+        <input
+          class="insert-input"
+          autofocus
+          placeholder="Digite uma tarefa..."
+          type="text"
+          name="task"
+          id="newTask"
+          required
+        />
+        <button class="insert-btn" type="submit" id="createTask">Criar</button>
+      </section>
+
+      <section class="list">
+        <ul></ul>
+      </section>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>
