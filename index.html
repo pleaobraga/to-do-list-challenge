@@ -1,83 +1,150 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./reset.css">
-    <link rel="stylesheet" href="./style.css">
-</head>
-<body>
-    <div class="div-only-desing"></div>
-    <div class="container">
-        <header>
-            <h1>TO DO LIST</h1>
-        </header>
-        <main>
-            <selection class="about-user">
-                <span>Saudações</span>
-                <!-- <span>Sair</span> -->
-            </selection>
-            <selection class="abstract">
-                <h2 class="sr-only">Resumo</h2>
-                <div class="card">
-                    <h3><span id="made">Concluídas</span></h3>
-                    <p id="madeCount">5</p>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="./reset.css">
+        <link rel="stylesheet" href="./style.css">
+    </head>
+    <body>
+        <div class="div-only-desing"></div>
+        <div class="container">
+            <header>
+                <h1>TO DO LIST</h1>
+            </header>
+            <main>
+                <selection class="about-user">
+                    <span>Saudações</span>
+                    <!-- <span>Sair</span> -->
+                </selection>
+                <selection class="abstract">
+                    <h2 class="sr-only">Resumo</h2>
+                    <div class="card">
+                        <h3><span id="made">Concluídas</span></h3>
+                        <p id="madeCount">5</p>
+                    </div>
+                    <div class="card">
+                        <h3><span id="pendings">Pendentes</span></h3>
+                        <p id="pendingCount">5</p>
+                    </div>
+                    <div class="card">
+                        <h3><span id="abstract">Resumo</span></h3>
+                        <p class="abstractCounters">5/10</p>
+                        <p class="abstractCounters">5/10</p>
+                    </div>
+                </selection>
+                <selection class="controllers">
+                    <h2 class="sr-only">Painel de controle</h2>
+                    <nav class='menuTask'>
+                        <ul>
+                            <li class="menuOption">+ Adicionar Tarefa
+                                <ul id="menuTask">
+                                    <li><a class="addTask" id="simple" href="#">Única</a></li>
+                                    <li><a class="addTask" id="week" href="#">Semanal</a></li>
+                                    <li><a class="addTask" id="month" href="#">Mensal</a></li>
+                                </ul>
+                            </li>
+                            <li><a class="menuOption" href="#" onclick="MODAL.open('filter')">Filtrar</a></li>
+                        </ul>
+                    </nav>
+                </selection>
+                <selection class="tasks">
+                    <h2 class="sr-only">Tasks</h2>
+                    <div class="div-tasks">
+                        <table class="table-tasks">
+                            <thead class="thead-tasks">
+                                <th class="th-tasks">a</th>
+                                <th class="th-tasks">a</th>
+                                <th class="th-tasks">a</th>
+                            </thead>
+                            <tbody class="tbody-tasks">
+                                <tr class="tr-tasks">
+                                    <td class="td-tasks">a</td>
+                                    <td class="td-tasks">b</td>
+                                    <td class="td-tasks">c</td>
+                                </tr>
+                                <tr class="tr-tasks">
+                                    <td class="td-tasks">a</td>
+                                    <td class="td-tasks">b</td>
+                                    <td class="td-tasks">c</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </selection>
+            </main>
+            <footer>
+                Footer
+            </footer>
+        </div>
+        <div class="modal-overlay">
+            <div class="modal tasks">
+                <div id="form">
+                    <h2>TAREFA</h2>
+                    <form action="" onsubmit="Form.submit(event, 'task')">
+                        <div class="input-group">
+                            <label 
+                                class="sr-only" 
+                                for="repetition">Repetições</label>
+                            <input 
+                                type="number"
+                                step="1"
+                                id="repetition" 
+                                name="repetition"
+                                placeholder="Repetições"
+                            /></div>
+                        <div class="input-group">
+                            <label 
+                                class="sr-only" 
+                                for="description">Descrição</label>
+                            <input 
+                                type="text" 
+                                id="description" 
+                                name="description"
+                                placeholder="Descrição"
+                            />
+                        </div>
+                        <div class="input-group">
+                            <label 
+                                class="sr-only" 
+                                for="date">Data</label>
+                            <input 
+                                type="date" 
+                                id="date" 
+                                name="date"
+                            />
+                        </div>
+                        <div class="input-group">
+                            <label 
+                                class="sr-only" 
+                                for="observation">Descrição</label>
+                            <textarea name="observation" id="observation" placeholder="Observação"></textarea>
+                        </div>
+                        <div class="input-group">
+                            <input 
+                                class="sr-only"
+                                type="number"
+                                id="index" 
+                                name="index"
+                            />
+                        </div>
+                        <div class="input-group actions">
+                            <a 
+                            onclick="MODAL.closeOverlay()"
+                            href="#" 
+                            class="button cancel">Cancelar</a>
+                            <button>Salvar</button>
+                        </div>
+                    </form>
                 </div>
-                <div class="card">
-                    <h3><span id="pendings">Pendentes</span></h3>
-                    <p id="pendingCount">5</p>
-                </div>
-                <div class="card">
-                    <h3><span id="abstract">Resumo</span></h3>
-                    <p class="abstractCounters">5/10</p>
-                    <p class="abstractCounters">5/10</p>
-                </div>
-            </selection>
-            <selection class="controllers">
-                <h2 class="sr-only">Painel de controle</h2>
-                <nav class='menuTask'>
-                    <ul>
-                        <li class="menuOption">+ Adicionar Tarefa
-                            <ul>
-                                <li><a class="addTask" href="#" onclick="Modal.open('simple')">Única</a></li>
-                                <li><a class="addTask" href="#" onclick="Modal.open('week')">Semanal</a></li>
-                                <li><a class="addTask" href="#" onclick="Modal.open('month')">Mensal</a></li>
-                            </ul>
-                        </li>
-                        <li><a class="menuOption" href="#" onclick="Modal.open('filter')">Filtrar</a></li>
-                    </ul>
-                </nav>
-            </selection>
-            <selection class="tasks">
-                <h2 class="sr-only">Tasks</h2>
-                <div class="div-tasks">
-                    <table class="table-tasks">
-                        <thead class="thead-tasks">
-                            <th class="th-tasks">a</th>
-                            <th class="th-tasks">a</th>
-                            <th class="th-tasks">a</th>
-                        </thead>
-                        <tbody class="tbody-tasks">
-                            <tr class="tr-tasks">
-                                <td class="td-tasks">a</td>
-                                <td class="td-tasks">b</td>
-                                <td class="td-tasks">c</td>
-                            </tr>
-                            <tr class="tr-tasks">
-                                <td class="td-tasks">a</td>
-                                <td class="td-tasks">b</td>
-                                <td class="td-tasks">c</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </selection>
-        </main>
-        <footer>
-            Footer
-        </footer>
-    </div>
-</body>
+            </div>
+            <div class="modal filter">
+                FILTER
+                <a href="#" onclick="MODAL.close()">Fechar</a>
+            </div>
+        </div>
+        <script src="scripts.js"></script>
+    </body>
 </html>
