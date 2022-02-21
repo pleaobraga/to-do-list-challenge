@@ -62,8 +62,7 @@ Dark Version:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Github Page: (https://alexandre-akira.github.io/to-do-list-challenge/)
 
 ## Processo de desenvolvimento
 
