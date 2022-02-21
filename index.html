@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles/reset.css">
+  <link rel="stylesheet" href="styles/to-do-list.css">
+  <title>To-do List</title>
+</head>
+<body>
+  <h1 class="page-title">To-do List</h1>
+  <div class="add-section">
+    <label for="task">Insira o nome da tarefa a ser adicionada:</label>
+    <input type="text" id="task">
+    <button id="addTask">Adicionar Tarefa</button>
+  </div>
+
+  <table>
+    <thead class="table-head">
+      <tr>
+        <th>Tarefa</th>
+        <th>Status</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody class="table-body">
+      <tr class="table-content">
+        <td colspan="3">Não existem tarefas registradas!</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <script src="scripts/to-do-list.js"></script>
+</body>
+</html>
