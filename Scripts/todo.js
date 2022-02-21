@@ -350,6 +350,12 @@ export class Todo {
     draggableTask.addEventListener("dragend", () => {
       draggableTask.classList.remove("to-do__item--dragging");
     });
+    draggableTask.addEventListener("mouseover", () => {
+      deleteElementList.style.display = "block";
+    });
+    draggableTask.addEventListener("mouseleave", () => {
+      deleteElementList.style.display = "none";
+    });
   }
 
   //Funcao responsavel por filtrar os itens completos

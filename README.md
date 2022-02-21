@@ -7,6 +7,7 @@ Esta é uma solução desenvolvida para um challenge da [Lets Code](https://www.
 - [Visão Geral](#Visão-Geral)
   - [O Desafio](#O-Desafio)
   - [Screenshot](#screenshot)
+  - [Manual do Usuario](#Manual-do-usuario)
   - [Links](#links)
 - [Processo de desenvolvimento](#Processo-de-desenvolvimento)
   - [Tecnologias](#Tecnologias)
@@ -59,6 +60,20 @@ Dark Version:
 ![](./Assets/Images/TodoList_Desktop-DarkMode.png)
 ![](./Assets/Images/TodoList_Tablet-DarkMode.png)
 ![](./Assets/Images/TodoList_Mobile-DarkMode.png)
+
+### Manual do usuario
+
+1. Para adicionar uma nova tarefa, o usuario deve clicar sobre o create a new todo, escrever a descricao e apertar no botao de adicao representado pelo simbolo +
+2. Para deletar UMA tarefa o usuario deve posicionar o mouse em cima da tarefa desejada. Com o mouse ja posicionado um icone representando um X sera exibido no canto direito da tarefa em que o cursor esta em cima, basta clicar no X para deletar a tarefa.
+3. Para marcar a tarefa como FEITA basta clicar no checkbox em formato de circulo, localizado no canto esquerdo da tarefa.
+4. Para deletar TODAS as tarefas FEITAS, basta clicar no botao clear completed.
+5. Esta aplicacao conta com um contador que indica quantas tarefas existem na lista do usuario. Este contador fica no canto esquerdo que inicia-se com o valor de No Records caso nao haja nenhuma tarefa salva em local storage
+6. Caso o usuario queira filtrar as tarefas ATIVAS ou seja, que nao foram feitas ainda, basta clicar no botao Active. Caso o usuario queira filtrar as tarefas ja feitas, basta clica no botao Completed. Por fim, caso o usuario queira ver todas as tarefas, basta clicar no botao All.
+7. Esta aplicacao permite reordenar as tarefas da lista. Para realizar esta operacao, basta clicar na tarefa, segurar e arrastar a tarefa ate a posicao desejada.
+
+8. Para alterar o tema da aplicacao de light mode para dark mode, basta clicar no icone de LUA/SOL no canto direito superior da lista.
+
+OBS: Esta aplicacao salva apenas as tarefas e estados das tarefas. Portanto toda vez que o usuario reiniciar a pagina, o tema de preferencia devera ser escolhido novamente.
 
 ### Links
 
@@ -116,6 +131,7 @@ Seguindo esta estrutura pontuarei como a solucao foi pensada:
 - O botao de adicionar deve estar vinculado com a tecla de atalho enter afim de facilitar a adicao de novas tarefas.
 - O tema escolhido pelo usuario deve ser mantido mesmo depois que a pagina for recarregada.
 - O HTML que estrutura os filtros deve ser reestruturado, porque eu tive que criar duas estruturas quase identicas, dado que no desktop ele e exibido de uma forma diferente da exibicao no mobile
+- Desenvolver um modal para confirmar as acoes de exclusao do usuario.
 
 ### Recursos uteis
 
