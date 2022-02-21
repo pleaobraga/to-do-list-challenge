@@ -141,7 +141,7 @@ Seguindo esta estrutura pontuarei como a solucao foi pensada:
 
 ## Autor
 
-- Github - [Alexandre Akira Enjiu](https://github.com/Alexandre-Akira)
+- Github - [Alexandre-Akira](https://github.com/Alexandre-Akira)
 - Frontend Mentor - [@Alexandre-Akira](https://www.frontendmentor.io/profile/Alexandre-Akira)
 - Linkedin - [AlexandreAkira](https://www.linkedin.com/in/alexandreakira/)
 
