@@ -1,15 +1,14 @@
 class Task {
-    constructor(id, description, observation, date, createdAt, updatedAt){
+    constructor(id, description, date, createdAt, updatedAt){
         id=parseInt(id)
         this.id=id
         this.description=description,
-        this.observation=observation,
         this.date=date,
         this.createdAt=createdAt,
         this.updatedAt=updatedAt,
         this.done=false
     }
-}
+}S
 
 const MODAL = {
     open(form, formElement, formType){
