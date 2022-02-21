@@ -24,7 +24,7 @@ btn.addEventListener('click', () => {
             localStorage.setItem('TODO', JSON.stringify(array));
     
             ul.innerHTML += 
-                `<li class = 'not_done'>
+                `<li class = "not_done">
                     ${assignment.value}
                     <img src="./assets/img/excluir.png" id="imgDel" class="icon">
                 </li>`
@@ -38,7 +38,7 @@ btn.addEventListener('click', () => {
 window.addEventListener('DOMContentLoaded', () => {
     JSON.parse(localStorage.getItem('TODO')).forEach((el) => {
         ul.innerHTML += `
-          <li>
+          <li class = "not_done">
             ${el}
             <img src="./assets/img/excluir.png" id="imgDel" class="icon">
           </li>
