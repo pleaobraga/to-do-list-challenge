@@ -10,8 +10,7 @@ export class Todo {
      <section class="to-do">
         <header class="to-do__header">
           <h1 class="to-do__title">TODO</h1>
-          <img class="
-           src="./Assets/Images/icon-moon.svg" alt="Uma lua">
+          <img class="to-do__header-toggle-theme" src="./Assets/Images/icon-moon.svg" alt="Uma lua">
         </header>
         <main class="to-do__main">
             <div class="to-do__new"> 
@@ -143,11 +142,11 @@ export class Todo {
     container.addEventListener("dragover", (event) => {
       event.preventDefault();
       const afterElement = this.getDragAfterElement(container, event.clientY);
-      const draggableElement = document.querySelector(".to-do__item--dragging");
+      const draggable = document.querySelector(".to-do__item--dragging");
       if (afterElement == null) {
-        container.appendChild(draggableElement);
+        container.appendChild(draggable);
       } else {
-        container.insertBefore(draggableElement, afterElement);
+        container.insertBefore(draggable, afterElement);
       }
     });
     itemAddButton.addEventListener("click", (event) => {

@@ -1,4 +1,4 @@
-# Frontend Mentor - Todo app solution
+Lets Code - Todo app
 
 Esta é uma solução desenvolvida para um challenge da [Lets Code](https://www.letscode.com.br/). Este projeto utilizou como base para o layout os designs fornecidos pelo [Frontend Mentor](https://www.frontendmentor.io/challenges/todo-app-Su1_KokOW)
 
@@ -56,7 +56,6 @@ Light Version:
 ![](./Assets/Images/TodoList_Mobile.png)
 
 Dark Version:
-
 ![](./Assets/Images/TodoList_Desktop-DarkMode.png)
 ![](./Assets/Images/TodoList_Tablet-DarkMode.png)
 ![](./Assets/Images/TodoList_Mobile-DarkMode.png)
@@ -73,19 +72,14 @@ Para esta solução optei por estruturar o codigo em modulos, afim de separar ad
 - Pastas
 
 1. Images: Essa pasta contem todas as imagens e icones utilizados no projeto e 6 imagens referente ao termino do projeto, que sera possivel ve-las na sessão de screenshot desse readme.
-
 2. Scripts: Contem todos os modulos descritos no proximo topico.
-
 3. Styles: Contem dois arquivos de estilo, app.css que estiliza a estrutura base da aplicação e contem o css de configuração global e reset e o todo.css que contempla todo o css utilizado para estilizar a lista de tarefas.
 
 - Modulos:
 
 1. app.js: Este modulo é responsavel pela aplicação inteira, portanto é nele que eu determino qual o nodulo que a aplicação ira ser renderizada e chamo o metodo init para inicializar a aplicação.
-
 2. enum.js: Este modulo é como se fosse um enum. Aqui eu crio classes que contem variaveis estaticas para armazenar strings. Pensei dessa forma, porque caso eu tenha que fazer alguma manutenção que venha a mudar as strings, eu precisaria mudar apenas em um lugar ao inves de mudar no codigo inteiro.
-
 3. todo.js: Este modulo é responsavel por armazenar todas as funções que pertencem a lista. Funções de criar, deletar, renderizar a lista, drag and drop entre outras. Pensei dessa forma com o intuito ganhar escalabilidade no projeto. Afinal dessa forma facilita a implementação de novas features ou adicionar essa feature a outro projeto..
-
 4. task.js: Este modulo é responsavel pela estrutura da tarefa. Entao aqui encontra-se a classe que constroi a tarefa, o template html para criação das tarefas e por fim os metodos de get e set da tarefa. Pensei dessa forma para dar mais legibilidade ao codigo, uma vez que a classe todo estava ficando muito grande.
 
 Seguindo esta estrutura pontuarei como a solucao foi pensada:
