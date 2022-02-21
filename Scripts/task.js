@@ -2,7 +2,9 @@ import { STATUS } from "./enum.js";
 
 export class Task {
   #taskID;
+  //Este metodo eh responsavel pela construcao do objeto, recebe 3 parametros, description que representa a descricao da tarefa, id para identificar esta tarefa das demais e status que caso nao seja preenchido ele preenche por default unchecked.
   constructor(description, id, status = STATUS.unchecked) {
+    // Aqui eh feita uma validacao para o description com o intuito de nao permitir que o usuario adicione uma tarefa sem descricao.
     if (description.trim() === "") {
       throw new Error("Cannot add a new task withouth a description");
     } else {
@@ -12,14 +14,16 @@ export class Task {
     this.status = status;
   }
 
+  //Getter que retorna o valor da propriedade privada ID
   get getID() {
     return this.#taskID;
   }
 
+  //Getter que retorna o valor da propriedade status
   get getStatus() {
     return this.status;
   }
-
+  //Setter responsavel por alterar o valor da propriedade status. Caso essa propriedade seja diferente de checked ou unchecked ele retorna um erro dizendo que nao aceita nenhum valor que seja diferente do checked ou unchecked
   set setStatus(value) {
     if (value === STATUS.checked) {
       this.status = value;

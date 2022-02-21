@@ -46,7 +46,7 @@ export class Todo {
   constructor(htmlElement) {
     this.todoListNodeStart = htmlElement;
   }
-
+  //Atribui a variavel privada darkTheme do objeto com o valor caso ele seja true ou false, qualquer coisa diferente disso ele emite um erro e nao faz a atribuicao
   set setDarkTheme(value) {
     if (value != true && value != false) {
       throw new Error("Dark theme nao pode receber valores diferentes de true e false");
@@ -54,11 +54,12 @@ export class Todo {
       this.#darkTheme = value;
     }
   }
-
+  //Retorna o valor da variavel privada darkTheme
   get getDarkTheme() {
     return this.#darkTheme;
   }
 
+  // Metodo responsavel por retonar o elemento de referencia para o elemento que sera inserido apos o usuario soltar o elemento no container
   getDragAfterElement(container, pointerTopCoordinate) {
     //Variavel responsavel por armazenar todos os elementos que sao arrastaveis em formato de array, com excecao do que esta sendo arrastado.
     const draggableTasks = [...container.querySelectorAll(".to-do__item:not(.to-do__item--dragging)")];
@@ -68,7 +69,7 @@ export class Todo {
         const taskContainer = task.getBoundingClientRect();
         //Variavel responsavel por armazenar o valor da distancia entre o cursor do mouse e o centro do container da task
         const offset = pointerTopCoordinate - taskContainer.top - taskContainer.height / 2;
-        console.log(offset);
+
         if (offset < 0 && offset > closest.offset) {
           return { offset: offset, element: task };
         } else {
@@ -82,6 +83,7 @@ export class Todo {
   //Funcao responsavel por inicializar a todo list
   init() {
     this.todoListNodeStart.innerHTML += this.#template;
+    // Todas as variaveis contidas abaixo sao referencias de elementos HTML
     const app = document.querySelector(".app");
     const itemAddButton = document.querySelector(".to-do__item--add");
     const deleteCompletedItemsButton = document.querySelector(".to-do__clearCompleted");
@@ -100,6 +102,7 @@ export class Todo {
     const newIcon = document.querySelector(".to-do__new-icon");
     const controller = document.querySelector(".to-do__controller");
 
+    //Adiciona ao evento de click do botao de lua/Sol a funcao de mudar de tema
     toggleTheme.addEventListener("click", () => {
       this.setDarkTheme = !this.getDarkTheme;
       if (this.getDarkTheme === true) {
@@ -144,8 +147,11 @@ export class Todo {
       });
     });
 
+    //Quando o usuario estiver arrastando a tarefa sobre outra tarefa este evento eh acionado
     container.addEventListener("dragover", (event) => {
+      //Este prevent default serve para que o comportamento padrao do browser de nao permitir que alguem arraste e largue elementos seja permitido na area do container
       event.preventDefault();
+      //Essa variavel representa um elemento de referencia para que o elemento draggable seja inserido referenciando se eh depois ou antes dele
       const afterElement = this.getDragAfterElement(container, event.clientY);
       const draggable = document.querySelector(".to-do__item--dragging");
       if (afterElement == null) {
@@ -154,15 +160,16 @@ export class Todo {
         container.insertBefore(draggable, afterElement);
       }
     });
+    //Chama o metodo de adicionar a tarefa quando o usuario clicar no botao de adicionar
     itemAddButton.addEventListener("click", (event) => {
       this.addTask(event.target.previousElementSibling.value);
       event.target.previousElementSibling.value = "";
     });
-
+    //Chama o metodo de deletar todas as tarefas completas quando o usuario clicar no botao de deletar todos as tarefas feitas
     deleteCompletedItemsButton.addEventListener("click", () => {
       this.deleteCompletedTasks();
     });
-
+    //Para cada elemento do filterCompleteButton adiciono o metodo de filtrar correspondente, atribuo a classe de focus ao elemento alvo e para os outros elementos de filtro faco a verificacao se eles tem a classe de focus, se tiverem eu removo.
     filterActiveButton.forEach((element, index) =>
       element.addEventListener("click", () => {
         this.filterActive();
@@ -174,7 +181,7 @@ export class Todo {
         }
       })
     );
-
+    //Para cada elemento do filterCompleteButton adiciono o metodo de filtrar correspondente, atribuo a classe de focus ao elemento alvo e para os outros elementos de filtro faco a verificacao se eles tem a classe de focus, se tiverem eu removo.
     filterAllButton.forEach((element, index) =>
       element.addEventListener("click", () => {
         this.filterAll();
@@ -187,6 +194,7 @@ export class Todo {
         }
       })
     );
+    //Para cada elemento do filterCompleteButton adiciono o metodo de filtrar correspondente, atribuo a classe de focus ao elemento alvo e para os outros elementos de filtro faco a verificacao se eles tem a classe de focus, se tiverem eu removo.
     filterCompletedButton.forEach((element, index) =>
       element.addEventListener("click", () => {
         this.filterCompleted();
@@ -224,7 +232,9 @@ export class Todo {
     }
     //Utilizo o insertAdjacentHTML para adicionar o elemento HTML criado pelo createHtmlElement
     todoList.insertAdjacentHTML("beforeend", newTask.createHtmlElement(this.#darkTheme));
+    //Adiciona ao ultimo filho (Ultima tarefa adicionada, ou seja a nova tarefa) os eventos pertinentes a ela.
     this.addTaskEvents(todoList.lastChild);
+    //Adiciona a nova tarefa a lista
     this.#list.push(newTask);
     this.updateItemsLeft();
   }
