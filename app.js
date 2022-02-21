@@ -5,7 +5,8 @@ const createTaskBtn = document.querySelector("#createTask");
 const createTaskText = document.querySelector("#newTask");
 const listTasks = document.querySelector("ul");
 const removeBtn = '<button type="submit" class="remove-btn">Apagar</button>';
-const inputTheme = document.querySelector("#theme");
+const inputTheme = document.querySelector("#theme-btn");
+const bodyPage = document.querySelector("body");
 
 function insertDay() {
   const day = new Date();
@@ -70,12 +71,12 @@ function listenLi(item) {
 // Listen remove Btn
 function listenRemoveBtn(btns) {
   if (btns === null) {
-    removeTaskBtn = document.querySelectorAll(".remove");
+    removeTaskBtn = document.querySelectorAll(".remove-btn");
   }
 
   removeTaskBtn.forEach((btn) => {
     btn.addEventListener("click", (e) => {
-      console.log(e.target);
+      console.log("Texto a apagar:", e.target.previousSibling.textContent);
     });
   });
 }
@@ -153,6 +154,6 @@ function loadStorage() {
 inputTheme.addEventListener("click", (e) => changeTheme(e));
 
 const changeTheme = (e) => {
-  console.log(e.target);
-  inputTheme.checked ? console.log("Tema dark") : console.log("Tema ligth");
+  bodyPage.classList.toggle("dark-theme");
+  inputTheme.classList.toggle("theme-btn-dark");
 };

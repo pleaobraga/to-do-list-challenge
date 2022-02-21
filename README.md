@@ -4,9 +4,9 @@
 
 Autor: José Otavio Pires de Carvalho
 
-<a href="https://github.com/joseotaviopc/"> ![  ](https://img.shields.io/badge/GitHub-100000?style=flat&logo=github&logoColor=white)</a> 
-<a href="https://www.linkedin.com/in/jose-otavio-pires-de-carvalho/">![  ](https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white)</a>
-<a href="mailto:carvalho.jose@gmail.com">![  ](https://img.shields.io/badge/Gmail-D14836?style=flat&logo=gmail&logoColor=white)</a><br>
+<a href="https://github.com/joseotaviopc/" target="_blank">![  ](https://img.shields.io/badge/GitHub-100000?style=flat&logo=github&logoColor=white)</a> 
+<a href="https://www.linkedin.com/in/jose-otavio-pires-de-carvalho/" target="_blank">![  ](https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white)</a>
+<a href="mailto:carvalho.jose@gmail.com" target="_blank">![  ](https://img.shields.io/badge/Gmail-D14836?style=flat&logo=gmail&logoColor=white)</a><br>
 
 
 ## Índice
@@ -48,7 +48,7 @@ Autor: José Otavio Pires de Carvalho
 <h2 id="demonstracao">Demonstração</h2>
 
 
-Aplicativo funcional está disponível no link: [To-do List](https://to-do-list-challenge-joseotaviopc.vercel.app/)
+Aplicativo funcional está disponível no link: <a href="https://to-do-list-challenge-joseotaviopc.vercel.app/" target="_blank">To-do List</a>
 
 <br>
 
@@ -69,8 +69,8 @@ Aplicativo funcional está disponível no link: [To-do List](https://to-do-list-
 - [x] Ao clicar no item da lista o mesmo deve mudar se estado, feito => a fazer ou a fazer => feito
 - [x] Deve ser possível armazenar quantos item o usuário quiser a lista
 - [x] Criar uma boa documentação para a solução (README).
+- [x] A lista deve ser armazenada de uma forma que se o usuario entrar novamente na pagina ele poderá ver todos os itens ja cadastrados e seus respectivos estados
 >- [ ] A solução deve apresentar uma lista para listar as tarefas - DOING
->- [ ] A lista deve ser armazenada de uma forma que se o usuario entrar novamente na pagina ele poderá ver todos os itens ja cadastrados e seus respectivos estados - DOING
 
 <br>
 
@@ -78,19 +78,18 @@ Aplicativo funcional está disponível no link: [To-do List](https://to-do-list-
 >
 - [x] Implementar uma boa interface gráfica para a solução
 - [x] Tarefas inseridas com o teclado (Enter)
-- [x] Validação se foi digitada uma tarefa
+- [x] Validação se a tarefa possui algum caractere
 - [x] Tarefas concluídas ficam no final da lista
 - [x] Ler dia da semana e mostrar na tela
 - [x] Publicar a aplicação em algum ambiente
-- [x] Mobile First
+- [x] Site responsivo
+- [x] Tema escuro
 
 <br>
 
 ### *Sugestões adicionais*
 >
 >- [ ] _Em cada elemento da lista apresentar um botão de deletar e caso o usuário aperte esse botão o item some da lista - DOING_
->- [ ] _Tema escuro - DOING_
->- [ ] _Desktop - DOING_
 - [ ] _Implementar uma solução otimizada_
 - [ ] _Editar o item_
 - [ ] _Colocar prazo nas tarefas_
@@ -100,7 +99,7 @@ Aplicativo funcional está disponível no link: [To-do List](https://to-do-list-
 
 
 
-![Linhas](https://img.shields.io/tokei/lines/github.com/joseotaviopc/to-do-list-challenge) ![w3c](https://img.shields.io/w3c-validation/html?targetUrl=https%3A%2F%2Fto-do-list-challenge-ten.vercel.app%2F)
+![Linhas](https://img.shields.io/tokei/lines/github.com/joseotaviopc/to-do-list-challenge) <a href="https://validator.w3.org/nu/?doc=https%3A%2F%2Fto-do-list-challenge-ten.vercel.app%2F" target="_blank">![w3c](https://img.shields.io/w3c-validation/html?targetUrl=https%3A%2F%2Fto-do-list-challenge-ten.vercel.app%2F)</a>
 ## Entrega
 <mark>A entrega deverá ser feita ate o dia 28/02/2022
 
