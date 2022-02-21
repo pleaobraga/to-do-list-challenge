@@ -82,8 +82,11 @@ export class Todo {
   //Funcao responsavel por inicializar a todo list
   init() {
     this.todoListNodeStart.innerHTML += this.#template;
+    const app = document.querySelector(".app");
     const itemAddButton = document.querySelector(".to-do__item--add");
     const deleteCompletedItemsButton = document.querySelector(".to-do__clearCompleted");
+    const filterContainer = document.querySelector(".to-do__filter");
+    const filterContainerMobile = document.querySelector(".to-do__filter--mobile");
     const filterActiveButton = document.querySelectorAll(".to-do__filter-active");
     const filterAllButton = document.querySelectorAll(".to-do__filter-all");
     const filterCompletedButton = document.querySelectorAll(".to-do__filter-completed");
@@ -93,7 +96,9 @@ export class Todo {
     const appBackgroundDesktop = document.querySelector(".app__background--desktop");
     const appBackgroundDefault = document.querySelector(".app__background--default");
     const newContainer = document.querySelector(".to-do__new-container");
-    const app = document.querySelector(".app");
+    const newInput = document.querySelector(".to-do__new-input");
+    const newIcon = document.querySelector(".to-do__new-icon");
+    const controller = document.querySelector(".to-do__controller");
 
     toggleTheme.addEventListener("click", () => {
       this.setDarkTheme = !this.getDarkTheme;
@@ -125,12 +130,12 @@ export class Todo {
         element.classList.toggle("dark-theme");
       });
       newContainer.classList.toggle("dark-theme");
-      document.querySelector(".to-do__new-input").classList.toggle("dark-theme");
-      document.querySelector(".to-do__list").classList.toggle("dark-theme");
-      document.querySelector(".to-do__controller").classList.toggle("dark-theme");
-      document.querySelector(".to-do__filter").classList.toggle("dark-theme");
-      document.querySelector(".to-do__filter--mobile").classList.toggle("dark-theme");
-      document.querySelector(".to-do__new-icon").classList.toggle("dark-theme");
+      newInput.classList.toggle("dark-theme");
+      container.classList.toggle("dark-theme");
+      controller.classList.toggle("dark-theme");
+      filterContainer.classList.toggle("dark-theme");
+      filterContainerMobile.classList.toggle("dark-theme");
+      newIcon.classList.toggle("dark-theme");
       document.querySelectorAll(".to-do__item").forEach((element) => {
         element.classList.toggle("dark-theme");
       });
@@ -208,7 +213,7 @@ export class Todo {
     return `to-do__item-${this.#taskID}`;
   }
 
-  //Funcao responsavel por adicionar um novo item na lista
+  //Funcao responsavel por adicionar um novo item na lista e fazer a chamada dos metodos que adicionam as funcoes dos elementos.
   addTask(description, status = STATUS.unchecked) {
     let todoList = document.querySelector(".to-do__list");
     let newTask;
@@ -217,6 +222,7 @@ export class Todo {
     } catch (err) {
       alert(err);
     }
+    //Utilizo o insertAdjacentHTML para adicionar o elemento HTML criado pelo createHtmlElement
     todoList.insertAdjacentHTML("beforeend", newTask.createHtmlElement(this.#darkTheme));
     this.addTaskEvents(todoList.lastChild);
     this.#list.push(newTask);
@@ -230,21 +236,28 @@ export class Todo {
 
   //Funcao responsavel por atualizar o contador de itens no HTML
   updateItemsLeft() {
+    // variavel que recebe o elemento HTML que representa o contador de itens
     let itemsLeft = document.querySelector(".to-do__itemsLeft");
 
+    // Aqui eh feito um tratamento de mensagens, caso a funcao countItems que conta o numero de itens no todolist retornar zero, retorna No Records, caso seja 1, retornar mensagen no singular, caso seja mais de 1 retornar mensagem no plurarl
     if (this.countItems() === 0) {
       itemsLeft.innerHTML = "No records";
     } else if (this.countItems() === 1) {
       itemsLeft.innerHTML = `${this.countItems()} item left`;
     } else itemsLeft.innerHTML = `${this.countItems()} items left`;
+
+    //Ao final de cada chamada de update determinei que seria a hora ideal de alocar isso no localStorage, dado que o UpdateItems soh eh chamado em momentos de adicao e delecao de itens.
     localStorage.setItem(LIST.todo, JSON.stringify(this.#list));
   }
 
   //Funcao responsavel por deletar o item alvo
   deleteItem(event) {
+    // variavel que armazena o id do elemento alvo
     let targetElementID = event.target.previousElementSibling.firstElementChild.id;
+    // variavel que armazena o elemento alvo
     let targetElement = event.target.parentElement;
 
+    //Para cada item da lista de tarefas verifico se o ID do elemento bate com o ID do elemento clicado, caso bata eu deleto o item da lista, caso nao eu retorno vazio
     this.#list.forEach((element, index) => {
       if (element.getID === targetElementID) {
         this.#list.splice(index, 1);
@@ -253,13 +266,15 @@ export class Todo {
         return;
       }
     });
+    //Chamada da funcao updateItemsLeft que atualiza o contador de itens
     this.updateItemsLeft();
   }
 
   //Funcao responsavel por marcar ou desmarcar o item alvo
-
   checkItem(event) {
+    // Variavel responsavel por receber o ID do elemento alvo
     let targetElementID = event.target.nextElementSibling.offsetParent.firstElementChild.id;
+    //Aqui estou comparando o ID que tenho na lista com o ID do elemento alvo para que eu possa atualizar o elemento da lista da classe com a informacao correta
     this.#list.forEach((element) => {
       if (element.getID === targetElementID) {
         if (element.getStatus === STATUS.unchecked) {
@@ -275,21 +290,27 @@ export class Todo {
         }
       }
     });
+    //Tomei a decisao de chamar o local storage aqui pois eh necessario salvar o estado atualizado de cada elemento.
     localStorage.setItem(LIST.todo, JSON.stringify(this.#list));
   }
 
   //Funcao responsavel por deletar todas as tarefas que ja foram feitas
   deleteCompletedTasks() {
+    //Recebe todas os elementos que estao com a classe q determina se essas tarefas estao concluidas ou nao
     let completedTasks = document.querySelectorAll(".to-do__item--checked");
+    //Para cada tarefa concluida remova o elemento.
     completedTasks.forEach((task) => {
       task.parentElement.parentElement.remove();
     });
-
+    //Criei uma copia da lista para poder percorrer com o for e deletar da lista sem que alterasse o tamanho da lista original enquanto a iteracao ocorre
     let copiedList = this.#list.slice();
+    //Para cada tarefa da lista, verifico se o status eh de tarefa concluida(checked) ou de nao concluida(unchecked), caso seja checked removo o elemento passando o indice desse elemento pelo indexOf e a quantidade de itens para o splice
     this.#list.forEach((task) => {
       if (task.getStatus === STATUS.checked) copiedList.splice(copiedList.indexOf(task), 1);
     });
+    //Ao final preciso que a lista original seja alterada, portanto faco uma atribuicao da lista copiada (Que sofreu alteracoes) para a lista original
     this.#list = copiedList;
+    //Chamada da funcao updateItemsLeft que atualiza o contador de itens
     this.updateItemsLeft();
   }
 
@@ -299,7 +320,7 @@ export class Todo {
     let checkBoxElementList = node.firstElementChild.firstElementChild.nextElementSibling;
     //Seleciona todos os elementos que seram responsaveis pela funcao de deletar
     let deleteElementList = node.firstElementChild.nextElementSibling;
-
+    //Recebe o elemento que eh arrastavel
     let draggableTask = node;
 
     //Adiciona o evento para marcar o item alvo como feito ou desmarca-lo
@@ -307,24 +328,29 @@ export class Todo {
       this.checkItem(event);
     });
 
-    //Adiciona o evento para deletar o item alvo
+    //Atribui o metodo responsavel por deletar o item da lista quando o usuario clicar sobre o icone de deletar
     deleteElementList.addEventListener("click", (event) => {
       this.deleteItem(event);
     });
-
+    //Adiciona a classe to-do__item--dragging quando o usuario comeca a arrastar a tarefa.
     draggableTask.addEventListener("dragstart", () => {
       draggableTask.classList.add("to-do__item--dragging");
     });
-
+    //Remove a classe to-do__item--dragging quando o usuario parar de arrastar a tarefa
     draggableTask.addEventListener("dragend", () => {
       draggableTask.classList.remove("to-do__item--dragging");
     });
   }
 
+  //Funcao responsavel por filtrar os itens completos
   filterCompleted() {
-    let AllTasks = document.querySelectorAll(".to-do__item");
+    //Variavel eh atribuida com todos as tarefas
+    let allTasks = document.querySelectorAll(".to-do__item");
+    //Chamo a funcao filtrar todos para nao ter que criar condicoes caso o usuario clique no filtro ativo, e vice e versa.
+    //Em outras palavras esse filterall serve como um reset para essa funcao, eh como se eu aplicasse o filtro em uma lista q ainda n foi filtrada
     this.filterAll();
-    AllTasks.forEach((task) => {
+    //Para cada elemento dessa variavel eh feito uma checagem afim de ver se ela contem ou nao a classe que determina se essa atividade esta concluida ou nao, se contem retorna vazio, caso nao contenha ela adiciona a classe para esconder o elemento.
+    allTasks.forEach((task) => {
       if (task.firstElementChild.lastElementChild.classList.contains("to-do__item--checked")) {
         return;
       } else {
@@ -332,15 +358,25 @@ export class Todo {
       }
     });
   }
+
+  //Funcao responsavel por filtrar todos os itens
   filterAll() {
-    let AllTasks = document.querySelectorAll(".to-do__item");
-    AllTasks.forEach((task) => {
+    //Variavel eh atribuida com todos as tarefas
+    let allTasks = document.querySelectorAll(".to-do__item");
+    //Para cada elemento dessa variavel eh feito uma checagem afim de ver se ela contem a classe que a esconde caso contenha ela remove a classe que esconde o elemento.
+    allTasks.forEach((task) => {
       if (task.classList.contains("to-do__item--hide")) task.classList.remove("to-do__item--hide");
     });
   }
+
+  //Funcao responsavel por filtrar os itens ativos
   filterActive() {
+    //Variavel eh atribuida com apenas as tarefas que estao marcadas como feitas.
     let completedTasks = document.querySelectorAll(".to-do__item--checked");
+    //Chamo a funcao filtrar todos para nao ter que criar condicoes caso o usuario clique no filtro dos completados, e vice e versa.
+    //Em outras palavras esse filterall serve como um reset para essa funcao, eh como se eu aplicasse o filtro em uma lista q ainda n foi filtrada
     this.filterAll();
+    //Para cada elemento dessa variavel eh feito uma checagem afim de ver se ela contem ou nao a classe que a esconde, se contem retorna vazio, caso nao contenha ela adiciona a classe para esconder o elemento.
     completedTasks.forEach((task) => {
       if (task.parentElement.parentElement.classList.contains("to-do__item--hide")) {
         return;
@@ -348,6 +384,5 @@ export class Todo {
         task.parentElement.parentElement.classList.add("to-do__item--hide");
       }
     });
-    this.updateItemsLeft();
   }
 }
