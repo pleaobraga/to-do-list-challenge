@@ -8,7 +8,6 @@ Autor: José Otavio Pires de Carvalho
 <a href="https://www.linkedin.com/in/jose-otavio-pires-de-carvalho/" target="_blank">![  ](https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white)</a>
 <a href="mailto:carvalho.jose@gmail.com" target="_blank">![  ](https://img.shields.io/badge/Gmail-D14836?style=flat&logo=gmail&logoColor=white)</a><br>
 
-
 ## Índice
 
 - [Descrição](#descricao)
@@ -20,11 +19,10 @@ Autor: José Otavio Pires de Carvalho
 
 <br>
 
-
 <h2 id="descricao">Descrição</h2>
 
+Um simples gerenciador de tarefas (to-do list).
 <br>
-
 
 <h2 id="tecnologias">Tecnologias utilizadas</h2>
 
@@ -32,33 +30,41 @@ Autor: José Otavio Pires de Carvalho
 
 <br>
 
-
 <h2 id="funcionalidades">Funcionalidades</h2>
 
 >
 - As tarefas podem ser criadas clicando no botão <code>Criar</code> ou ao apertar <code>Enter</code> após se digitar o nome da tarefa.
-- A tarefa fica marcada como _feita_ e vai para o final da lista quando se clica em cima do nome.
-- Ao se clicar em alguma tarefa _feita_ ela volta para o início da lista como _não feita_.
+- A tarefa fica marcada como *feita* e vai para o final da lista quando se clica em cima do nome.
+- Ao se clicar em alguma tarefa *feita* ela volta para o início da lista como *não feita*.
 - Podem ser criadas quantas tarefas quiser.
 - Ao voltar para o site, as tarefas são carregadas automaticamente.
+- Pode-se filtrar as tarefas *feitas* e *não feitas*.
+- Pode-se mudar para o tema escuro.
+- Responsivo.
 
 <br>
 
-
 <h2 id="demonstracao">Demonstração</h2>
-
 
 Aplicativo funcional está disponível no link: <a href="https://to-do-list-challenge-joseotaviopc.vercel.app/" target="_blank">To-do List</a>
 
 <br>
 
-
 <h2 id"logica">Lógica utilizada para a resolução</h2>
+
+Foi utilizada o <code>localStorage</code> para guardar os dados localmente e serem recuperados na próxima visita a página.
+
+O código javascript foi dividido em funções específicas, como adicionar tarefa, ler dados do <code>localStorage</code>, etc.
 
 <br>
 
-
 <h2 id="conclusao">Conclusão</h2>
+
+Foram concluidos todos os requisitos obrigatórios do desafio, e muitos outros opcionais.
+
+Além disso foram deixadas algumas [sugestões](#sugestões-adicionais) para novas implementações.
+
+<br>
 
 ### *Requisitos Obrigatórios*
 >
@@ -89,18 +95,13 @@ Aplicativo funcional está disponível no link: <a href="https://to-do-list-chal
 
 ### *Sugestões adicionais*
 >
->- [ ] _Em cada elemento da lista apresentar um botão de deletar e caso o usuário aperte esse botão o item some da lista - DOING_
-- [ ] _Implementar uma solução otimizada_
-- [ ] _Editar o item_
-- [ ] _Colocar prazo nas tarefas_
-- [ ] _Mostrar tarefas atrasadas/próximas_
+- [ ] *Em cada elemento da lista apresentar um botão de deletar e caso o usuário aperte esse botão o item some da lista* - **Em andamento**
+- [ ] *Implementar uma solução otimizada*
+- [ ] *Editar as tarefas listadas*
+- [ ] *Colocar data inicial e prazo nas tarefas*
+- [ ] *Mostrar tarefas atrasadas/próximas do prazo*
 
 <br>
 
-
-
 ![Linhas](https://img.shields.io/tokei/lines/github.com/joseotaviopc/to-do-list-challenge) <a href="https://validator.w3.org/nu/?doc=https%3A%2F%2Fto-do-list-challenge-ten.vercel.app%2F" target="_blank">![w3c](https://img.shields.io/w3c-validation/html?targetUrl=https%3A%2F%2Fto-do-list-challenge-ten.vercel.app%2F)</a>
-## Entrega
-<mark>A entrega deverá ser feita ate o dia 28/02/2022
 
-Para a entrega o aluno deverá colocar o nome completo no README do arquivo e criar um <mark>pull request(PR)</mark> para esse repositório.

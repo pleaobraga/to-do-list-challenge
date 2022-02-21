@@ -214,20 +214,23 @@ body {
 }
 
 .remove-btn {
-  background-color: hsl(355deg 91% 20% / 50%);
-  border: 1px solid rgb(255 255 255 / 30%);
+  background-color: transparent;
+  border: 0px solid rgb(255 255 255 / 30%);
   border-radius: 3px;
-  color: hsl(0, 0%, 90%);
+  /* color: hsl(0, 0%, 90%); */
   cursor: pointer;
   font-size: .9rem;
   font-weight: 300;
   margin-left: 0.5em;
   padding: 0.25em;
-  width: 60px;
+  width: 30px;
+}
+.remove-btn svg {
+  color: var(--color-dark-green);
 }
 
 .remove-btn:hover {
-  background-color: hsl(355deg 91% 30% / 70%);
+  background-color: hsl(355deg 91% 60% / 70%);
 }
 
 .list-filter {
@@ -248,6 +251,7 @@ body {
   line-break: anywhere;
   font-weight: 300;
   padding: 0.25rem;
+  width: 60px;
 }
 
 .list-btn-click {
