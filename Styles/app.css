@@ -1,0 +1,109 @@
+/* CSS RESET */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* SYSTEM COLORS */
+
+:root {
+  /* Primary colors */
+  --brightBlue: hsl(220, 98%, 61%);
+
+  /* Light theme colors (Default) */
+  --veryLightGray: hsl(0, 0%, 98%);
+  --veryLightGrayishBlue: hsl(236, 33%, 92%);
+  --lightGrayishBlue: hsl(233, 11%, 84%);
+  --darkGrayishBlue: hsl(236, 9%, 61%);
+  --veryDarkGrayishBlue: hsl(235, 19%, 35%);
+
+  /* Dark theme colors */
+  --darkThemeVeryDarkBlue: hsl(235, 21%, 11%);
+  --darkThemeVeryDarkDesaturatedBlue: hsl(235, 24%, 19%);
+  --darkThemeLightGrayishBlue: hsl(234, 39%, 85%);
+  --darkThemeLightGrayishBlueHover: hsl(236, 33%, 92%);
+  --darkThemeDarkGrayishBlue: hsl(234, 11%, 52%);
+  --darkThemeVeryDarkGrayishBlue: hsl(233, 14%, 35%);
+  --darkThemeVeryDarkGrayishBlueBorder: hsl(237, 14%, 26%);
+}
+
+/* GLOBAL SETTINGS */
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: "Josefin Sans", sans-serif;
+  color: var(--veryDarkGrayishBlue);
+  background-color: var(--veryLightGray);
+}
+
+/* DARK THEME CLASS */
+body.dark-theme {
+  background-color: var(--darkThemeVeryDarkBlue);
+  color: var(--darkThemeLightGrayishBlue);
+}
+
+img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+li {
+  list-style: none;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  font-family: "Josefin Sans", sans-serif;
+  display: inline;
+}
+
+span {
+  display: block;
+}
+
+/* APP */
+
+.app__background img {
+  min-height: 20rem;
+  max-height: 30rem;
+}
+
+.app__main {
+  top: -15.2rem;
+}
+.app__footer {
+  text-align: center;
+  top: -11.2rem;
+}
+
+.app__main,
+.app__footer {
+  max-width: 28rem;
+  margin: auto;
+  position: relative;
+}
+
+@media (min-width: 375px) {
+  .app__main,
+  .app__footer {
+    max-width: 32.5rem;
+    margin: auto;
+  }
+}
+
+@media (min-width: 1440px) {
+  .app__main,
+  .app__footer {
+    max-width: 54.1rem;
+    margin: auto;
+  }
+}
