@@ -127,12 +127,19 @@ body {
 }
 
 .insert-input {
-  background-color: var(--color-ligth-grey);
+  background-color: var(--color-medium-grey);
   border: 1px solid rgb(0 0 0 / 25%);
   border-radius: 3px;
-  color: var(--color-medium-grey);
+  color: var(--color-dark-green);
   font-weight: 300;
   padding: 0.25em 0.5em;
+}
+
+.insert-input::placeholder {
+  color: var(--color-dark-green);
+}
+.insert-input ::-ms-input-placeholder {
+  color: var(--color-dark-green);
 }
 
 .insert-btn {
@@ -233,7 +240,7 @@ body {
 }
 
 .list-btn {
- background-color: hsl(182, 29%, 40%);;
+  background-color: hsl(182, 29%, 40%);
   border: 1px solid rgb(255 255 255 / 30%);
   border-radius: 3px;
   cursor: pointer;
@@ -241,4 +248,12 @@ body {
   line-break: anywhere;
   font-weight: 300;
   padding: 0.25rem;
+}
+
+.list-btn-click {
+  background-color: hsl(182, 29%, 80%);
+}
+
+.filter-done {
+  display: none;
 }

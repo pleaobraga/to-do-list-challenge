@@ -70,7 +70,7 @@ Aplicativo funcional está disponível no link: <a href="https://to-do-list-chal
 - [x] Deve ser possível armazenar quantos item o usuário quiser a lista
 - [x] Criar uma boa documentação para a solução (README).
 - [x] A lista deve ser armazenada de uma forma que se o usuario entrar novamente na pagina ele poderá ver todos os itens ja cadastrados e seus respectivos estados
->- [ ] A solução deve apresentar uma lista para listar as tarefas - DOING
+- [x] A solução deve apresentar uma lista para listar as tarefas
 
 <br>
 

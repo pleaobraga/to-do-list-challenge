@@ -7,6 +7,10 @@ const listTasks = document.querySelector("ul");
 const removeBtn = '<button type="submit" class="remove-btn">Apagar</button>';
 const inputTheme = document.querySelector("#theme-btn");
 const bodyPage = document.querySelector("body");
+const listBtnFilter = document.querySelectorAll(".list-btn");
+const btnFilterAll = document.querySelector("#filter-btn-all");
+const btnFilterDone = document.querySelector("#filter-btn-done");
+const btnFilterTodo = document.querySelector("#filter-btn-todo");
 
 function insertDay() {
   const day = new Date();
@@ -157,3 +161,26 @@ const changeTheme = (e) => {
   bodyPage.classList.toggle("dark-theme");
   inputTheme.classList.toggle("theme-btn-dark");
 };
+
+btnFilterTodo.addEventListener("click", (e) => {
+  const listLi = listTasks.querySelectorAll("li");
+  listLi.forEach((item) => {
+    item.firstChild.classList.contains("done")
+      ? item.classList.add("filter-done")
+      : item.classList.remove("filter-done");
+  });
+});
+
+btnFilterDone.addEventListener("click", (e) => {
+  const listLi = listTasks.querySelectorAll("li");
+  listLi.forEach((item) => {
+    item.firstChild.classList.contains("done")
+      ? item.classList.remove("filter-done")
+      : item.classList.add("filter-done");
+  });
+});
+
+btnFilterAll.addEventListener("click", (e) => {
+  const listLi = listTasks.querySelectorAll("li");
+  listLi.forEach((li) => li.classList.remove("filter-done"));
+});
