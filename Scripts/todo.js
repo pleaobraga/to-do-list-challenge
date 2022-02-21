@@ -103,7 +103,7 @@ export class Todo {
         appBackgroundDesktop.srcset = "./Assets/Images/bg-desktop-dark.jpg";
         appBackgroundDefault.src = "./Assets/Images/bg-desktop-dark.jpg";
       } else {
-        toggleTheme.srcset = "../Assets/Images/icon-moon.svg";
+        toggleTheme.srcset = "./Assets/Images/icon-moon.svg";
         appBackgroundMobile.srcset = "./Assets/Images/bg-mobile-light.jpg";
         appBackgroundDesktop.srcset = "./Assets/Images/bg-desktop-light.jpg";
         appBackgroundDefault.src = "./Assets/Images/bg-desktop-light.jpg";
