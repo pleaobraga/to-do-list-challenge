@@ -37,18 +37,6 @@ h1 {
     outline: 0;
   }
 
-/* .list-container {
-  width: 250px;
-  background-color: white;
-  margin: auto;
-  display: flex;
-  justify-content: space-between;
-  border: none;
-  padding-top: 10px;
-  text-align: center;
-  border-radius: 5px;
-} */
-
 #container-new-list{
   width: 235px;
   background-color: white;
