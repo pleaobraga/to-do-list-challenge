@@ -98,15 +98,15 @@ export class Todo {
     toggleTheme.addEventListener("click", () => {
       this.setDarkTheme = !this.getDarkTheme;
       if (this.getDarkTheme === true) {
-        toggleTheme.srcset = "../Assets/Images/icon-sun.svg";
-        appBackgroundMobile.srcset = "../Assets/Images/bg-mobile-dark.jpg";
-        appBackgroundDesktop.srcset = "../Assets/Images/bg-desktop-dark.jpg";
-        appBackgroundDefault.src = "../Assets/Images/bg-desktop-dark.jpg";
+        toggleTheme.srcset = "./Assets/Images/icon-sun.svg";
+        appBackgroundMobile.srcset = "./Assets/Images/bg-mobile-dark.jpg";
+        appBackgroundDesktop.srcset = "./Assets/Images/bg-desktop-dark.jpg";
+        appBackgroundDefault.src = "./Assets/Images/bg-desktop-dark.jpg";
       } else {
         toggleTheme.srcset = "../Assets/Images/icon-moon.svg";
-        appBackgroundMobile.srcset = "../Assets/Images/bg-mobile-light.jpg";
-        appBackgroundDesktop.srcset = "../Assets/Images/bg-desktop-light.jpg";
-        appBackgroundDefault.src = "../Assets/Images/bg-desktop-light.jpg";
+        appBackgroundMobile.srcset = "./Assets/Images/bg-mobile-light.jpg";
+        appBackgroundDesktop.srcset = "./Assets/Images/bg-desktop-light.jpg";
+        appBackgroundDefault.src = "./Assets/Images/bg-desktop-light.jpg";
       }
 
       app.classList.toggle("dark-theme");
