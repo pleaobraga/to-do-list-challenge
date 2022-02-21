@@ -1,4 +1,4 @@
-Lets Code - Todo app
+# Lets Code - Todo app
 
 Esta é uma solução desenvolvida para um challenge da [Lets Code](https://www.letscode.com.br/). Este projeto utilizou como base para o layout os designs fornecidos pelo [Frontend Mentor](https://www.frontendmentor.io/challenges/todo-app-Su1_KokOW)
 
