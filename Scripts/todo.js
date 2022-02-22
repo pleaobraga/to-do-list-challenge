@@ -59,27 +59,6 @@ export class Todo {
     return this.#darkTheme;
   }
 
-  // Metodo responsavel por retonar o elemento de referencia para o elemento que sera inserido apos o usuario soltar o elemento no container
-  getDragAfterElement(container, pointerTopCoordinate) {
-    //Variavel responsavel por armazenar todos os elementos que sao arrastaveis em formato de array, com excecao do que esta sendo arrastado.
-    const draggableTasks = [...container.querySelectorAll(".to-do__item:not(.to-do__item--dragging)")];
-    return draggableTasks.reduce(
-      (closest, task) => {
-        //Variavel responsavel por armazenar o tamanho do elemento e suas posicoes relativas ao vw
-        const taskContainer = task.getBoundingClientRect();
-        //Variavel responsavel por armazenar o valor da distancia entre o cursor do mouse e o centro do container da task
-        const offset = pointerTopCoordinate - taskContainer.top - taskContainer.height / 2;
-
-        if (offset < 0 && offset > closest.offset) {
-          return { offset: offset, element: task };
-        } else {
-          return closest;
-        }
-      },
-      { offset: Number.NEGATIVE_INFINITY }
-    ).element;
-  }
-
   //Funcao responsavel por inicializar a todo list
   init() {
     this.todoListNodeStart.innerHTML += this.#template;
@@ -156,14 +135,14 @@ export class Todo {
       });
     });
 
-    //Quando o usuario estiver arrastando a tarefa sobre outra tarefa este evento eh acionado
+    //Quando o usuario estiver arrastando a tarefa sobre o container este evento eh acionado
     container.addEventListener("dragover", (event) => {
       //Este prevent default serve para que o comportamento padrao do browser de nao permitir que alguem arraste e largue elementos seja permitido na area do container
       event.preventDefault();
-      //Essa variavel representa um elemento de referencia para que o elemento draggable seja inserido referenciando se eh depois ou antes dele
+      //Essa variavel o elemento depois do cursor
       const afterElement = this.getDragAfterElement(container, event.clientY);
       const draggable = document.querySelector(".to-do__item--dragging");
-      if (afterElement == null) {
+      if (afterElement == undefined) {
         container.appendChild(draggable);
       } else {
         container.insertBefore(draggable, afterElement);
@@ -418,5 +397,28 @@ export class Todo {
         task.parentElement.parentElement.classList.add("to-do__item--hide");
       }
     });
+  }
+  899;
+  // Metodo responsavel por retonar o elemento que esta apos a posicao do cursor
+  getDragAfterElement(container, mouseCursorTopCoordinate) {
+    //Variavel responsavel por armazenar todos os elementos que sao arrastaveis em formato de array, com excecao do que esta sendo arrastado.
+    const draggableTasks = [...container.querySelectorAll(".to-do__item:not(.to-do__item--dragging)")];
+    return draggableTasks.reduce(
+      (initialValue, task) => {
+        //Variavel responsavel por armazenar o tamanho do elemento e suas posicoes relativas ao vw
+        const taskContainer = task.getBoundingClientRect();
+        //Variavel responsavel por armazenar o valor da distancia entre o cursor do mouse e o centro do container da task
+        const offset = mouseCursorTopCoordinate - taskContainer.top - taskContainer.height / 2;
+
+        //Se o offset for negativo, indica que o cursor esta posicionado antes do centro do elemento, sendo assim devo retornar o proximo elemento.
+        //Caso o offset seja positivo, isso indica que nao existem mais proximos elementos, portanto retorno o initialValue.
+        if (offset < 0 && offset > initialValue.offset) {
+          return { element: task };
+        } else {
+          return initialValue;
+        }
+      },
+      { element: undefined, offset: Number.NEGATIVE_INFINITY }
+    ).element;
   }
 }
