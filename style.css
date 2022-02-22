@@ -83,6 +83,26 @@ main{
     margin: 00.5rem;
 }
 
+.warning{
+    color:rgb(170, 170, 4);
+}
+
+.arrears{
+    color:red;
+}
+
+.pending{
+    color:green;
+}
+
+.done{
+    text-decoration:line-through;
+}
+
+.status, .date, .commands{
+    text-align: center;
+}
+
 .controllers{
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
@@ -141,6 +161,7 @@ main{
     margin: auto;
     background-color: #C4C4C4;
     border-radius: 10px;
+    overflow-x: auto;
 }
 
 .table-tasks{
@@ -148,12 +169,11 @@ main{
     margin-left: auto;
     margin-right: auto;
     margin-top: 10px;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
     font-size: 1.25rem;
 }
 
 .thead-tasks{
-    display: table;
     width: 100%;
     background-color: #00A6BD;
     margin-left: auto;
@@ -162,8 +182,11 @@ main{
     padding: 10px;
 }
 
+.th-tasks{
+    padding: 10px;
+}
+
 .tr-tasks{
-    display: table;
     width: 100%;
     background-color: white;
     margin-left: auto;
@@ -189,7 +212,10 @@ main{
     background-color: #00E0FF;
 } 
 
-
+.td-tasks.commands span{
+    padding-left: 2px;
+    padding-right: 2px;
+}
 
 
 

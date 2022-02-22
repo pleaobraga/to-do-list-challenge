@@ -21,18 +21,17 @@
                 </selection>
                 <selection class="abstract">
                     <h2 class="sr-only">Resumo</h2>
-                    <div class="card">
-                        <h3><span id="made">Concluídas</span></h3>
-                        <p id="madeCount">5</p>
+                    <div class="card" id="cardArrears">
+                        <h3><span class="arrears">Atraso</span></h3>
+                        <p class="arrears" id="cardArrearsCount"></p>
                     </div>
-                    <div class="card">
-                        <h3><span id="pendings">Pendentes</span></h3>
-                        <p id="pendingCount">5</p>
+                    <div class="card" id="cardWarning">
+                        <h3><span class="warning">Alertas</span></h3>
+                        <p class="warning" id="cardWarningCount"></p>
                     </div>
-                    <div class="card">
-                        <h3><span id="abstract">Resumo</span></h3>
-                        <p class="abstractCounters">5/10</p>
-                        <p class="abstractCounters">5/10</p>
+                    <div class="card" id="cardPending">
+                        <h3><span class="pending">Pendentes</span></h3>
+                        <p class="pending" id="cardPendingCount"></p>
                     </div>
                 </selection>
                 <selection class="controllers">
@@ -46,7 +45,7 @@
                                     <li><a class="addTask" id="month" href="#">Mensal</a></li>
                                 </ul>
                             </li>
-                            <li><a class="menuOption" href="#" onclick="MODAL.open('filter')">Filtrar</a></li>
+                            <!-- <li><a class="menuOption" href="#" onclick="MODAL.open('filter')">Filtrar</a></li> -->
                         </ul>
                     </nav>
                 </selection>
@@ -55,21 +54,14 @@
                     <div class="div-tasks">
                         <table class="table-tasks">
                             <thead class="thead-tasks">
-                                <th class="th-tasks">a</th>
-                                <th class="th-tasks">a</th>
-                                <th class="th-tasks">a</th>
+                                <tr>
+                                    <th class="th-tasks">STATUS</th>
+                                    <th class="th-tasks">DESCRIÇÃO</th>
+                                    <th class="th-tasks">DATA</th>
+                                    <th class="th-tasks">COMANDOS</th>
+                                </tr>
                             </thead>
                             <tbody class="tbody-tasks">
-                                <tr class="tr-tasks">
-                                    <td class="td-tasks">a</td>
-                                    <td class="td-tasks">b</td>
-                                    <td class="td-tasks">c</td>
-                                </tr>
-                                <tr class="tr-tasks">
-                                    <td class="td-tasks">a</td>
-                                    <td class="td-tasks">b</td>
-                                    <td class="td-tasks">c</td>
-                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -83,59 +75,68 @@
             <div class="modal tasks">
                 <div id="form">
                     <h2>TAREFA</h2>
-                    <form action="" onsubmit="Form.submit(event, 'task')">
+                    <form action="" onsubmit="FORM.buttonSubmit(event, 'task')">
+                        <div class="input-group">
+                            <input 
+                                hidden
+                                type="number"
+                                id="task_id" 
+                                name="task_id"
+                            />
+                        </div>
+                        <div class="input-group">
+                            <input 
+                                hidden
+                                type="text"
+                                id="task_do" 
+                                name="task_do"
+                            />
+                        </div>
                         <div class="input-group">
                             <label 
                                 class="sr-only" 
-                                for="repetition">Repetições</label>
+                                for="task_repetition">Repetições</label>
                             <input 
                                 type="number"
                                 step="1"
-                                id="repetition" 
-                                name="repetition"
+                                id="task_repetition" 
+                                name="task_repetition"
                                 placeholder="Repetições"
-                            /></div>
+                            />
+                        </div>
                         <div class="input-group">
                             <label 
                                 class="sr-only" 
-                                for="description">Descrição</label>
+                                for="task_description">Descrição</label>
                             <input 
                                 type="text" 
-                                id="description" 
-                                name="description"
+                                id="task_description" 
+                                name="task_description"
                                 placeholder="Descrição"
                             />
                         </div>
                         <div class="input-group">
                             <label 
                                 class="sr-only" 
-                                for="date">Data</label>
+                                for="task_date">Data</label>
                             <input 
                                 type="date" 
-                                id="date" 
-                                name="date"
+                                id="task_date" 
+                                name="task_date"
                             />
                         </div>
                         <div class="input-group">
                             <label 
                                 class="sr-only" 
-                                for="observation">Descrição</label>
-                            <textarea name="observation" id="observation" placeholder="Observação"></textarea>
-                        </div>
-                        <div class="input-group">
-                            <input 
-                                class="sr-only"
-                                type="number"
-                                id="index" 
-                                name="index"
-                            />
+                                for="task_observation">Observação</label>
+                            <textarea name="task_observation" id="task_observation" placeholder="Observação"></textarea>
                         </div>
                         <div class="input-group actions">
                             <a 
                             onclick="MODAL.closeOverlay()"
                             href="#" 
                             class="button cancel">Cancelar</a>
-                            <button>Salvar</button>
+                            <button></button>
                         </div>
                     </form>
                 </div>
