@@ -139,6 +139,7 @@ Seguindo esta estrutura pontuarei como a solucao foi pensada:
 - (http://getbem.com/naming/) - Me ajudou a estruturar meu css, tentei aplicar da melhor forma possivel o Block Element Modifier
 - (https://developer.mozilla.org/pt-BR/docs/Web/API/HTML_Drag_and_Drop_API) - Esta documentacao me ajudou a entender o drag and drop do javascript
 - (https://developer.mozilla.org/pt-BR/docs/Web/API/Element/getBoundingClientRect) - Esta documentacao me forneceu ferramentas para pegar as coordenadas necessarias da funcao drag and drop
+- (https://angel-rs.github.io/css-color-filter-generator/) - Esse site me proporcionou o codigo para aplicar o filtro sobre a svg e alcancar a cor desejada.
 
 ## Autor
 

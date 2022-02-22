@@ -1,7 +1,5 @@
 /* TODO */
 
-/* DARK THEME CLASS */
-
 .to-do__header {
   display: flex;
   align-items: center;
@@ -32,6 +30,7 @@
   width: 2.265rem;
   height: 2rem;
   border: solid 1px;
+  border-color: var(--lightGrayishBlue);
   border-radius: 50%;
   position: relative;
   margin-right: 0.6rem;
@@ -65,11 +64,21 @@
   width: 100%;
 }
 
+.to-do__new-input::placeholder {
+  color: var(--darkGrayishBlue);
+  font-family: "Josefin Sans", sans-serif;
+}
+
 /* DARK THEME */
 
 .to-do__new-input.dark-theme {
   background-color: var(--darkThemeVeryDarkDesaturatedBlue);
   color: var(--darkThemeLightGrayishBlue);
+}
+
+.to-do__new-input.dark-theme::placeholder {
+  color: var(--darkThemeLightGrayishBlue);
+  font-family: "Josefin Sans", sans-serif;
 }
 
 .to-do__list {
@@ -129,6 +138,8 @@
   width: 1.2rem;
   height: 1.2rem;
   cursor: pointer;
+  filter: brightness(0) saturate(100%) invert(30%) sepia(23%) saturate(696%) hue-rotate(196deg) brightness(90%)
+    contrast(87%);
 }
 
 .to-do__item:last-child {
@@ -244,6 +255,7 @@
   width: 2rem;
   transform: translate(-25%, -13%);
 }
+
 /* DARK THEME  */
 .to-do__item-container .to-do__item-label.dark-theme {
   background-color: var(--darkThemeVeryDarkDesaturatedBlue);
