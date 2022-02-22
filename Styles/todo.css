@@ -286,10 +286,10 @@
 }
 
 /* Desktop */
-@media(min-width: 1024px) {
-
-.to-do__item-delete {
-  display: none;
+@media (min-width: 1024px) {
+  .to-do__item-delete {
+    display: none;
+  }
 }
 
 @media (min-width: 1440px) {
