@@ -63,7 +63,7 @@ Dark Version:
 
 ### Manual do usuario
 
-1. Para adicionar uma nova tarefa, o usuario deve clicar sobre o create a new todo, escrever a descricao e apertar no botao de adicao representado pelo simbolo +
+1. Para adicionar uma nova tarefa, o usuario deve clicar sobre o create a new todo, escrever a descricao e apertar no botao de adicao representado pelo simbolo +. Tambem eh possivel adicionar uma nova tarefa escrevendo o nome dela e pressionando a tecla enter.
 2. Para deletar UMA tarefa o usuario deve posicionar o mouse em cima da tarefa desejada. Com o mouse ja posicionado um icone representando um X sera exibido no canto direito da tarefa em que o cursor esta em cima, basta clicar no X para deletar a tarefa.
 3. Para marcar a tarefa como FEITA basta clicar no checkbox em formato de circulo, localizado no canto esquerdo da tarefa.
 4. Para deletar TODAS as tarefas FEITAS, basta clicar no botao clear completed.
@@ -128,7 +128,6 @@ Seguindo esta estrutura pontuarei como a solucao foi pensada:
 - Desenvolver animações para adicionar fluides nas interações entre usuario e aplicativo.
 - O usuario deve poder planejar todos os dias da semana atraves de um dropdown para selecionar o dia da semana a ser planejado
 - Desenvolver um alarme de lembrete contendo hora e data
-- O botao de adicionar deve estar vinculado com a tecla de atalho enter afim de facilitar a adicao de novas tarefas.
 - O tema escolhido pelo usuario deve ser mantido mesmo depois que a pagina for recarregada.
 - O HTML que estrutura os filtros deve ser reestruturado, porque eu tive que criar duas estruturas quase identicas, dado que no desktop ele e exibido de uma forma diferente da exibicao no mobile
 - Desenvolver um modal para confirmar as acoes de exclusao do usuario.

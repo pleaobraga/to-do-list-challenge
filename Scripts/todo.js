@@ -102,6 +102,15 @@ export class Todo {
     const newIcon = document.querySelector(".to-do__new-icon");
     const controller = document.querySelector(".to-do__controller");
 
+    //Quando o usuario apertar enter (event.keycode === 13) essa funcao dispara o addTask que ira adicionar a nova tarefa.
+    newInput.addEventListener("keyup", (event) => {
+      if (event.keyCode === 13) {
+        this.addTask(event.target.value);
+        event.target.value = "";
+      } else {
+        return;
+      }
+    });
     //Adiciona ao evento de click do botao de lua/Sol a funcao de mudar de tema. Adiciona ou remove de cada elemento HTML que deve mudar de estilo a classe dark-theme atraves da funcao toggle
     toggleTheme.addEventListener("click", () => {
       this.setDarkTheme = !this.getDarkTheme;
