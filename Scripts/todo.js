@@ -230,13 +230,18 @@ export class Todo {
     } catch (err) {
       alert(err);
     }
-    //Utilizo o insertAdjacentHTML para adicionar o elemento HTML criado pelo createHtmlElement
-    todoList.insertAdjacentHTML("beforeend", newTask.createHtmlElement(this.#darkTheme));
-    //Adiciona ao ultimo filho (Ultima tarefa adicionada, ou seja a nova tarefa) os eventos pertinentes a ela.
-    this.addTaskEvents(todoList.lastChild);
-    //Adiciona a nova tarefa a lista
-    this.#list.push(newTask);
-    this.updateItemsLeft();
+    // Apenas executa o codigo caso o codigo do try catch nao tenha dado erro, pois se der erro o newTask eh undefined.
+    if (newTask === undefined) {
+      return;
+    } else {
+      //Utilizo o insertAdjacentHTML para adicionar o elemento HTML criado pelo createHtmlElement
+      todoList.insertAdjacentHTML("beforeend", newTask.createHtmlElement(this.#darkTheme));
+      //Adiciona ao ultimo filho (Ultima tarefa adicionada, ou seja a nova tarefa) os eventos pertinentes a ela.
+      this.addTaskEvents(todoList.lastChild);
+      //Adiciona a nova tarefa a lista
+      this.#list.push(newTask);
+      this.updateItemsLeft();
+    }
   }
 
   //funcao responsavel por contar quantos itens existem na lista

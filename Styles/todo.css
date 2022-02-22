@@ -129,7 +129,6 @@
   width: 1.2rem;
   height: 1.2rem;
   cursor: pointer;
-  display: none;
 }
 
 .to-do__item:last-child {
@@ -287,6 +286,12 @@
 }
 
 /* Desktop */
+@media(min-width: 1024px) {
+
+.to-do__item-delete {
+  display: none;
+}
+
 @media (min-width: 1440px) {
   .to-do__filter--desktop {
     display: flex;
