@@ -118,8 +118,10 @@ Seguindo esta estrutura pontuarei como a solucao foi pensada:
 
 ### O que eu aprendi
 
-- Desenvolver o drag and drop
-- Implementar um light e dark mode
+- Desenvolver o drag and drop.
+- Implementar um light e dark mode. Gostaria de pontuar que nas minhas proximas aplicacoes irei buscar definir primeiro quais elementos iram receber os temas e ja separa-los de forma que possa melhorar a legibilidade do codigo.
+- Melhorei a estruturacao do meu codigo, mas devo admitir que eu nao consegui separar completamente o todo list do app. Pois o background que compoe o App eh atualizado pelo todo-list. Fazendo dessa forma meu codigo perde um pouco em reusabilidade e escalabilidade. Para sanar isso meus proximos codigos que envolverem features, seram completamente independentes. Sendo o app apenas uma estrutura inicial para renderizar os componentes.
+- Aprendi que armazenar grandes informacoes no local storage reflete em grande perda de performance na pagina, portanto eu optei por armazenar apenas o essencial e utilizando variaveis para armazenar estruturas maiores.
 
 ### Implementacoes futuras
 
