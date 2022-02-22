@@ -1,24 +1,94 @@
-
 body {
   font: 100%/1.5em arial, verdana, sans-serif;
   font-weight: normal;
   font-style: normal;
   color: black;
   text-align: center;
+  background-color:rgb(50, 85, 87);
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
 }
 
   .page-title {
     font-size: 2em;
-    padding: 20px;
-  }
-
-  .add-section {
-    padding-bottom: 15px;
-  }
-
-  table {
+    font-weight: 700;
+    max-width: inherit;
     margin: auto;
-    width: 400px;
+    padding: 20px;
+    color: white;
+    background-color: rgb(102, 172, 175);
+    border-radius: 25px;
+  }
+
+  .information {
+    display: block;
+    font-size: 1.2em;
+    font-weight: 700;
+    color: white;
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  .section-wrapper {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    margin: auto;
+  }
+
+    .section-package {
+      border-radius: 25px;
+      color: white;
+      width: 100%;
+    }
+
+      .task-lable {
+        display: block;
+        font-weight: 600;
+        background-color: rgb(102, 172, 175);
+        border-radius: inherit;
+        padding: 10px;
+      }
+
+      .table-inputs {
+        display: block;
+        height: 30px;
+        width: 100%;
+        font-size: 1em;
+        margin-top: 5px;
+        margin-bottom: 25px;
+        border: none;
+        padding: 0%;
+        border-radius: inherit;
+      }
+
+      .table-inputs:hover {
+        border-color: rgb(102, 172, 175);
+        border-style: solid;
+        border-width: 3px;
+      }
+
+      .btnAddTask {
+        display: block;
+        margin: auto;
+        font-weight: 600;
+        font-size: inherit;
+        color: white;
+        border: none;
+        border-radius: 25px;
+        background-color: rgb(102, 172, 175);
+        padding: 10px;
+      }
+      
+      .btnAddTask:hover {
+        border-style: solid;
+        border-width: 2px;
+      }
+
+  .table-container {
+    margin: auto;
+    width: 280px;
     border: 3px solid black;
   }
 
@@ -26,3 +96,26 @@ body {
     text-align: center;
     border: 1px solid black;
   }
+
+@media screen and (min-width: 500px) {
+  .information {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+
+  .section-wrapper {
+    flex-direction: row;
+    gap: 20px;
+    max-width: 1200px;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .information {
+    font-size: 1.5em;
+  }
+
+  .task-lable, .table-inputs, .btnAddTask {
+    font-size: 1.2em;
+  }
+}

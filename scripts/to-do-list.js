@@ -1,28 +1,9 @@
 class Task {
-  constructor(name, id) {
+  constructor(name, id, date) {
     this.name = name
     this.id = id
+    this.date = date
     this.status = 'A fazer'
-  }
-
-  getName() {
-    return this.name
-  }
-
-  getID() {
-    return this.id
-  }
-
-  getStatus() {
-    return this.status
-  }
-
-  setStatus(newStatus) {
-    this.status = newStatus
-  }
-
-  setID(newID) {
-    this.id = newID
   }
 }
 
@@ -38,6 +19,7 @@ if (taskList != null) {
       <tr class='table-content'>
         <td class='name' id='${task.id}'>${task.name}</td>
         <td class='status' id='to-do'>${task.status}</td>
+        <td class='date'>${task.date}</td>
         <td class='deletion'><button id='deleteTask'>Delete</button></td>
       </tr>`
   })
@@ -55,12 +37,13 @@ if (taskList != null) {
 
 btnAddTask.addEventListener('click', () => {
   let task = document.querySelector('#task')
-  addTask(task)
+  let date = document.querySelector('#date')
+  addTask(task, date)
 })
 
-function addTask(task) {
+function addTask(task, date) {
   let taskID = taskList.length
-  let newTask = new Task(task.value, taskID)
+  let newTask = new Task(task.value, taskID, date.value)
   let tableBody = document.querySelector('.table-body')
   let tableRow = createTaskRow(newTask)
 
@@ -83,19 +66,24 @@ function createTaskRow(task) {
 
   let tableDataText = document.createElement('td')
   tableDataText.className = 'name'
-  tableDataText.id = task.getID()
-  let taskText = document.createTextNode(task.getName())
+  tableDataText.id = task.id
+  let taskText = document.createTextNode(task.name)
   tableDataText.appendChild(taskText)
 
   let tableDataStatus = document.createElement('td')
   tableDataStatus.className = 'status'
-  let taskStatus = document.createTextNode(task.getStatus())
+  let taskStatus = document.createTextNode(task.status)
   tableDataStatus.appendChild(taskStatus)
-  if (task.getStatus() === 'A fazer') { // explicar no read-me que pega a referência da task e ñ cria direto pra evitar problemas
+  if (task.status === 'A fazer') { // explicar no read-me que pega a referência da task e ñ cria direto pra evitar problemas
     tableDataStatus.id = 'to-do'
-  } else if (task.getStatus() === 'Feito') {
+  } else if (task.status === 'Feito') {
     tableDataStatus.id = 'done'
   }
+
+  let tableDate = document.createElement('td')
+  tableDate.className = 'date'
+  let taskDate = document.createTextNode(task.date)
+  tableDate.appendChild(taskDate)
 
   let tableDataDelete = document.createElement('td')
   tableDataDelete.className = 'deletion'
@@ -107,6 +95,7 @@ function createTaskRow(task) {
 
   tableRow.appendChild(tableDataText)
   tableRow.appendChild(tableDataStatus)
+  tableRow.appendChild(tableDate)
   tableRow.appendChild(tableDataDelete)
   
   addEvListeners(tableDataText, tableDataStatus, deleteButton, tableRow)
@@ -150,7 +139,7 @@ function deleteTask(task) {
   removedTaskId = removedTask.id
 
   for (let i = removedTaskId; i < taskList.length; i++) {
-    taskList[i].setID(i)
+    taskList[i].id = i
   }
   rowsList.forEach((row) => {
     rowName = row.querySelector('.name')
@@ -169,6 +158,3 @@ function deleteTask(task) {
       </tr>`
   }
 }
-
-// git clone link
-// git cd ./to-do-list-challenge/

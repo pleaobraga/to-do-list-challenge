@@ -4,23 +4,30 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles/reset.css">
   <link rel="stylesheet" href="styles/to-do-list.css">
   <title>To-do List</title>
 </head>
 <body>
   <h1 class="page-title">To-do List</h1>
-  <div class="add-section">
-    <label for="task">Insira o nome da tarefa a ser adicionada:</label>
-    <input type="text" id="task">
-    <button id="addTask">Adicionar Tarefa</button>
+  <label class="information">Insira as informações da tarefa a ser adicionada:</label>
+  <div class="section-wrapper">
+    <div class="section-package">
+      <label class="task-lable" for="task">Insira a descrição da tarefa:</label>
+      <input class="table-inputs" type="text" id="task">
+    </div>
+    <div class="section-package">
+      <label class="task-lable" for="date">Data limite de término (se houver):</label>
+      <input class="table-inputs" type="date" id="date">
+    </div>
   </div>
+  <button class="btnAddTask" id="addTask">Adicionar Tarefa</button>
 
-  <table>
+  <table class="table-container">
     <thead class="table-head">
       <tr>
         <th>Tarefa</th>
         <th>Status</th>
+        <th>Prazo</th>
         <th></th>
       </tr>
     </thead>
