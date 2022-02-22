@@ -102,7 +102,8 @@ export class Todo {
     const newIcon = document.querySelector(".to-do__new-icon");
     const controller = document.querySelector(".to-do__controller");
 
-    // Funcao responsavel por mudar o tema de light para dark e vice e versa
+    //Adiciona ao evento de click do botao de lua/Sol a funcao de mudar de tema. Adiciona ou remove de cada elemento HTML que deve mudar de estilo a classe dark-theme atraves da funcao toggle
+    toggleTheme.addEventListener("click", () => {
       this.setDarkTheme = !this.getDarkTheme;
       if (this.getDarkTheme === true) {
         toggleTheme.srcset = "./Assets/Images/icon-sun.svg";
