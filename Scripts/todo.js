@@ -364,11 +364,15 @@ export class Todo {
     draggableTask.addEventListener("dragend", () => {
       draggableTask.classList.remove("to-do__item--dragging");
     });
+    //Quando o mouse esta em cima, a funcao altera o display do elemento de delete do html para block, tornando-o visivel para o usuario
+    //Essa funcao nao deve ocorrer no mobile e no tablet, dado que o usuario n tem como ficar com o mouse em cima, por isso coloquei uma restricao de width
     draggableTask.addEventListener("mouseover", () => {
-      deleteElementList.style.display = "block";
+      if (window.innerWidth >= 1024) deleteElementList.style.display = "block";
     });
+    //Quando o mouse sai de cima do elemento, a funcao altera o display do elemento de delete do html para none, tornando-o invisivel para o usuario
+    //Essa funcao nao deve ocorrer no mobile e no tablet, dado que o usuario n tem como ficar com o mouse em cima, por isso coloquei uma restricao de width
     draggableTask.addEventListener("mouseleave", () => {
-      deleteElementList.style.display = "none";
+      if (window.innerWidth >= 1024) deleteElementList.style.display = "none";
     });
   }
 
