@@ -10,7 +10,7 @@ const listBtnFilter = document.querySelectorAll(".list-btn");
 const btnFilterAll = document.querySelector("#filter-btn-all");
 const btnFilterDone = document.querySelector("#filter-btn-done");
 const btnFilterTodo = document.querySelector("#filter-btn-todo");
-const removeBtn = `
+const removeBtnHtml = `
 <button type="submit" class="remove-btn">
 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
   <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
@@ -19,6 +19,7 @@ const removeBtn = `
 </button>
 `;
 
+// Get day and insert on screen
 function insertDay() {
   const day = new Date();
   const dayOptions = {
@@ -36,18 +37,101 @@ function insertDay() {
   dayOutput.insertAdjacentText("afterbegin", dayString);
 }
 insertDay();
+
+// Get localStorage data
+function loadStorage() {
+  // search data in localStorage
+  allTasks = JSON.parse(localStorage.getItem("allTasks"));
+
+  // check if data is null
+  if (allTasks !== null) {
+    allTasks.map((item) => {
+      if (item.taskText) {
+        item.taskDone
+          ? listTasks.insertAdjacentElement("beforeend", insertLi(item))
+          : listTasks.insertAdjacentElement("afterbegin", insertLi(item));
+      } else {
+        allTasks.shift();
+      }
+    });
+
+    localStorage.setItem("allTasks", JSON.stringify(allTasks));
+    listenRemoveBtn();
+  } else {
+    allTasks = [{}];
+  }
+}
 loadStorage();
 
-// Listen Btn addTask
-createTaskBtn.addEventListener("click", addTask);
+// **** Event listeners ****
+// Listen Btn createTask
+createTaskBtn.addEventListener("click", createTask);
+
+// Listen Btn removeTask
+function listenRemoveBtn() {
+  removeTaskBtn = document.querySelectorAll(".remove-btn");
+  removeTaskBtn.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      const clicked = e.path;
+      const liClicked = clicked.find((item) => item.localName === "li");
+      const taskToRemove = liClicked.firstChild.innerText;
+
+      // remove from screen
+      listTasks.removeChild(liClicked);
+
+      // remove from LocalStorage
+      allTasks = JSON.parse(localStorage.getItem("allTasks"));
+      const index = allTasks.findIndex(
+        (task) => task.taskText === taskToRemove
+      );
+      allTasks.splice(index, 1);
+      localStorage.setItem("allTasks", JSON.stringify(allTasks));
+      listenRemoveBtn();
+    });
+  });
+}
 
 // Listen input key Enter
 createTaskText.addEventListener("keydown", (e) =>
-  e.keyCode === 13 ? addTask(e) : null
+  e.keyCode === 13 ? createTask(e) : null
 );
 
-// Listen task click
-function listenLi(item) {
+// Change theme
+inputTheme.addEventListener("click", (e) => changeTheme(e));
+const changeTheme = (e) => {
+  bodyPage.classList.toggle("dark-theme");
+  inputTheme.classList.toggle("theme-btn-dark");
+};
+
+// Filter Todo tasks
+btnFilterTodo.addEventListener("click", (e) => {
+  const listLi = listTasks.querySelectorAll("li");
+  listLi.forEach((item) => {
+    item.firstChild.classList.contains("done")
+      ? item.classList.add("filter-done")
+      : item.classList.remove("filter-done");
+  });
+});
+
+// Filter Done tasks
+btnFilterDone.addEventListener("click", (e) => {
+  const listLi = listTasks.querySelectorAll("li");
+  listLi.forEach((item) => {
+    item.firstChild.classList.contains("done")
+      ? item.classList.remove("filter-done")
+      : item.classList.add("filter-done");
+  });
+});
+
+// Show All tasks
+btnFilterAll.addEventListener("click", (e) => {
+  const listLi = listTasks.querySelectorAll("li");
+  listLi.forEach((li) => li.classList.remove("filter-done"));
+});
+
+// Manage task list
+function manageList(item) {
   item.addEventListener("click", (e) => {
     item.classList.toggle("done");
 
@@ -68,6 +152,7 @@ function listenLi(item) {
     allTasks.splice(index, 1);
     localStorage.setItem("allTasks", JSON.stringify(allTasks));
 
+    // change the list order
     const liClicked = e.target.parentElement;
     const ulChanged = liClicked.parentElement;
     ulChanged.removeChild(liClicked);
@@ -79,26 +164,7 @@ function listenLi(item) {
   });
 }
 
-// Listen remove Btn
-function listenRemoveBtn(btns) {
-  if (btns === null) {
-    removeTaskBtn = document.querySelectorAll(".remove-btn");
-  }
-
-  removeTaskBtn.forEach((btn) => {
-    btn.addEventListener("click", (e) => {
-      const clicked = e.path;
-      const liClicked = clicked.find((item) => item.localName === "li");
-      console.dir(liClicked);
-      console.log("Removing", liClicked.firstChild.innerText);
-      // listTasks.remove(liClicked);
-      // remover LI
-      // remover do LocalStorage
-    });
-  });
-}
-
-// creat <li>
+// Creat list item with task
 function insertLi(task) {
   const newLi = document.createElement("li");
   newLi.classList.add("task");
@@ -112,14 +178,14 @@ function insertLi(task) {
   }
 
   newLi.insertAdjacentElement("afterbegin", newText);
-  newLi.insertAdjacentHTML("beforeend", removeBtn);
+  newLi.insertAdjacentHTML("beforeend", removeBtnHtml);
 
-  listenLi(newText);
+  manageList(newText);
   return newLi;
 }
 
-// creat task
-function addTask(e) {
+// Creat task
+function createTask(e) {
   if (createTaskText.value !== "") {
     // insert task in localStorage
     allTasks.push({
@@ -137,62 +203,9 @@ function addTask(e) {
         })
       );
 
-      listenRemoveBtn(removeTaskBtn);
+      listenRemoveBtn();
       // clean input
       createTaskText.value = "";
     }, 2000);
   }
 }
-
-// get localStorage onload
-function loadStorage() {
-  // search data in localStorage
-  allTasks = JSON.parse(localStorage.getItem("allTasks"));
-
-  //   // check if data is null
-  if (allTasks !== null) {
-    allTasks.map((item) => {
-      if (item.taskText) {
-        item.taskDone
-          ? listTasks.insertAdjacentElement("beforeend", insertLi(item))
-          : listTasks.insertAdjacentElement("afterbegin", insertLi(item));
-      } else {
-        allTasks.shift();
-      }
-    });
-
-    localStorage.setItem("allTasks", JSON.stringify(allTasks));
-    listenRemoveBtn(removeTaskBtn);
-  } else {
-    allTasks = [{}];
-  }
-}
-
-// Theme change
-inputTheme.addEventListener("click", (e) => changeTheme(e));
-const changeTheme = (e) => {
-  bodyPage.classList.toggle("dark-theme");
-  inputTheme.classList.toggle("theme-btn-dark");
-};
-
-// Filter buttons
-btnFilterTodo.addEventListener("click", (e) => {
-  const listLi = listTasks.querySelectorAll("li");
-  listLi.forEach((item) => {
-    item.firstChild.classList.contains("done")
-      ? item.classList.add("filter-done")
-      : item.classList.remove("filter-done");
-  });
-});
-btnFilterDone.addEventListener("click", (e) => {
-  const listLi = listTasks.querySelectorAll("li");
-  listLi.forEach((item) => {
-    item.firstChild.classList.contains("done")
-      ? item.classList.remove("filter-done")
-      : item.classList.add("filter-done");
-  });
-});
-btnFilterAll.addEventListener("click", (e) => {
-  const listLi = listTasks.querySelectorAll("li");
-  listLi.forEach((li) => li.classList.remove("filter-done"));
-});

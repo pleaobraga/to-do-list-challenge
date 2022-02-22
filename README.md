@@ -8,7 +8,7 @@ Autor: José Otavio Pires de Carvalho
 <a href="https://www.linkedin.com/in/jose-otavio-pires-de-carvalho/" target="_blank">![  ](https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white)</a>
 <a href="mailto:carvalho.jose@gmail.com" target="_blank">![  ](https://img.shields.io/badge/Gmail-D14836?style=flat&logo=gmail&logoColor=white)</a><br>
 
-## Índice
+<h2 id="topo">Índice</h2>
 
 - [Descrição](#descricao)
 - [Tecnologias utilizadas](#tecnologias)
@@ -16,6 +16,7 @@ Autor: José Otavio Pires de Carvalho
 - [Demonstração](#demonstracao)
 - [Lógica Utilizada](#logica)
 - [Conclusão](#conclusao)
+- [Sugestões](#sugestoes)
 
 <br>
 
@@ -30,7 +31,9 @@ Um simples gerenciador de tarefas (to-do list).
 
 <br>
 
-<h2 id="funcionalidades">Funcionalidades</h2>
+<h2 id="funcionalidades">Funcionalidades <a href="#topo"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-square-fill" viewBox="0 0 16 16">
+  <path d="M2 16a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2zm6.5-4.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 1 0z"/>
+</svg></a></h2>
 
 >
 - As tarefas podem ser criadas clicando no botão <code>Criar</code> ou ao apertar <code>Enter</code> após se digitar o nome da tarefa.
@@ -40,29 +43,38 @@ Um simples gerenciador de tarefas (to-do list).
 - Ao voltar para o site, as tarefas são carregadas automaticamente.
 - Pode-se filtrar as tarefas *feitas* e *não feitas*.
 - Pode-se mudar para o tema escuro.
-- Responsivo.
+- Site Responsivo.
 
 <br>
 
-<h2 id="demonstracao">Demonstração</h2>
+<h2 id="demonstracao">Demonstração <a href="#topo"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-square-fill" viewBox="0 0 16 16">
+  <path d="M2 16a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2zm6.5-4.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 1 0z"/>
+</svg></a></h2>
+
+<br>
+<img src="demo.gif" width="100%" height="100%" alt=""Demonstração></img>
 
 Aplicativo funcional está disponível no link: <a href="https://to-do-list-challenge-joseotaviopc.vercel.app/" target="_blank">To-do List</a>
 
 <br>
 
-<h2 id"logica">Lógica utilizada para a resolução</h2>
+<h2 id="logica">Lógica utilizada para a resolução <a href="#topo"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-square-fill" viewBox="0 0 16 16">
+  <path d="M2 16a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2zm6.5-4.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 1 0z"/>
+</svg></a></h2>
 
 Foi utilizada o <code>localStorage</code> para guardar os dados localmente e serem recuperados na próxima visita a página.
 
-O código javascript foi dividido em funções específicas, como adicionar tarefa, ler dados do <code>localStorage</code>, etc.
+O código javascript foi dividido em funções específicas, como criar tarefa, gerenciar lista de tarefas, ler dados do <code>localStorage</code>, etc.
 
 <br>
 
-<h2 id="conclusao">Conclusão</h2>
+<h2 id="conclusao">Conclusão <a href="#topo"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-square-fill" viewBox="0 0 16 16">
+  <path d="M2 16a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2zm6.5-4.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 1 0z"/>
+</svg></a></h2>
 
 Foram concluidos todos os requisitos obrigatórios do desafio, e muitos outros opcionais.
 
-Além disso foram deixadas algumas [sugestões](#sugestões-adicionais) para novas implementações.
+Além disso foram deixadas algumas [sugestões](#sugestoes) para novas implementações.
 
 <br>
 
@@ -82,22 +94,26 @@ Além disso foram deixadas algumas [sugestões](#sugestões-adicionais) para nov
 
 ### *Requisitos Opcionais (Plus)*
 >
-- [x] Implementar uma boa interface gráfica para a solução
-- [x] Tarefas inseridas com o teclado (Enter)
-- [x] Validação se a tarefa possui algum caractere
-- [x] Tarefas concluídas ficam no final da lista
-- [x] Ler dia da semana e mostrar na tela
-- [x] Publicar a aplicação em algum ambiente
-- [x] Site responsivo
-- [x] Tema escuro
+- [x] Implementar uma boa interface gráfica para a solução.
+- [x] Tarefas inseridas com o teclado (Enter).
+- [x] Validação para impedir criação de tarefa vazia.
+- [x] Tarefas concluídas ficam no final da lista.
+- [x] Ler dia da semana e mostrar na tela.
+- [x] Publicar a aplicação em algum ambiente.
+- [x] Site responsivo.
+- [x] Tema escuro.
+- [x] Em cada elemento da lista apresentar um botão de deletar e caso o usuário aperte esse botão o item some da lista.
 
 <br>
 
-### *Sugestões adicionais*
+<h3 id="sugestoes"><em>Sugestões adicionais </em><a href="#topo"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-square-fill" viewBox="0 0 16 16">
+  <path d="M2 16a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2zm6.5-4.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 1 0z"/>
+</svg></a></h3>
+
 >
-- [ ] *Em cada elemento da lista apresentar um botão de deletar e caso o usuário aperte esse botão o item some da lista* - **Em andamento**
 - [ ] *Implementar uma solução otimizada*
 - [ ] *Editar as tarefas listadas*
+- [ ] *Guardar o último tema usado*
 - [ ] *Colocar data inicial e prazo nas tarefas*
 - [ ] *Mostrar tarefas atrasadas/próximas do prazo*
 
