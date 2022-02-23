@@ -14,15 +14,19 @@
 
 <body>
     <section class="works" name="works">
-        <h2>Lista de Tarefas</h2>
+        <h2>To-Do List</h2>
 
         <form class="form">
-            <label for="task">Tarefas</label>
-            <input type="text" name="task" id="task"/>
+            <label for="task">Tarefas:</label>
+            <input type="text" name="task" id="task" placeholder="Insira uma nova tarefa"/>
             <button type="button" id="add">Adicionar</button>
         </form>
 
+        <h3>Para fazer</h3>
         <ul class="myWorks"></ul>
+
+        <h3>Feitas</h3>
+        <ul class="myWorksCompleted"></ul>
     </section>
 </body>
 <script src="index.js"></script>

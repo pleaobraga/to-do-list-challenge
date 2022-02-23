@@ -1,6 +1,7 @@
 const add = document.querySelector("#add");
-const list = document.querySelector("ul");
+const list = document.querySelector(".myWorks");
 const inputAdd = document.querySelector(".form");
+const listCompleted = document.querySelector(".myWorksCompleted");
 
 add.addEventListener("click", () => {
   setTimeout(addTask, 2000);
@@ -14,28 +15,30 @@ inputAdd.addEventListener("submit", (event) => {
 function getTasks() {
   const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 
-  tasks.forEach((element) => {
+  tasks.forEach((task) => {
     let li = document.createElement("li");
     let span = document.createElement("span");
 
-    let inputText = document.createTextNode(element.element);
+    let inputText = document.createTextNode(task.element);
 
     span.appendChild(inputText);
     li.appendChild(span);
 
-    list.appendChild(li);
-
     closeButton(li);
 
-    if(element.isChecked) {
-      li.classList.add("checked")
+    if (task.isChecked) {
+      li.classList.add("checked");
+      span.classList.add("checked");
+      listCompleted.appendChild(li);
+    } else {
+      list.appendChild(li);
     }
-    
-    li.setAttribute("id", element.id);
+
+    li.setAttribute("id", task.id);
   });
 }
 
-getTasks()
+getTasks();
 
 function addTask() {
   const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
@@ -67,6 +70,8 @@ function addTask() {
   closeButton(li);
 
   saveLocal(input.value);
+
+  inputAdd.reset();
 }
 
 function saveLocal(value) {
@@ -99,7 +104,11 @@ function closeButton(li) {
   button.addEventListener("click", (event) => {
     const id = event.target.parentElement.getAttribute("id");
 
-    removeTask(Number(id));
+    if (event.target.parentElement.classList.contains("checked")) {
+      removeTaskCompleted(Number(id));
+    } else {
+      removeTask(Number(id));
+    }
   });
 }
 
@@ -112,31 +121,113 @@ function removeTask(id) {
 
   localStorage.setItem("tasks", JSON.stringify(taskFiltered));
 
-  const getId = document.getElementById(id)
+  const getId = document.getElementById(id);
 
-  list.removeChild(getId)
+  list.removeChild(getId);
+}
+
+function removeTaskCompleted(id) {
+  const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+
+  const taskFiltered = tasks.filter((task) => {
+    return task.id !== id;
+  });
+
+  localStorage.setItem("tasks", JSON.stringify(taskFiltered));
+
+  const getId = document.getElementById(id);
+
+  listCompleted.removeChild(getId);
 }
 
 list.addEventListener("click", (event) => {
-  setIsChecked(event)
+  setIsChecked(event);
+});
+
+listCompleted.addEventListener("click", (event) => {
+  setIsNotChecked(event);
 });
 
 function setIsChecked(event) {
   const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
-  const id = event.target.getAttribute("id")
+  const id = event.target.getAttribute("id");
 
-  for(let task of tasks) {
+  for (let task of tasks) {
     if (task.id == id) {
-      task.isChecked = !task.isChecked
-    } 
+      task.isChecked = true;
+    }
   }
+
+  localStorage.setItem("tasks", JSON.stringify(tasks));
 
   if (event.target.tagName === "LI") {
-    event.target.classList.toggle("checked");
+    taskCompleted(event);
   }
-  if (event.target.tagName === "SPAN") {
-    event.target.parentElement.classList.toggle("checked");
+}
+
+function setIsNotChecked(event) {
+  const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+  const id = event.target.getAttribute("id");
+
+  for (let task of tasks) {
+    if (task.id == id) {
+      task.isChecked = false;
+    }
   }
-  
-  localStorage.setItem("tasks", JSON.stringify(tasks))
+
+  localStorage.setItem("tasks", JSON.stringify(tasks));
+
+  if (event.target.tagName === "LI") {
+    taskIncompleted(event);
+  }
+}
+
+function taskCompleted(event) {
+  const id = event.target.getAttribute("id");
+
+  let li = document.createElement("li");
+  let span = document.createElement("span");
+
+  let inputText = document.createTextNode(event.target.firstChild.textContent);
+
+  span.appendChild(inputText);
+  li.appendChild(span);
+
+  li.setAttribute("id", id);
+
+  const getId = document.getElementById(id);
+
+  list.removeChild(getId);
+
+  listCompleted.appendChild(li);
+
+  closeButton(li);
+
+  li.classList.add("checked");
+  span.classList.add("checked");
+}
+
+function taskIncompleted(event) {
+  const id = event.target.getAttribute("id");
+
+  let li = document.createElement("li");
+  let span = document.createElement("span");
+
+  let inputText = document.createTextNode(event.target.firstChild.textContent);
+
+  span.appendChild(inputText);
+  li.appendChild(span);
+
+  li.setAttribute("id", id);
+
+  const getId = document.getElementById(id);
+
+  listCompleted.removeChild(getId);
+
+  list.appendChild(li);
+
+  closeButton(li);
+
+  li.classList.remove("checked");
+  span.classList.remove("checked");
 }
