@@ -1,38 +1,76 @@
-# to-do-list-challenge
+# To-Do
 
-## Proposta de Teste
+Este projeto foi desenvolvido por Guilherme De Araújo Gonçalves para o teste final do módulo de Front-End Dinâmico | JS Vanilla do Degree de Web Full Stack turma 816 da Let´s Code.
 
-Criar uma to-do list que consiste em adicionar elementos a uma lista e poder marca-los como feito ou não
+O projeto está hospedado no GitHub pages pelo link [To-Do](https://guilhermeagoncalves.github.io/To-Do/)
 
-## Requisitos Obrigatórios
+## Tecnologias usadas
 
-- Utilizar JS, HTML e CSS puro, ou seja sem qualquer tipo de biblioteca ou framework
-- A solução deve apresentar um campo para inserir o nome da tarefa a ser feita e um botao para adicionar a tarefa a lista
-- A solução deve apresentar uma lista para listar os items da lista de items a se fazer
-- Cada elemento da lista deverá apresentar 2 estados diferentes, um pra item a se fazer e um para item feito
-- Ao clicar no item da lista o mesmo deve mudar se estado, feito -> a fazer ou a fazer -> feito
-- Deve ser possível armazenar quantos items o usuario quiser a lista
-- A lista deve ser armazenada de uma forma que se o usuario entrar novamente na pagina ele poderá ver todos os itens ja cadastrados e seus respectivos estados
-- Criar uma boa documentação para a solução (README).
+- HTML
+- CSS
+- Java Script Puro
 
+## Tarefa
 
-## Requisitos Opcionais (Plus)
+Criar um projeto de uma aplicação web responsiva com funcionalidades como incerção/exclusão e mudança de estados(concluido e não concluido).
 
-- Implementar uma solução otimizada
-- Em cada elemento da lista apresentar um botao de deletar e caso o usuario aperte esse botao o item some da lista
-- Implementar uma boa interface gráfica para a solução
-- caso o aluno queira implementar mais alguma funcionalidade fique a vontade, mas deixe explica no README
+# Manual 
 
+## Adicionar
 
-## Entrega
+1. Para adicionar basta escrever a tarefa que deseja no campo "Digite sua tarefa aqui:"
 
-A entrega deverá ser feita ate o dia 28/02/2022
+2. Clique no botão de "Adicionar" e após 2 segundos a tarefa será adicionada
 
-Para a entrega o aluno deverá colocar o nome completo no README do arquivo e criar um pull request(PR) para esse repositório.
+## Marcar como concluida
 
+1. Para marcar como concluida clique no item que deseja e então o item vai ficar com uma linha sobre ele.
 
-## Observações
+## Deletar
 
-- Não será aceito trabalhos após essa data
-- Se o sistema não rodar o aluno ficará com a nota 0
-- Não será permitido copias e se isso for detectado os alunos envolvidos ficarão com a nota 0
+Para deletar há duas formas:
+
+1. Para deletar apenas o item que você deseja clique na imagem de lixeira que está no elemento.
+
+2. Para deletar tudo clique no botão "Deletar" e ele vai deletar toda a lista de tarefas.
+
+# Resolução do Problema
+
+1. Primeiro pego todos os elementos do `HTML` que serão usados.
+
+2. Crio as variaveis "myStorage" que vai ser o array de objetos para armazenar as tarefas no `local storage` e o "state" que vai iniciar o estado das tarefas como `not_done`(não feita).
+
+## Criar `<li>`
+
+Para criar o elemento `<li>` no `HTML` fiz uma função `createLi`, que recebe 3 argumentos (value, state, id), nessa função primeiro, ela vai criar a imagem, que depois vai ser usada para deletar o elemento `<li>`, em seguida ela cria o `<li>` em sim com o argumento id sendo o `id` do elemento no `HTML`, o state vai ser adicionado na `class` e o value vai ser o texto(tarefa a ser realizada) e depois a `<li>` é adicionada na `<ul>` com um `apendChild`.
+
+## Adicionar
+
+Para adicionar o elemento na tela fiz um `Event` no botão de "Adicionar" onde primeiro ele verifica se está vazio o campo de tarefa onde se estiver, emite um `alert` na página informando que o campo não pode ser vazio. Se não estiver vazio após 2000ms ele cria um "elementId" que vai criar um número baseado no tamanho do array "myStorage" depois ele vai adicionar em forma de objeto o que está escrito no campo tarefa, o estado que se encontra, que por padrão é `not_done`(a fazer) e o id criado por "elementId" no array "myStorage", em seguida ele vai adicionar no `local storage` esse array com a chave `TODO` depois de tudo ele vai atualizar a `<ul>` com esses mesmo valores em seguida ele vai limpar o campo "tarefa" para o usuario adicionar um novo valor.
+
+## Ultilizando o local storage para reutilizar os dados
+
+Para reutilizar os dados ja existentes no local storage salvo como array de objetos no "myStorage" fiz um forEach onde a ultilizo a função createLi para adicionar na `<ul>` os elementos do local storage toda vez que a pagina é carregada.
+
+## Atualizar elementos
+
+Criei um `event` de clique na `<ul>` onde primeiro vai ter uma função elementIndex para procurar o elemento pelo id no array "myStorage" e assim possibilitar a troca de estado no "myStorage" em seguida a cada clique acontece no elemento `<li>` ele muda de estado alterando a `class` dele no `HTML` entre `not_done e done`(não feito e feito) e alterando também o estado do objeto que se encontra no "myStorage".
+## Deletando elemento
+
+Para deletar apenas o elemento especifico eu fiz um `for` percorrendo todos os elementos da `<ul>` onde se o filho da `<ul>` for igual ao `<li>` que se quer deletar, deleto ele do "myStorage" usando splice e zero o `<li>`
+
+## Salvando Alterações
+
+Toda vez que um elemento é apagado ou é mudado de estado ele também é atualizado no `local storage`
+
+## Deletando Tudo
+
+Para deletar tudo criei um evento no botão deletar onde ele verifica se o usuario quer deletar toda a lista se sim ele limpa o `local storage` com um `clear()` e limpa o `<ul>` e emite um alert sinalizando que tudo foi deletado se não ele não altera nada e emite um alert dizendo que não foi apagado nada.
+
+## Screenshot
+
+![screenshot_1](assets/img/screenshot/screenshot_1.jpg)
+
+![screenshot_2](assets/img/screenshot/screenshot_2.jpg)
+
+![screenshot_mobile](assets/img/screenshot/screenshot_mobile.jpg)
