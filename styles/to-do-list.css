@@ -11,10 +11,9 @@ body {
 }
 
   .page-title {
-    font-size: 2em;
+    margin: inherit;
+    font-size: 1.8em;
     font-weight: 700;
-    max-width: inherit;
-    margin: auto;
     padding: 20px;
     color: white;
     background-color: rgb(102, 172, 175);
@@ -23,7 +22,7 @@ body {
 
   .information {
     display: block;
-    font-size: 1.2em;
+    font-size: 1.1em;
     font-weight: 700;
     color: white;
     padding-top: 40px;
@@ -88,34 +87,99 @@ body {
 
   .table-container {
     margin: auto;
-    width: 280px;
-    border: 3px solid black;
+    margin-top: 25px;
+    max-width: 1200px;
+    border: none;
+    color:white;
   }
 
-  td {
-    text-align: center;
-    border: 1px solid black;
+    .th-task, .th-status, .th-deadline, .th-delete, .td-initial, .td-name, .td-status, .td-date, .td-deletion {
+      font-size: 1.1em;
+      text-align: center;
+      width: 100%;
+      border-bottom: 2px solid rgb(102, 172, 175);
+      padding: 0%;
+    }
+
+    #to-do {
+      font-weight: 700;
+      background-color: rgb(23, 131, 125);
+    }
+    #to-do:hover {
+      background-color: rgb(26, 144, 138);
+    }
+    #done {
+      background-color: rgb(76, 139, 76);
+    }
+    #done:hover {
+      background-color: rgb(85, 151, 85);
+    }
+
+    .td-status {
+      min-width: 60px;      
+    }
+    .td-date {
+      min-width: 100px;
+    }
+
+    .td-name:hover {
+      background-color: rgb(63, 111, 114);
+    }
+
+  #deleteTask {
+    font-size: 0.9em;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    background-color: rgb(102, 172, 175);
   }
+  #deleteTask:hover {
+    background-color: rgb(133, 2, 2);
+    border: 1px solid white;
+  }
+
+  @media screen and (min-width: 300px) {
+    .th-status {
+      min-width: 80px;
+    }
+    .th-date {
+      min-width: 120px;
+  }
+}
 
 @media screen and (min-width: 500px) {
-  .information {
-    padding-top: 50px;
-    padding-bottom: 50px;
-  }
-
   .section-wrapper {
     flex-direction: row;
     gap: 20px;
-    max-width: 1200px;
+  }
+  .td-status {
+    min-width: 80px;
+  }
+  .th-status {
+    min-width: 100px;
+  }
+  .td-date {
+    min-width: 120px;
+  }
+  .th-date {
+    min-width: 150px;
+  }
+  #deleteTask {
+    min-width: 60px;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .td-status {
+    min-width: 100px;
+  }
+  .td-date {
+    min-width: 150px;
   }
 }
 
 @media screen and (min-width: 900px) {
-  .information {
-    font-size: 1.5em;
-  }
-
-  .task-lable, .table-inputs, .btnAddTask {
-    font-size: 1.2em;
+  .td-deletion, .th-deadline {
+    min-width: 80px;
   }
 }

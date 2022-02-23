@@ -3,7 +3,8 @@ class Task {
     this.name = name
     this.id = id
     this.date = date
-    this.status = 'A fazer'
+    this.statusText = 'A fazer'
+    this.statusID = 'to-do'
   }
 }
 
@@ -14,20 +15,20 @@ let taskList = localStorage.getItem('tasks')
 if (taskList != null) {
   taskList = JSON.parse(taskList)
   tableContent = ''
-  taskList.forEach((task) => {
+  taskList.forEach((task) => { // Explicar o motivo do uso do innerHTML no READ-ME
     tableContent += `
-      <tr class='table-content'>
-        <td class='name' id='${task.id}'>${task.name}</td>
-        <td class='status' id='to-do'>${task.status}</td>
-        <td class='date'>${task.date}</td>
-        <td class='deletion'><button id='deleteTask'>Delete</button></td>
-      </tr>`
+    <tr class='table-content'>
+    <td class='td-name' id='${task.id}'>${task.name}</td>
+    <td class='td-status' id='${task.statusID}'>${task.statusText}</td>
+    <td class='td-date'>${task.date}</td>
+    <td class='td-deletion'><button id='deleteTask'>Deletar</button></td>
+    </tr>`
   })
   tableBody = document.querySelector('.table-body')
-  tableBody.innerHTML = tableContent // Explicar o motivo do uso do innerHTML no READ-ME
+  tableBody.innerHTML = tableContent
   tableBody.querySelectorAll('tr').forEach((tableRow) => {
-    addEvListeners(tableRow.querySelector('.name'),
-                   tableRow.querySelector('.status'),
+    addEvListeners(tableRow.querySelector('.td-name'),
+                   tableRow.querySelector('.td-status'),
                    tableRow.querySelector('#deleteTask'),
                    tableRow)
   })
@@ -65,28 +66,28 @@ function createTaskRow(task) {
   tableRow.className = 'table-content'
 
   let tableDataText = document.createElement('td')
-  tableDataText.className = 'name'
+  tableDataText.className = 'td-name'
   tableDataText.id = task.id
   let taskText = document.createTextNode(task.name)
   tableDataText.appendChild(taskText)
 
   let tableDataStatus = document.createElement('td')
-  tableDataStatus.className = 'status'
-  let taskStatus = document.createTextNode(task.status)
+  tableDataStatus.className = 'td-status'
+  let taskStatus = document.createTextNode(task.statusText)
   tableDataStatus.appendChild(taskStatus)
-  if (task.status === 'A fazer') { // explicar no read-me que pega a referência da task e ñ cria direto pra evitar problemas
+  if (task.statusText == 'A fazer') { // explicar no read-me que pega a referência da task e ñ cria direto pra evitar problemas
     tableDataStatus.id = 'to-do'
-  } else if (task.status === 'Feito') {
+  } else if (task.statusText == 'Feito') {
     tableDataStatus.id = 'done'
   }
 
   let tableDate = document.createElement('td')
-  tableDate.className = 'date'
+  tableDate.className = 'td-date'
   let taskDate = document.createTextNode(task.date)
   tableDate.appendChild(taskDate)
 
   let tableDataDelete = document.createElement('td')
-  tableDataDelete.className = 'deletion'
+  tableDataDelete.className = 'td-deletion'
   let deleteButton = document.createElement('button')
   deleteButton.id = 'deleteTask'
   let deleteText = document.createTextNode('Deletar')
@@ -99,7 +100,6 @@ function createTaskRow(task) {
   tableRow.appendChild(tableDataDelete)
   
   addEvListeners(tableDataText, tableDataStatus, deleteButton, tableRow)
-
   return tableRow
 }
 
@@ -117,15 +117,18 @@ function addEvListeners(taskDescription, taskStatus, deleteBtn, tableRow) {
 }
 
 function changeStatus(tableRow) {
-  taskStatus = tableRow.querySelector('.status')
-  taskPos = tableRow.querySelector('.name').id
+  taskStatus = tableRow.querySelector('.td-status')
+  taskPos = tableRow.querySelector('.td-name').id
 
   if (taskStatus.id === 'to-do') {
-    taskList[taskPos].status = 'Feito'
+    taskList[taskPos].statusText = 'Feito'
+    taskList[taskPos].statusID = 'done'
     taskStatus.textContent = 'Feito'
     taskStatus.id = 'done'
+
   } else if (taskStatus.id === 'done') {
-    taskList[taskPos].status = 'A fazer'
+    taskList[taskPos].statusText = 'A fazer'
+    taskList[taskPos].statusID = 'to-do'
     taskStatus.textContent = 'A fazer'
     taskStatus.id = 'to-do'
   }
@@ -133,7 +136,7 @@ function changeStatus(tableRow) {
 }
 
 function deleteTask(task) {
-  removedTask = task.querySelector('.name')
+  removedTask = task.querySelector('.td-name')
   taskList.splice(removedTask.id, 1)
   rowsList = document.querySelector('.table-body').querySelectorAll('tr')
   removedTaskId = removedTask.id
@@ -142,19 +145,19 @@ function deleteTask(task) {
     taskList[i].id = i
   }
   rowsList.forEach((row) => {
-    rowName = row.querySelector('.name')
+    rowName = row.querySelector('.td-name')
     if (rowName.id > removedTaskId) {
       rowName.id--
     }
   })
-  document.querySelector('.table-body').removeChild(removedTask.parentElement)
+  document.querySelector('.table-body').removeChild(task)
   localStorage.setItem('tasks', JSON.stringify(taskList))
 
   if (taskList.length == 0) {
     localStorage.removeItem('tasks')
     document.querySelector('.table-body').innerHTML = `
       <tr class="table-content">
-        <td colspan="3">Não existem tarefas registradas!</td>
+        <td class="td-initial" colspan="3">Não existem tarefas registradas!</td>
       </tr>`
   }
 }
