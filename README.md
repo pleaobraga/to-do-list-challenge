@@ -1,41 +1,40 @@
 # to-do-list-challenge
 
-## Proposta de Teste
+## Informações Gerais
 
-Criar uma to-do list que consiste em adicionar elementos a uma lista e poder marca-los como feito ou não
+O projeto consiste numa lista de tarefas ('To-do List') desenvolvida utilizando HTML, CSS e JavaScript.
 
-## Requisitos Obrigatórios
+## Funcionalidades Principais
 
-- Utilizar JS, HTML e CSS puro, ou seja sem qualquer tipo de biblioteca ou framework
-- A solução deve apresentar um campo para inserir o nome da tarefa a ser feita e um botao para adicionar a tarefa a lista
-- Ao adicionar uma nova tarefa esperar 2 segundos para que seja exibido na lista de tarefas.
-- Ao adicionar uma nova tarefa ela deverá vir por padrão no estado de a fazer
-- A solução deve apresentar uma lista para listar as tarefas
-- Cada elemento da lista deverá apresentar 2 estados diferentes, um pra item a se fazer e um para item feito e tem que ter uma diferença visual entre eles
-- Ao clicar no item da lista o mesmo deve mudar se estado, feito -> a fazer ou a fazer -> feito
-- Deve ser possível armazenar quantos items o usuario quiser a lista
-- A lista deve ser armazenada de uma forma que se o usuario entrar novamente na pagina ele poderá ver todos os itens ja cadastrados e seus respectivos estados
-- Criar uma boa documentação para a solução (README).
+- Para adicionar uma tarefa à lista, o usuário deve inserir o nome/descrição da tarefa e, como requisito adicional, pode informar a data limite/prazo para finalização da tarefa (se houver).
+- Na lista de tarefas, ao clicar no botão 'Adicionar Tarefa', esta é adicionada à lista preenchida com status inicial 'A fazer'.
+- Ao clicar tanto no nome/descrição quanto no status da tarefa, o status muda de 'A fazer' para 'Feito' e vice-versa.
+- Cada tarefa tem um botão 'Deletar' caso seja necessário remover determinada tarefa da lista.
 
+## Especificações/Funcionalidades Técnicas
 
-## Requisitos Opcionais (Plus)
+- Para armazenar as propriedades de cada tarefa foi utilizada uma classe denominada 'Task', que armazena sua decrição, seu status e seu prazo.
+- Um array denominado 'taskList' é responsável por armazenar as tarefas adicionadas, sendo possível armazenar quantas tarefas o usuário desejar.
+- A lista de tarefas é exibida na tela por meio de uma tabela na qual cada linha contém 4 campos: Tarefa (com o nome/descrição da tarefa), Status (A fazer/Feito), Prazo e um último com um botão para remoção.
+- A tabela em seu estado inicial, quando não existem tarefas cadastradas, ou quando todos os itens são deletados da lista, é preenchida com a frase "Não existem tarefas registradas!"
+- Ao adicionar uma tarefa, o programa espera 2 segundos para exibi-la na tela.
+- A lista de tarefas é armazenada no local storage a cada tarefa adicionada e é atualizado sempre que alguma tarefa é deletada ou quando o status de alguma tarefa é alterado, dessa forma ao recarregar a página ou fechá-la e abri-la novamente a lista permanece em seu último estado.
+* Para manipular as tarefas, foram criadas 5 funções principais:
+- addTask(): cria um novo objeto 'Task' e o adiciona tanto na lista quanto no HTML em forma de tabela;
+- createTaskRow(): cria um elemento de linha de tabela em formato HTML;
+- addEvListeners(): adiciona os event listeners de 'onclick' à tarefa, usados para alterar o status ou deletar a tarefa;
+- changeStatus(): altera o status da tarefa (A fazer/Feito);
+- deleteTask(): remove a tarefa da lista.
+* Visando otimização, as tarefas são adicionadas ao HTML de duas formas:
+- Ao recarregar/reabrir a página, as tarefas já existentes (armazenadas no local storage) são inseridas na variável 'tableContent' já em formato HTML e são incluídas no HTML através da propriedade 'innerHTML', visto que nesse caso todas as tarefas precisam ser renderizadas.
+- Quando uma nova tarefa é adicionada, esta é criada através do método 'createElement()' e é adicionada através do método 'appendChild()', pois esse método renderiza na tela apenas o elemento adicionado, otimizando a aplicação (caso o 'innerHTML' fosse utilizado todas as tarefas, incluindo as já presentes na tela, seriam renderizadas novamente pois todas estão contidas num mesmo elemento pai dentro da tabela).
+- A função 'createTaskRow()', ao invés de criar o status sempre como 'A fazer', utiliza o status do objeto criado pela classe 'Task'. Uma nova tarefa deve sempre ter o status inicial 'A fazer', porém mesmo na criação da tarefa o status é definido pelo atributo do objeto ao invés de mantê-lo 'hardcoded' com 'A fazer' para evitar futuros problemas caso existam mudanças na função ou na aplicação no geral.
+- A função 'addEvListeners()' foi desenvolvida tendo em vista que os event listeners são adicionados tanto no método 'createTaskRow()' quanto ao recarregar a página via 'innerHTML', evitando código duplicado.
 
-- Implementar uma solução otimizada
-- Em cada elemento da lista apresentar um botao de deletar e caso o usuario aperte esse botao o item some da lista
-- Implementar uma boa interface gráfica para a solução
-- Publicar a aplicação em algum ambiente (GitHub Pages,...)
-- caso o aluno queira implementar mais alguma funcionalidade fique a vontade, mas deixe explicado no README
+## Layout da aplicação
 
+- O programa foi desenvolvido aplicando o conceito de Mobile First, a aplicação foi desenvolvida primeiramente com um layout para mobile e após foi ajustado para telas maiores.
 
-## Entrega
+## Melhorias/Futuras Implementações
 
-A entrega deverá ser feita ate o dia 28/02/2022
-
-Para a entrega o aluno deverá criar um pull request(PR) para esse repositório.
-
-
-## Observações
-
-- Não será aceito trabalhos após essa data
-- Se o sistema não rodar o aluno ficará com a nota 0
-- Não será permitido copias e se isso for detectado os alunos envolvidos ficarão com a nota 0
+- Adicionar um botão para editar as informações da tarefa (como descrição e prazo), assim o usuário não precisa remover a tarefa e adicioná-la novamente caso deseje editá-la.

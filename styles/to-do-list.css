@@ -138,12 +138,12 @@ body {
     border: 1px solid white;
   }
 
-  @media screen and (min-width: 300px) {
-    .th-status {
-      min-width: 80px;
-    }
-    .th-date {
-      min-width: 120px;
+@media screen and (min-width: 300px) {
+  .th-status {
+    min-width: 80px;
+  }
+  .th-date {
+    min-width: 120px;
   }
 }
 

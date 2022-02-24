@@ -15,7 +15,7 @@ let taskList = localStorage.getItem('tasks')
 if (taskList != null) {
   taskList = JSON.parse(taskList)
   tableContent = ''
-  taskList.forEach((task) => { // Explicar o motivo do uso do innerHTML no READ-ME
+  taskList.forEach((task) => {
     tableContent += `
     <tr class='table-content'>
     <td class='td-name' id='${task.id}'>${task.name}</td>
@@ -62,7 +62,7 @@ function addTask(task, date) {
 }
 
 function createTaskRow(task) {
-  let tableRow = document.createElement('tr') // Explicar o motivo do uso do createElement() no READ-ME
+  let tableRow = document.createElement('tr')
   tableRow.className = 'table-content'
 
   let tableDataText = document.createElement('td')
@@ -75,7 +75,7 @@ function createTaskRow(task) {
   tableDataStatus.className = 'td-status'
   let taskStatus = document.createTextNode(task.statusText)
   tableDataStatus.appendChild(taskStatus)
-  if (task.statusText == 'A fazer') { // explicar no read-me que pega a referência da task e ñ cria direto pra evitar problemas
+  if (task.statusText == 'A fazer') {
     tableDataStatus.id = 'to-do'
   } else if (task.statusText == 'Feito') {
     tableDataStatus.id = 'done'
@@ -103,7 +103,6 @@ function createTaskRow(task) {
   return tableRow
 }
 
-// READ-ME: foi feita uma função para adicionar os Ev. List. pois é usado tanto no createTaskRow() quanto ao recarregar a página
 function addEvListeners(taskDescription, taskStatus, deleteBtn, tableRow) {
   taskDescription.addEventListener('click', () => {
     changeStatus(tableRow)
