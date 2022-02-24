@@ -135,10 +135,9 @@ function changeStatus(tableRow) {
 }
 
 function deleteTask(task) {
-  removedTask = task.querySelector('.td-name')
-  taskList.splice(removedTask.id, 1)
+  removedTaskId = parseInt(task.querySelector('.td-name').id)
+  taskList.splice(removedTaskId, 1)
   rowsList = document.querySelector('.table-body').querySelectorAll('tr')
-  removedTaskId = removedTask.id
 
   for (let i = removedTaskId; i < taskList.length; i++) {
     taskList[i].id = i
