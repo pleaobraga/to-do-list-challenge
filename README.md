@@ -34,7 +34,7 @@ O projeto consiste numa lista de tarefas (*To-do List*) desenvolvida utilizando 
 
 ## Layout da aplicação
 
-- O programa foi desenvolvido aplicando o conceito de *Mobile First*, a aplicação foi desenvolvida primeiramente com um layout para mobile e após foi ajustada para telas maiores.
+- O programa foi desenvolvido aplicando o conceito de *Mobile First*, a aplicação foi desenvolvida primeiramente com um layout para mobile e após foi ajustada para telas maiores usando *flexbox* para ajustar os campos na tela.
 
 ## Melhorias/Futuras Implementações
 
