@@ -24,6 +24,7 @@ Criar um projeto de uma aplicação web responsiva com funcionalidades como ince
 
 ## Marcar como concluida
 
+
 1. Para marcar como concluida clique no item que deseja e então o item vai ficar com uma linha sobre ele.
 
 ## Deletar
