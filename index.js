@@ -12,29 +12,36 @@ inputAdd.addEventListener("submit", (event) => {
   setTimeout(addTask, 2000);
 });
 
+function createTask(task, id) {
+  let li = document.createElement("li");
+  let span = document.createElement("span");
+
+  let inputText = document.createTextNode(task);
+
+  span.appendChild(inputText);
+  li.appendChild(span);
+
+  li.setAttribute("id", id);
+
+  createRemoveTaskButton(li);
+
+  return { li, span };
+}
+
 function getTasks() {
   const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 
   tasks.forEach((task) => {
-    let li = document.createElement("li");
-    let span = document.createElement("span");
-
-    let inputText = document.createTextNode(task.element);
-
-    span.appendChild(inputText);
-    li.appendChild(span);
-
-    closeButton(li);
+    const { li, span } = createTask(task.element, task.id);
 
     if (task.isChecked) {
       li.classList.add("checked");
       span.classList.add("checked");
       listCompleted.appendChild(li);
-    } else {
-      list.appendChild(li);
+      return
     }
 
-    li.setAttribute("id", task.id);
+    list.appendChild(li);
   });
 }
 
@@ -43,6 +50,12 @@ getTasks();
 function addTask() {
   const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 
+  let id = 1;
+
+  if (tasks != 0) {
+    id = tasks[tasks.length - 1].id + 1;
+  }
+
   let input = document.querySelector("#task");
   let inputValue = input.value;
 
@@ -50,24 +63,10 @@ function addTask() {
     return;
   }
 
-  let li = document.createElement("li");
-  let span = document.createElement("span");
-
-  let inputText = document.createTextNode(inputValue);
-
-  span.appendChild(inputText);
-  li.appendChild(span);
-
-  list.appendChild(li);
+  const { li } = createTask(inputValue, id);
   inputValue = "";
 
-  if (tasks == 0) {
-    li.setAttribute("id", 1);
-  } else {
-    li.setAttribute("id", tasks[tasks.length - 1].id + 1);
-  }
-
-  closeButton(li);
+  list.appendChild(li);
 
   saveLocal(input.value);
 
@@ -94,7 +93,7 @@ function saveLocal(value) {
   localStorage.setItem("tasks", JSON.stringify(tasks));
 }
 
-function closeButton(li) {
+function createRemoveTaskButton(li) {
   let button = document.createElement("button");
   let buttonText = document.createTextNode("Remover");
 
@@ -104,16 +103,13 @@ function closeButton(li) {
   button.addEventListener("click", (event) => {
     const id = event.target.parentElement.getAttribute("id");
 
-    if (event.target.parentElement.classList.contains("checked")) {
-      removeTaskCompleted(Number(id));
-    } else {
-      removeTask(Number(id));
-    }
+    removeTask(Number(id), event);
   });
 }
 
-function removeTask(id) {
+function removeTask(id, event) {
   const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+  const getId = document.getElementById(id);
 
   const taskFiltered = tasks.filter((task) => {
     return task.id !== id;
@@ -121,23 +117,11 @@ function removeTask(id) {
 
   localStorage.setItem("tasks", JSON.stringify(taskFiltered));
 
-  const getId = document.getElementById(id);
-
+  if (event.target.parentElement.classList.contains("checked")) {
+    listCompleted.removeChild(getId);
+    return;
+  }
   list.removeChild(getId);
-}
-
-function removeTaskCompleted(id) {
-  const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
-
-  const taskFiltered = tasks.filter((task) => {
-    return task.id !== id;
-  });
-
-  localStorage.setItem("tasks", JSON.stringify(taskFiltered));
-
-  const getId = document.getElementById(id);
-
-  listCompleted.removeChild(getId);
 }
 
 list.addEventListener("click", (event) => {
@@ -145,7 +129,7 @@ list.addEventListener("click", (event) => {
 });
 
 listCompleted.addEventListener("click", (event) => {
-  setIsNotChecked(event);
+  setIsChecked(event);
 });
 
 function setIsChecked(event) {
@@ -154,80 +138,38 @@ function setIsChecked(event) {
 
   for (let task of tasks) {
     if (task.id == id) {
-      task.isChecked = true;
+      task.isChecked = !task.isChecked;
     }
   }
 
   localStorage.setItem("tasks", JSON.stringify(tasks));
 
   if (event.target.tagName === "LI") {
-    taskCompleted(event);
+    changeIsCheckedState(event);
   }
 }
 
-function setIsNotChecked(event) {
-  const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+function changeIsCheckedState(event) {
   const id = event.target.getAttribute("id");
 
-  for (let task of tasks) {
-    if (task.id == id) {
-      task.isChecked = false;
-    }
-  }
-
-  localStorage.setItem("tasks", JSON.stringify(tasks));
-
-  if (event.target.tagName === "LI") {
-    taskIncompleted(event);
-  }
-}
-
-function taskCompleted(event) {
-  const id = event.target.getAttribute("id");
-
-  let li = document.createElement("li");
-  let span = document.createElement("span");
-
-  let inputText = document.createTextNode(event.target.firstChild.textContent);
-
-  span.appendChild(inputText);
-  li.appendChild(span);
-
-  li.setAttribute("id", id);
+  const { li, span } = createTask(event.target.firstChild.textContent, id);
 
   const getId = document.getElementById(id);
+
+  if (event.target.classList.contains("checked")) {
+    listCompleted.removeChild(getId);
+
+    list.appendChild(li);
+
+    li.classList.remove("checked");
+    span.classList.remove("checked");
+    return;
+  }
 
   list.removeChild(getId);
 
   listCompleted.appendChild(li);
 
-  closeButton(li);
-
   li.classList.add("checked");
   span.classList.add("checked");
-}
-
-function taskIncompleted(event) {
-  const id = event.target.getAttribute("id");
-
-  let li = document.createElement("li");
-  let span = document.createElement("span");
-
-  let inputText = document.createTextNode(event.target.firstChild.textContent);
-
-  span.appendChild(inputText);
-  li.appendChild(span);
-
-  li.setAttribute("id", id);
-
-  const getId = document.getElementById(id);
-
-  listCompleted.removeChild(getId);
-
-  list.appendChild(li);
-
-  closeButton(li);
-
-  li.classList.remove("checked");
-  span.classList.remove("checked");
 }
