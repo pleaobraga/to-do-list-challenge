@@ -14,7 +14,7 @@ let taskList = localStorage.getItem('tasks')
 
 if (taskList != null) {
   taskList = JSON.parse(taskList)
-  tableContent = ''
+  let tableContent = ''
   taskList.forEach((task) => {
     tableContent += `
     <tr class='table-content'>
@@ -24,7 +24,7 @@ if (taskList != null) {
     <td class='td-deletion'><button id='deleteTask'>Deletar</button></td>
     </tr>`
   })
-  tableBody = document.querySelector('.table-body')
+  let tableBody = document.querySelector('.table-body')
   tableBody.innerHTML = tableContent
   tableBody.querySelectorAll('tr').forEach((tableRow) => {
     addEvListeners(tableRow.querySelector('.td-name'),
@@ -116,8 +116,8 @@ function addEvListeners(taskDescription, taskStatus, deleteBtn, tableRow) {
 }
 
 function changeStatus(tableRow) {
-  taskStatus = tableRow.querySelector('.td-status')
-  taskPos = tableRow.querySelector('.td-name').id
+  let taskStatus = tableRow.querySelector('.td-status')
+  let taskPos = tableRow.querySelector('.td-name').id
 
   if (taskStatus.id === 'to-do') {
     taskList[taskPos].statusText = 'Feito'
@@ -135,9 +135,10 @@ function changeStatus(tableRow) {
 }
 
 function deleteTask(task) {
-  removedTaskId = parseInt(task.querySelector('.td-name').id)
+  let tableBody = document.querySelector('.table-body')
+  let removedTaskId = parseInt(task.querySelector('.td-name').id)
   taskList.splice(removedTaskId, 1)
-  rowsList = document.querySelector('.table-body').querySelectorAll('tr')
+  rowsList = tableBody.querySelectorAll('tr')
 
   for (let i = removedTaskId; i < taskList.length; i++) {
     taskList[i].id = i
@@ -148,12 +149,12 @@ function deleteTask(task) {
       rowName.id--
     }
   })
-  document.querySelector('.table-body').removeChild(task)
+  tableBody.removeChild(task)
   localStorage.setItem('tasks', JSON.stringify(taskList))
 
   if (taskList.length == 0) {
     localStorage.removeItem('tasks')
-    document.querySelector('.table-body').innerHTML = `
+    tableBody.innerHTML = `
       <tr class="table-content">
         <td class="td-initial" colspan="3">Não existem tarefas registradas!</td>
       </tr>`
