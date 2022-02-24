@@ -44,4 +44,4 @@ O projeto consiste numa lista de tarefas (*To-do List*) desenvolvida utilizando 
 
 ## Publicação do Projeto
 
-O projeto foi publicado através do GitHub Pages podendo ser acessado por esse link: https://marcelostrackdaros.github.io/to-do-list-challenge/
+- O projeto foi publicado através do GitHub Pages podendo ser acessado por esse link: https://marcelostrackdaros.github.io/to-do-list-challenge/
