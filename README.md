@@ -1,40 +1,49 @@
 # to-do-list-challenge
 
+## Autoria
+- Pedro Henrique da Silva Pacheco
+- Projeto feito para final do módulo 5 (Front End Dinâmico), do curso Web Full Stack da Let's Code.
+- A aplicação foi feita baseada em HTML, CSS e JavaScript.
+
 ## Proposta de Teste
 
-Criar uma to-do list que consiste em adicionar elementos a uma lista e poder marca-los como feito ou não
-
-## Requisitos Obrigatórios
-
-- Utilizar JS, HTML e CSS puro, ou seja sem qualquer tipo de biblioteca ou framework
-- A solução deve apresentar um campo para inserir o nome da tarefa a ser feita e um botao para adicionar a tarefa a lista
-- Ao adicionar uma nova tarefa esperar 2 segundos para que seja exibido na lista de tarefas.
-- Ao adicionar uma nova tarefa ela deverá vir por padrão no estado de a fazer
-- A solução deve apresentar uma lista para listar as tarefas
-- Cada elemento da lista deverá apresentar 2 estados diferentes, um pra item a se fazer e um para item feito e tem que ter uma diferença visual entre eles
-- Ao clicar no item da lista o mesmo deve mudar se estado, feito -> a fazer ou a fazer -> feito
-- Deve ser possível armazenar quantos items o usuario quiser a lista
-- A lista deve ser armazenada de uma forma que se o usuario entrar novamente na pagina ele poderá ver todos os itens ja cadastrados e seus respectivos estados
-- Criar uma boa documentação para a solução (README).
+- Criar uma to-do list que consiste em adicionar elementos a uma lista e poder marca-los como feito ou não
 
 
-## Requisitos Opcionais (Plus)
+## Link
+URL do projeto (https://pedpacheco.github.io/to-do-list-challenge/)
 
-- Implementar uma solução otimizada
-- Em cada elemento da lista apresentar um botao de deletar e caso o usuario aperte esse botao o item some da lista
-- Implementar uma boa interface gráfica para a solução
-- caso o aluno queira implementar mais alguma funcionalidade fique a vontade, mas deixe explicado no README
+## Manual do usuário
+
+### Adicionar tarefa 
+1. Insira o nome de uma tarefa no campo "Insira uma nova tarefa".
+2. Clique no botão "adicionar" ou aperte a tecla enter. Após isso a tarefa será adicionada à lista depois de 2 segundos.
+
+### Marcar tarefa como feita
+1. Clique na tarefa para marcar-lá como feita.
+2. O estado da tarefa pode ser revertido clicando outra vez na tarefa.
+
+### Excluir tarefa
+1. Clique no botão remover para assim excluir a tarefa da lista. 
 
 
-## Entrega
+## Solução do problema
 
-A entrega deverá ser feita ate o dia 28/02/2022
+### Adicionando tarefa 
+1. Foram inseridos um evento de click no botão Adicionar e um evento de submit no formulário de adição da tarefas, assim que o evento for detectado vai ser chamada a função "addTask".
 
-Para a entrega o aluno deverá colocar o nome completo no README do arquivo e criar um pull request(PR) para esse repositório.
+2. Dentro da função "addTask" será feito uma validação se há alguma tarefa no campo de adição de tarefas, após isso será chamada a função "createTask".
 
+3. Na função "createTask" será criado todo o html da tarefa, junto com o botão de remoção de tarefa que é criado através da função "createRemoveTaskButton", depois disso a tarefa criada será adicionada a lista de tarefas para fazer.
 
-## Observações
+4. Depois da task se adicionada na lista, será chamada a função "saveLocal" que irá salvar a tarefa no LocalStorage.
 
-- Não será aceito trabalhos após essa data
-- Se o sistema não rodar o aluno ficará com a nota 0
-- Não será permitido copias e se isso for detectado os alunos envolvidos ficarão com a nota 0
+### Mudando o estado das tarefas
+1. Tanto a lista de tarefa para fazer, quanto a lista de tarefas feitas foram adicionados o evento de click, quando o evento for executado a função "setIsChecked" será chamada.
+
+2. A função "setIsChecked" irá alterar o estado da tarefa no localStorage e também chamar a função "changeIsCheckedState".
+
+3. A função "changeIsCheckedState" irá adicionar uma classe "checked" na tarefa que for clicada, assim se a tarefa contiver a classe "checked" será adicionada na lista de tarefas feitas, se não contiver a classe irá se manter na lista de tarefa para fazer ou retornar para essa lista.
+
+### Ao abrir o projeto
+Há uma função chamada "getTasks" que assim que a página do projeto for aberta, essa função irá prucurar no LocalStorage todas as tarefas salvas no LocalStorage junto com seus estados, e após isso as tarefas serão adicionadas de acordo com a última maneira que se encotrava da última vez que a página foi aberta.
