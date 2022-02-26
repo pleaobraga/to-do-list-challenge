@@ -1,8 +1,13 @@
 # to-do-list-challenge
 
+## Aluno: Guilherme Pereira de Oliveira, 816 Web Full Stack Degree, Lets Code
+
 ## Proposta de Teste
 
 Criar uma to-do list que consiste em adicionar elementos a uma lista e poder marca-los como feito ou não
+
+## Manual do usuário
+-ssssss
 
 ## Requisitos Obrigatórios
 
@@ -16,6 +21,8 @@ Criar uma to-do list que consiste em adicionar elementos a uma lista e poder mar
 - Deve ser possível armazenar quantos items o usuario quiser a lista
 - A lista deve ser armazenada de uma forma que se o usuario entrar novamente na pagina ele poderá ver todos os itens ja cadastrados e seus respectivos estados
 - Criar uma boa documentação para a solução (README).
+
+
 
 
 ## Requisitos Opcionais (Plus)
