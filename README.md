@@ -1,6 +1,6 @@
-<h1 align="center"> to-do-list-challenge </h1> 
+<h1 align="center" id='Título'> to-do-list-challenge </h1> 
 
-## ìndice 
+## Índice 
 
 * [Título](#Título)
 * [Índice](#índice)
@@ -79,7 +79,7 @@ Fica o registro dos Dois professores que auxiliaram a tal projeto:
 Alexandre Melo Filho - Aluno de Web Full Stack 
 
 
-## Próximos Passos
+<h1 id='proximos-passos'> Próximos Passos </h1> 
 
 Vale Ressaltar que este projeto **não** dispõe de uma interface em CSS, salvo a mencionada em tópicos anteriores. Além disso, os requisitos Opcionais, meniconados abaixo, não foram contemplados, em sua totalidade:
 
