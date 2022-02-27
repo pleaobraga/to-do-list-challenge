@@ -91,7 +91,7 @@ Vale Ressaltar que este projeto **não** dispõe de uma interface em CSS, salvo 
     - Publicar a aplicação em algum ambiente (GitHub Pages,...)
     - caso o aluno queira implementar mais alguma funcionalidade fique a vontade, mas deixe explicado no README
 
-Logo, os Proximos passos se resumem em:
+Logo, os Próximos Passos se resumem em:
 
 - Criar uma Interface CSS completa
 - Adicionar grau de imporatância nas tarefas, separando as mais urgentes das menos.
