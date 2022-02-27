@@ -31,11 +31,13 @@ Criar uma to-do list que consiste em adicionar elementos a uma lista e poder mar
 - Foram criados três arquivos: HTML, JavasCript e CSS.
 - Os dados capturados no campo de input do HTML são renderizados na tela e armazenados na localStorage através do JS.
 - A ação de mudar o status da tarefa se dá através do JS e CSS e é renderizado no HTML. Após cada ação esses dados são salvos na localStorage.
-- Caso o usuário recarregue a página ou saia dela, uma função pega os dados armazenados na localStorage e os renderiza.
+- Uma função pega os dados armazenados na localStorage e os renderiza. Essa ação evita que os dados renderizados sejam perdidos ao ao fechar a página ou recarrega-lá.
 
 ## Próximos passos
 - Adicionar um botão para a retirada de tarefas já realizadas
 - Adcionar uma funcionalidade que separa as tarefas entre 'feitas' parte inferior da lista e 'não feitas' parte superior da lista
+- Melhorar a acessibilidade e segurança do sistema uma vez que nesse último quesito a localStorage pode ser acessada e manipulada por um usuário.
+- Refatorar o código para que ele fique otimizado.
 
 ## Sobre o autor
 
