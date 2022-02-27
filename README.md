@@ -6,7 +6,7 @@
 
 Criar uma <i>to-do list</i> que consiste em adicionar elementos a uma lista e poder marcá-los como pendente ou concluído.
 
-Link de acesso: [<i>To-do List</i> Franco Moraes]()
+Link de acesso: [<i>To-do List</i> Franco Moraes](https://francomoraes.github.io/to-do-list-challenge/)
 
 ### Requisitos obrigatórios:
 - Utilizar JS, HTML e CSS puros, ou seja, sem frameworks ou bibliotecas
