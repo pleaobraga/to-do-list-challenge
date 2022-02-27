@@ -13,15 +13,20 @@
 * [Pessoas Desenvolvedoras do Projeto](#pessoas-desenvolvedoras)
 * [Proximos Passos](#proximos-passos)
 
+
 ## Descrição do Projeto
 
 O projeto em desenvolvimento para a disciplina de FrontEnd Dinâmico do curso de Web Full Stack. Este trabalho consiste em uma lista de tarefas, que adiciona elementos a uma lista, altera seu status, de realizado ou não, e pode removê-los.
 
+
 ## Status do Projeto 
+
+> :construction: Projeto em construção :construction:
 
 Projeto em desenvolvimento, com os Requisitos Obrigatórios cumpridos. Sendo os Requisitos Opcionais como meta para os próximos passos
 
-## Funcionalidades do projeto 
+
+## :hammer: Funcionalidades do projeto 
 
 O projeto teve como os Requisitos Origatórios, os demonstrados abaixo:
 
@@ -51,7 +56,8 @@ Todos estes foram concluidos, logo pode-se afirmar que as funcionalidades do pro
 
 O Projeto pode ser acessado por meio do VSCode, através da documentação disponivel no código fonte
 
-## Tecnologias Utilizadas 
+
+## 🛠️ Tecnologias Utilizadas 
 
 Como solicita os requisitos o projeto foi desenvolvido apenas com:
 
@@ -59,16 +65,19 @@ Como solicita os requisitos o projeto foi desenvolvido apenas com:
 **JavaScript**
 **CSS** - Apenas para modificar o texto mediante ao status
 
+
 ## Pessoas Contribuidoras 
 
 Fica o registro dos Dois professores que auxiliaram a tal projeto:
 
-Pedro Leão Braga
-João Paulo Moraes Nunes 
+- Pedro Leão Braga
+- João Paulo Moraes Nunes 
+
 
 ## Autor
 
 Alexandre Melo Filho - Aluno de Web Full Stack 
+
 
 ## Próximos Passos
 
