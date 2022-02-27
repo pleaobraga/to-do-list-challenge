@@ -1,13 +1,10 @@
 # to-do-list-challenge
 
-## Aluno: Guilherme Pereira de Oliveira, 816 Web Full Stack Degree, Lets Code
+## Guilherme Pereira de Oliveira, 816 Web Full Stack Degree, Módulo 05  JS Vanilla
 
 ## Proposta de Teste
 
 Criar uma to-do list que consiste em adicionar elementos a uma lista e poder marca-los como feito ou não
-
-## Manual do usuário
--ssssss
 
 ## Requisitos Obrigatórios
 
@@ -22,26 +19,26 @@ Criar uma to-do list que consiste em adicionar elementos a uma lista e poder mar
 - A lista deve ser armazenada de uma forma que se o usuario entrar novamente na pagina ele poderá ver todos os itens ja cadastrados e seus respectivos estados
 - Criar uma boa documentação para a solução (README).
 
+## Manual do usuário
+- Abra [Lista de tarefas]http://127.0.0.1:5500/index.html
+- Insira a tarefa no campo a esquerda do botão de inserir tarefa
+- Clique no botão de inserir tarefa. A tarefa será adicionada a uma lista dois segundos após o click. Caso tente-se inserir uma tarefa em branco, um alerta será disparado para que o campo seja preenchido e nenhuma ação será feita
+- Cada nova tafera adicionada vem como padrão 'não feito '
+- Todas as tarefas adicionadas a lista são botões clicáveis que mudam o estado de 'não feito' para 'feito' e vice-versa
+- Todas as alterações feitas na lista ficam salvas mesmo após o usuário fechar a aba atual ou recarregar a página
+
+## Resolução do problema
+- Foram criados três arquivos: HTML, JavasCript e CSS.
+- Os dados capturados no campo de input do HTML são renderizados na tela e armazenados na localStorage através do JS.
+- A ação de mudar o status da tarefa se dá através do JS e CSS e é renderizado no HTML. Após cada ação esses dados são salvos na localStorage.
+- Caso o usuário recarregue a página ou saia dela, uma função pega os dados armazenados na localStorage e os renderiza.
+
+## Próximos passos
+- Adicionar um botão para a retirada de tarefas já realizadas
+- Adcionar uma funcionalidade que separa as tarefas entre 'feitas' parte inferior da lista e 'não feitas' parte superior da lista
+
+## Sobre o autor
+
+[Linkedin]https://www.linkedin.com/in/guilherme-pereira-de-oliveira-110543178/
 
 
-
-## Requisitos Opcionais (Plus)
-
-- Implementar uma solução otimizada
-- Em cada elemento da lista apresentar um botao de deletar e caso o usuario aperte esse botao o item some da lista
-- Implementar uma boa interface gráfica para a solução
-- caso o aluno queira implementar mais alguma funcionalidade fique a vontade, mas deixe explicado no README
-
-
-## Entrega
-
-A entrega deverá ser feita ate o dia 28/02/2022
-
-Para a entrega o aluno deverá colocar o nome completo no README do arquivo e criar um pull request(PR) para esse repositório.
-
-
-## Observações
-
-- Não será aceito trabalhos após essa data
-- Se o sistema não rodar o aluno ficará com a nota 0
-- Não será permitido copias e se isso for detectado os alunos envolvidos ficarão com a nota 0
