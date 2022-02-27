@@ -1,41 +1,83 @@
-# to-do-list-challenge
+# Readme (:brazil:)
+# Lets Code - WebFullStack Módulo 5: JS Vanilla
+# <i>To-do-list challenge</i>
 
-## Proposta de Teste
+## Proposta do Teste
 
-Criar uma to-do list que consiste em adicionar elementos a uma lista e poder marca-los como feito ou não
+Criar uma <i>to-do list</i> que consiste em adicionar elementos a uma lista e poder marcá-los como pendente ou concluído.
 
-## Requisitos Obrigatórios
+Link de acesso: [<i>To-do List</i> Franco Moraes]()
 
-- Utilizar JS, HTML e CSS puro, ou seja sem qualquer tipo de biblioteca ou framework
-- A solução deve apresentar um campo para inserir o nome da tarefa a ser feita e um botao para adicionar a tarefa a lista
-- Ao adicionar uma nova tarefa esperar 2 segundos para que seja exibido na lista de tarefas.
-- Ao adicionar uma nova tarefa ela deverá vir por padrão no estado de a fazer
-- A solução deve apresentar uma lista para listar as tarefas
-- Cada elemento da lista deverá apresentar 2 estados diferentes, um pra item a se fazer e um para item feito e tem que ter uma diferença visual entre eles
-- Ao clicar no item da lista o mesmo deve mudar se estado, feito -> a fazer ou a fazer -> feito
-- Deve ser possível armazenar quantos items o usuario quiser a lista
-- A lista deve ser armazenada de uma forma que se o usuario entrar novamente na pagina ele poderá ver todos os itens ja cadastrados e seus respectivos estados
-- Criar uma boa documentação para a solução (README).
+### Requisitos obrigatórios:
+- Utilizar JS, HTML e CSS puros, ou seja, sem frameworks ou bibliotecas
+- Apresentar um campo para inserir o nome da tarefa e um botão para adicionar a tarefa à lista
+- Ao adicionar uma nova tarefa:
+  - Aguardar 2 segundos para que seja adicionada à lista
+  - Deve vir por padrão no estado "pendente"
+- Cada elemento deve apresentar 2 estados diferentes ("pendente" e "concluído") 
+- Ao clicar no item da lista, deverá ocorrer troca de estado: pendente <=> concluído
+- A lista deve ser armazenada de maneira que os itens já cadastrados e seus respectivos estados sejam mantidos caso a página seja recarregada
+- Criar documentação (readme)
 
+### Implementações adicionais:
+- Adicionar elemento pressionando a tecla "enter"
+- Botão para excluir tarefa
+- Interface gráfica
+- Aplicação disponível no GitHub Pages
 
-## Requisitos Opcionais (Plus)
+### Implementações futuras:
+- Possibilidade de editar tarefa já adicionada
+- Aparecer "processando" enquanto o usuário aguarda os 2 segundos
+- Contador de tarefas pendentes e concluídas
+- Enviar tarefas concluídas para o final da lista
+- Filtro de exibição de tarefas pendentes e concluídas
 
-- Implementar uma solução otimizada
-- Em cada elemento da lista apresentar um botao de deletar e caso o usuario aperte esse botao o item some da lista
-- Implementar uma boa interface gráfica para a solução
-- Publicar a aplicação em algum ambiente (GitHub Pages,...)
-- caso o aluno queira implementar mais alguma funcionalidade fique a vontade, mas deixe explicado no README
+## Utilização
+1.  Adicionar nova tarefa:
+    1.  Clicar no campo "Nova Tarefa"
+    2.  Digitar a tarefa
+    3.  Clicar no "+" ou pressionar a tecla "enter"
+    4.  Aguardar 2 segundos para que a tarefa seja adicionada à lista
+    5.  Repetir os passos 1 a 4 quantas vezes quiser
+2.  Clicar no campo da tarefa, ou sobre ela, para alterar o estado de pendente para concluída, e vice-versa
+3.  Clicar no botão com o ícone da lixeira para excluir a tarefa
 
+## Implementação
 
-## Entrega
+### Estrutura do código
 
-A entrega deverá ser feita ate o dia 28/02/2022
+A estrtutura da solução consiste em um arquivo html, um arquivo de script e dois arquivos de estilo (sendo um deles o reset.css).
 
-Para a entrega o aluno deverá criar um pull request(PR) para esse repositório.
+O arquivo html contem os dados iniciais da solução, com um campo input para inserção de novas tarefas, botão de adicionar e uma lista vazia, exceto pelo título "Lista de Tarefas".
 
+No arquivo script o código foi organizado na maior parte em funções, cada uma com objetivos específicos, a exemplo: adicionar itens novos, armazenar informações na localStorage, recuperar informações da localStorage, criar elementos html, aplicar as informações da localStorage aos elementos criados.
 
-## Observações
+Por fim, o arquivo CSS contem a estrutura para criar uma interface mais amigável ao usuário, com especificações para as bordas e as cores dos elementos, também os espaçamentos entre elementos e alteração do cursor para pointer ao sobrepor os botões.
 
-- Não será aceito trabalhos após essa data
-- Se o sistema não rodar o aluno ficará com a nota 0
-- Não será permitido copias e se isso for detectado os alunos envolvidos ficarão com a nota 0
+### Aprendizados
+
+Para elaborar esta solução, foi necessário pesquisar sobre alguns temas, a saber:
+
+- CSS Flex-box
+- Função assíncrona setTimeout
+- Método addEventListener
+- Utilização de seletores
+  - querySelector
+  - querySelectorAll
+  - childNodes[index] / lastChild / firstChild
+- Armazenamento local:
+  - localStorage.setItem()
+  - localStorage.getItem()
+  - JSON.stringfy
+  - JSON.parse
+- Métodos de array
+  - Apply
+  - Map
+  - Split
+<hr>
+
+## Autor
+
+Franco Moraes <br>
+[![GitHub](https://i.stack.imgur.com/tskMh.png)]() [GitHub](https://github.com/francomoraes) <br>
+[![LinkedIn](https://i.stack.imgur.com/gVE0j.png)]() [LinkedIn](https://www.linkedin.com/in/francomoraes/)

@@ -1,0 +1,107 @@
+.body { 
+    font-family: Roboto, 'Open Sans', 'Helvetica Neue', sans-serif
+}
+
+.titulo {
+    color: #72818D;
+    font-size: 35px;
+    font-weight: 400;
+    text-align: center;
+    padding: 10px;
+}
+
+.container{
+    max-width: 1200px;
+    width: 50%;
+    margin: 20px auto;
+    display: flex;
+}
+
+.inputTarefa {
+    min-width: 200px;
+    border-radius: 4px;
+    border: 1px solid #DBE1E9;
+    font-size: 16px;
+    height: 30px;
+    padding: 10px;
+    flex-grow: 0.95;
+    margin: 10px;
+
+}
+
+.botaoTarefa {
+    border-radius: 4px;
+    border: 1px solid #289AEF;
+    background-color: #289AEF;
+    color: #fff;
+    font-size: 16px;
+    height: 30px;
+    width: 50px;
+    padding: 10px;
+    margin: 10px;
+    margin-left: 0;
+    line-height: 0px;
+    cursor: pointer;
+}
+
+.striked-text {
+    text-decoration: line-through;
+    color: lightgrey
+}
+
+#listaDeTarefas {
+    color: #72818D;
+    list-style: none;
+    font-size: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.tituloLista {
+    width: 100%;
+}
+
+.itemLista {
+    width: 100%;
+    display: flex;
+    cursor: pointer;
+}
+
+.divTexto {
+    min-width: 200px;
+    border-radius: 4px;
+    border: 1px solid #DBE1E9;
+    font-size: 16px;
+    height: 30px;
+    padding: 10px;
+    flex-grow: 0.97;
+    margin: 10px;
+}
+
+.divBotoes {
+    height: 30px;
+    width: 50px;
+    display: flex;
+    line-height: 0;
+    margin: 10px;
+    margin-left: 0px;
+}
+
+.botao1 {
+    height: 30px;
+    width: 50px;
+    border: none;
+    background-color: #FFFFFF;
+    z-index: 1;
+    padding: 0;
+    cursor: pointer;
+}
+
+.iconeDeletar {
+    height: 100%;
+    width: 100%;
+    border: 1px solid #DBE1E9;
+    border-radius: 4px;
+    z-index: 0;
+}
