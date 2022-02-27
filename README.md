@@ -25,18 +25,18 @@ Projeto em desenvolvimento, com os Requisitos Obrigatórios cumpridos. Sendo os 
 
 O projeto teve como os Requisitos Origatórios, os demonstrados abaixo:
 
-### Requisitos Obrigatórios
+#### Requisitos Obrigatórios
 
-  - Utilizar JS, HTML e CSS puro, ou seja sem qualquer tipo de biblioteca ou framework
-  - A solução deve apresentar um campo para inserir o nome da tarefa a ser feita e um botao para adicionar a tarefa a lista
-  - Ao adicionar uma nova tarefa esperar 2 segundos para que seja exibido na lista de tarefas.
-  - Ao adicionar uma nova tarefa ela deverá vir por padrão no estado de a fazer
-  - A solução deve apresentar uma lista para listar as tarefas
-  - Cada elemento da lista deverá apresentar 2 estados diferentes, um pra item a se fazer e um para item feito e tem que ter uma diferença visual entre eles
-  - Ao clicar no item da lista o mesmo deve mudar se estado, feito -> a fazer ou a fazer -> feito
-  - Deve ser possível armazenar quantos items o usuario quiser a lista
-  - A lista deve ser armazenada de uma forma que se o usuario entrar novamente na pagina ele poderá ver todos os itens ja cadastrados e seus respectivos estados
-  - Criar uma boa documentação para a solução (README).
+    - Utilizar JS, HTML e CSS puro, ou seja sem qualquer tipo de biblioteca ou framework
+    - A solução deve apresentar um campo para inserir o nome da tarefa a ser feita e um botao para adicionar a tarefa a lista
+    - Ao adicionar uma nova tarefa esperar 2 segundos para que seja exibido na lista de tarefas.
+    - Ao adicionar uma nova tarefa ela deverá vir por padrão no estado de a fazer
+    - A solução deve apresentar uma lista para listar as tarefas
+    - Cada elemento da lista deverá apresentar 2 estados diferentes, um pra item a se fazer e um para item feito e tem que ter uma diferença visual entre eles
+    - Ao clicar no item da lista o mesmo deve mudar se estado, feito -> a fazer ou a fazer -> feito
+    - Deve ser possível armazenar quantos items o usuario quiser a lista
+    - A lista deve ser armazenada de uma forma que se o usuario entrar novamente na pagina ele poderá ver todos os itens ja cadastrados e seus respectivos estados
+    - Criar uma boa documentação para a solução (README).
 
 Todos estes foram concluidos, logo pode-se afirmar que as funcionalidades do projeto se resumem em:
 
@@ -46,8 +46,6 @@ Todos estes foram concluidos, logo pode-se afirmar que as funcionalidades do pro
 - `Deletar Tarefa`: Ao aoretar no botão de deletar tarefa a tarefa á deletada
 - `Armazenar Tarefa`: As informaçãoes da lista de tarefas são armazenadas no LocalStorage do Browser
 
-
-## Acesso ao Projeto 
 
 ## 📁 Acesso ao projeto
 
@@ -76,13 +74,13 @@ Alexandre Melo Filho - Aluno de Web Full Stack
 
 Vale Ressaltar que este projeto **não** dispõe de uma interface em CSS, salvo a mencionada em tópicos anteriores. Além disso, os requisitos Opcionais, meniconados abaixo, não foram contemplados, em sua totalidade:
 
-### Requisitos Opcionais (Plus)
+#### Requisitos Opcionais (Plus)
 
-  - Implementar uma solução otimizada
-  - Em cada elemento da lista apresentar um botao de deletar e caso o usuario aperte esse botao o item some da lista
-  - Implementar uma boa interface gráfica para a solução
-  - Publicar a aplicação em algum ambiente (GitHub Pages,...)
-  - caso o aluno queira implementar mais alguma funcionalidade fique a vontade, mas deixe explicado no README
+    - Implementar uma solução otimizada
+    - Em cada elemento da lista apresentar um botao de deletar e caso o usuario aperte esse botao o item some da lista
+    - Implementar uma boa interface gráfica para a solução
+    - Publicar a aplicação em algum ambiente (GitHub Pages,...)
+    - caso o aluno queira implementar mais alguma funcionalidade fique a vontade, mas deixe explicado no README
 
 Logo, os Proximos passos se resumem em:
 
