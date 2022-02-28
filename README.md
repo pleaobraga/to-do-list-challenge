@@ -40,7 +40,7 @@ Essa App de To Do List (Lista de tarefas) tem as seguintes funções:
 
 - Adicionar N tarefas na sua lista, por padrão as tarefas são adicionadas como não realizadas,
 - Desde que se utilize a mesma máquina e o mesmo navegador, as tarefas são salvas no localStorage,
--Após adicionada uma tarefa a mesma pode ser marcada como realizada utilizando a checkbox do lado direito. Tarefas realizadas ficam em vermelho e tachadas;
+-Após adicionada uma tarefa a mesma pode ser marcada como realizada utilizando a checkbox do lado direito. Tarefas realizadas ficam em azul e tachadas;
 - Para deletar uma tarefa (seja ela realizada ou não realizada) é só clicar na caixa do lado esquerdo (DELETAR).
 
 
