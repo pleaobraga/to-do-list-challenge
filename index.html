@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lista de Tarefas</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script defer src="main.js"></script>
+  </head>
+  <body onload="carregarTarefas()">
+    <div class="cabecalho">
+      <h1 class="titulo">Lista de Tarefas</h1>
+      <label>
+        <span class="legenda">
+          Para adicionar uma tarefa na lista inserir texto no campo de entrada
+          "Nova Tarefa..." e clicar em "Adicionar Tarefa"
+        </span>
+        <span class="legenda">
+          Clicar em "DELETAR" para remover um item da Lista
+        </span>
+        <span class="legenda">
+          Clicar em um item da lista para marcal-lo como realizado"check"
+        </span>
+      </label>
+
+      <div class="tarefa">
+        <input
+          type="text"
+          id="placeholder-text"
+          class="input"
+          placeholder="Nova Tarefa..."
+        />
+        <button type="button" class="btn">Adicionar Tarefa</button>
+      </div>
+
+      <fieldset class="fieldset">
+        <legend>Tarefas:</legend>
+        <ul class="lista-tarefas"></ul>
+      </fieldset>
+    </div>
+  </body>
+</html>

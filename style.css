@@ -1,0 +1,129 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7;
+  color: rgb(85, 85, 85);
+  padding: 20px;
+}
+
+.cabecalho {
+  padding: 10px;
+  text-align: center;
+  background: linear-gradient(
+    to right bottom,
+    rgba(126, 213, 111, 0.801),
+    rgba(40, 180, 133, 0.801)
+  );
+}
+
+.titulo {
+  font-size: 50px;
+  padding: 20px;
+  text-decoration: underline;
+  animation: moverDaEsquerda 2s ease-out;
+}
+.legenda {
+  display: block;
+  padding: 5px;
+  animation: moverDeBaixo 1s ease-out 0.75s;
+  animation-fill-mode: backwards;
+}
+
+.tarefa {
+  padding: 10px;
+  font-size: 20px;
+  text-transform: uppercase;
+  animation: moverDaDireita 2s ease-out;
+}
+
+.input {
+  padding: 10px 150px;
+  border-radius: 100px;
+  border: none;
+  font-size: 17px;
+}
+
+#placeholder-text::placeholder {
+  text-align: center;
+  font-size: 17px;
+}
+
+.btn {
+  text-transform: uppercase;
+  padding: 10px 30px;
+  border-radius: 100px;
+  margin: 10px;
+  font-size: 17px;
+  animation: moverDeBaixo 1s ease-out 0.75s;
+  animation-fill-mode: backwards;
+  cursor: pointer;
+}
+
+.fieldset {
+  padding: 20px 0px 500px;
+  font-size: 20px;
+  text-transform: uppercase;
+  border: 2.5px solid;
+}
+
+.lista-tarefas {
+  list-style-type: none;
+}
+
+.tarefa-realizada {
+  text-decoration: line-through;
+  color: red;
+  cursor: pointer;
+}
+
+.delete {
+  margin-left: 20px;
+  font-size: 17px;
+}
+
+@keyframes moverDaEsquerda {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  80% {
+    transform: translateX(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes moverDaDireita {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  80% {
+    transform: translateX(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes moverDeBaixo {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
