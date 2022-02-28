@@ -1,10 +1,12 @@
+
+/* GENERAL */
+body {
+    font: 100%/1.5 arial, verdana, sans-serif;
+}
+
 a{
     color:inherit;
     text-decoration: inherit;
-}
-
-body {
-    font: 100%/1 arial, verdana, sans-serif;
 }
 
 .sr-only {
@@ -17,70 +19,6 @@ body {
     clip: rect(0, 0, 0, 0);
     white-space: nowrap;
     border-width: 0;
-}
-
-.div-only-desing{
-    background-color: #00A6BD;
-    width: calc(100% - 6px);
-    height: 10rem;
-    position: fixed;
-    top: 3px;
-    left: 3px;
-    z-index: -1;
-}
-
-.container{
-    max-width: 800px;
-    margin: auto;
-    margin-top: 2.5rem;
-}
-
-header {
-    text-align: center;
-    color: white;
-    font-weight: bold;
-    font-size: 2rem;
-    padding-bottom: 1rem;
-}
-
-main{
-    background-color: #E4E4E4;
-}
-
-.about-user {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    margin-top: 1.5rem;
-    padding-left: 5px;
-    font-size: 0.75rem;
-}
-
-.abstract {
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    margin-top: 0.5rem;
-    grid-row: 1fr, 1fr, 1fr;
-}
-
-.card {
-    background-color: white;
-    font-size: 2.5rem;
-    width: 25%;
-}
-
-.card h3{
-    font-size: 1rem;
-}
-
-.card p{
-    text-align: center;
-}
-
-.card p.abstractCounters{
-    font-size: 0.75rem;
-    margin: 00.5rem;
 }
 
 .warning{
@@ -99,16 +37,78 @@ main{
     text-decoration:line-through;
 }
 
-.status, .date, .commands{
+.div-only-desing{
+    background-color: #00A6BD;
+    width: calc(100% - 6px);
+    height: 10rem;
+    position: fixed;
+    top: 3px;
+    left: 3px;
+    z-index: -1;
+}
+
+/* CONTAINER */
+.container{
+    max-width: 800px;
+    margin: auto;
+    margin-top: 2.5rem;
+}
+
+/* CONTAINER - HEADER */
+header {
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    font-size: 2rem;
+    padding-bottom: 1rem;
+}
+
+/* CONTAINER - MAIN */
+main{
+    background-color: #E4E4E4;
+}
+
+/* CONTAINER - MAIN - ABSTRACT */
+.abstract {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 0.5rem;
+    grid-row: 1fr, 1fr, 1fr;
+}
+
+/* CONTAINER - MAIN - ABSTRACT - CARD */
+.card {
+    background-color: white;
+    font-size: 2.5rem;
+    width: 25%;
+    opacity: 1;
+}
+
+.card.notSelected{
+    opacity: 0.4;
+}
+
+.card h3{
+    font-size: 1rem;
+}
+
+.card p{
     text-align: center;
 }
 
+.card p.abstractCounters{
+    font-size: 0.75rem;
+    margin: 00.5rem;
+}
+
+/* CONTAINER - MAIN - CONTROLLERS */
 .controllers{
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
     display: block;
     margin-left: 5px;
-    font-size: 0.75rem;
+    font-size: 1rem;
 }
 
 .menuTask{
@@ -149,11 +149,17 @@ main{
     padding: 4px;
 }
 
+/* CONTAINER - MAIN - TASKS */
 .tasks{
     display: flex;
     width: 10calc(100% - 20px);
     margin: auto;
     font-size: 1rem;
+    flex-direction: column;
+}
+
+.status, .date, .commands{
+    text-align: center;
 }
 
 .div-tasks{
@@ -217,13 +223,12 @@ main{
     padding-right: 2px;
 }
 
+.paginate{
+    display: flex;
+    justify-content: center;
+}
 
-
-
-
-
-
-/* Modal ===================== */
+/* MODAL */
 .modal-overlay {
     width: 100%;
     height: 100%;
@@ -259,42 +264,32 @@ main{
     visibility: visible;
 }
 
-/* Form ===================== */
+/* MODAL - FORM */
 #form {
     max-width: 500px;
+    display: flex;
+    flex-direction: column;
 }
-
 
 #form h2 {
     margin-top: 0;
 }
 
-input {
+.form-input {
     border: none;
     border-radius: 0.2rem;
     padding: 0.8rem;
-    width: 100%;
+    display: block;
+    /* width: 100%; */
 }
-textarea {
-    border: none;
-    border-radius: 0.2rem;
-    padding: 0.8rem;
-    width: 100%;
+
+.checkbox-group {
+    display: flex;
+    flex-direction: row;
 }
 
 .input-group {
     margin-top: 0.8rem;
-}
-
-.input-edit {
-    position: fixed;
-    top: 0;
-    visibility: hidden;
-    opacity: 0;
-}
-
-.input-group .help{
-    opacity: 0.4;
 }
 
 .input-group.actions {

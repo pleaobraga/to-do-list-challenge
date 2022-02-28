@@ -1,32 +1,71 @@
 class Task {
-    constructor(id, repetition, description, date, observation, createdAt, updatedAt, done){  
-        id=parseInt(id)
-        this.id=id
+    constructor(repetition, description, date, observation){  
+        this.id=this.createID()
         this.repetition=repetition
         this.description=description,
         this.date=date,
         this.observation=observation,
-        this.createdAt=createdAt,
-        this.updatedAt=updatedAt,
-        this.done=done
+        this.createdAt=UTILS.formatSystemDateToStringSystemDate(new Date),
+        this.updatedAt=UTILS.formatSystemDateToStringSystemDate(new Date),
+        this.done=false
+    }
+
+    createID() {
+        const lengthTasks = TASK.tasks.length
+        if (lengthTasks==0){
+            return 1
+        }
+        else{
+            const index=lengthTasks-1
+            const lastTask=TASK.tasks[index]
+            const idlastTask=lastTask.id
+            return idlastTask+1
+        }
+    }
+}
+
+class Filter {
+    constructor(
+        itensPerPage=7, 
+        page=1, 
+        selections={
+            'arrears': true,
+            'warning': true,
+            'pending': true,
+            'done': true
+        },
+        dates={
+            'start': '',
+            'end': ''
+        }
+    ){
+        this.itensPerPage=itensPerPage,
+        this.page=page,
+        this.selections=selections,
+        this.dates=dates
     }
 }
 
 const MODAL = {
-    open(formHtml, formDo, optional){
+    open(formHtml, formDo, elementId){
         this.closeForms()
-        FORM.clearFields()
+        FORM.clearFields(formHtml)
+        FORM.configFields(formHtml, formDo)
+        FORM.valueFields(formHtml, formDo, elementId)
+        
         if (formHtml==='task'){
-            FORM.configFields(formHtml, formDo, optional)
-            FORM.valueFields(formHtml, formDo, optional)
             HTML.modalOverlay.addEventListener('click', evt => this.closeInClick(evt))
             HTML.modalTask.classList.add('active')
+        }
+        else if (formHtml==='filter'){
+            HTML.modalOverlay.addEventListener('click', evt => this.closeInClick(evt))
+            HTML.modalFilter.classList.add('active')
         }
         HTML.modalOverlay.classList.add('active')
     },
 
-    closeOverlay(){
-        HTML.modalOverlay.classList.remove('active')
+    closeOverlay(){        
+        HTML.modalOverlay.classList.remove('active')        
         this.closeForms()
     },
 
@@ -53,114 +92,156 @@ const STORAGE = {
 }
 
 const SESSIONSTORAGE = {
-    get(value){
-        return JSON.parse(sessionStorage.getItem("todo-list:"+value)) || []
+    get(){
+        return JSON.parse(sessionStorage.getItem("todo-list:filter"))
     },
-    set(value, data){
-        sessionStorage.setItem("todo-list:"+value, JSON.stringify(data))
+    set(filter){
+        sessionStorage.setItem("todo-list:filter", JSON.stringify(filter))
     }
 }
 
 const TASK = {
     tasks: STORAGE.get(),
 
-    createTask(formValues) {
-        const id=this.createID()
+    create(formValues) {
         const repetition=formValues.repetition
         const description= formValues.description
         const date= formValues.date
         const observation=formValues.observation
-        const createdAt= UTILS.formatSystemDateToStringSystemDate(new Date)
-        const updatedAt= UTILS.formatSystemDateToStringSystemDate(new Date)
-        const done=false
-
-        const newTask= new Task(id, repetition, description, date, observation, createdAt, updatedAt, done)    
-        this.tasks.push(newTask)
+        const task= new Task(repetition, description, date, observation)    
+        this.tasks.push(task)
         STORAGE.set(this.tasks)
     },
     
-    viewTask(id) {
-        const selectedTask=this.catchTask(id)
-        MODAL.open('task', 'view', selectedTask)
-    },
-    
-    editTask(id) {
-        const selectedTask=this.catchTask(id)
-        MODAL.open('task', 'edit', selectedTask)
-    },
-    
-    saveTask(formValues) {     
-        const selectedTask=this.catchTask(formValues.id)
-        const index=this.tasks.indexOf(selectedTask)
-        let updatedTask=selectedTask
-        updatedTask.description= formValues.description
-        updatedTask.date= formValues.date
-        updatedTask.observation=formValues.observation
-        updatedTask.updatedAt= UTILS.formatSystemDateToStringSystemDate(new Date)
-        this.tasks.splice(index, 1, updatedTask)
+    save(formValues) {     
+        const task=this.catch(formValues.id)
+        const index=this.tasks.indexOf(task)
+        task.description= formValues.description
+        task.date= formValues.date
+        task.observation=formValues.observation
+        task.updatedAt= UTILS.formatSystemDateToStringSystemDate(new Date)
+        this.tasks.splice(index, 1, task)
         STORAGE.set(this.tasks)
     },
     
-    deleteTask(id) {
-        const selectedTask=this.catchTask(id)
-        index=this.tasks.indexOf(selectedTask)
+    delete(id) {
+        const task=this.catch(id)
+        const index=this.tasks.indexOf(task)
         this.tasks.splice(index, 1)
         STORAGE.set(this.tasks)
         start(false)
     },
     
-    changeDoneTask(id) {
-        const selectedTask=this.catchTask(id)
-        const index=this.tasks.indexOf(selectedTask)
-        let updatedTask=selectedTask
-        updatedTask.done=!selectedTask.done
-        updatedTask.updatedAt= UTILS.formatSystemDateToStringSystemDate(new Date)
-        this.tasks.splice(index, 1, updatedTask)
+    changeDone(id) {   
+        const task=this.catch(id)
+        const index=this.tasks.indexOf(task)
+        task.done=!task.done
+        task.updatedAt= UTILS.formatSystemDateToStringSystemDate(new Date)
+        this.tasks.splice(index, 1, task)
         STORAGE.set(this.tasks)
         start(false)
     },
-
-    createID() {
-        const lengthTasks = this.tasks.length
-        if (lengthTasks==0){
-            return 1
-        }
-        else{
-            index=lengthTasks-1
-            lastTask=this.tasks[index]
-            idlastTask=lastTask.id
-            return idlastTask+1
-        }
-    },
     
-    catchTask(id) {
+    catch(id) {
         return this.tasks.find(task => task.id == id)
     },
 
     tratamentToShow(){
-        tratedTasks=[]
+        const filter = FILTER.filter
+        let tratedTasks=[]     
+        let counters = {
+            "arrears": 0,
+            "warning": 0,
+            "pending": 0
+        }
         this.tasks.forEach(task => {
-            newTask = {
-                "id": task.id,
-                "status": UTILS.checkStatus(task),
-                "description": task.description,
-                "date": task.date
+            if ((task.date>=filter.dates.start||filter.dates.start==="") && (task.date<=filter.dates.end||filter.dates.end==="")){
+                newTask = {
+                    "id": task.id,
+                    "status": UTILS.checkStatus(task),
+                    "description": task.description,
+                    "date": task.date
+                }
+                if (filter.selections[newTask.status]){
+                    tratedTasks.push(newTask)            
+                }
+                counters[newTask["status"]]= counters[newTask["status"]]+1
             }
-            tratedTasks.push(newTask)            
         });
-        return tratedTasks;
+        return {"tasks": tratedTasks, "counters": counters};
+    }
+}
+
+const FILTER = {
+    filter: SESSIONSTORAGE.get("filter"), 
+       
+    create(itensPerPage, page, selections, dates){
+        const filter= new Filter(itensPerPage, page, selections, dates)
+        this.filter=filter
+        SESSIONSTORAGE.set(filter)
+    },
+
+    apply(){
+        const tasks=TASK.tratamentToShow()['tasks']
+        const lenTasks=tasks.length
+        const pages=Math.ceil(lenTasks/this.filter['itensPerPage'])
+        const firstItem=(this.filter['page']-1)*this.filter['itensPerPage']
+        const lastItem=(this.filter['page'])*this.filter['itensPerPage']        
+        return {
+            'toShow': tasks.slice(firstItem, lastItem),
+            'counters': TASK.tratamentToShow()['counters'],
+            'currentPage': this.filter['page'],
+            'pages': pages,
+            'selections': this.filter['selections']
+        }
+    },
+
+    navigate(navigateTo){
+        const currentPage=HTML.taskCurrent.innerText
+        const lastPage=HTML.taskLast.innerText
+        const filter = this.filter
+        if (navigateTo=="previous"){
+            if (currentPage>1){
+                filter['page']=filter['page']-1
+                this.filter=filter
+                SESSIONSTORAGE.set(filter)
+            }
+        }
+        else if (navigateTo=="next"){
+            if (currentPage<lastPage){
+                filter['page']=filter['page']+1
+                this.filter=filter
+                SESSIONSTORAGE.set(filter)
+            }
+        }
+        start(false)
+    },
+
+    changeCardSelection(card){
+        const filter = this.filter
+        filter.selections[card]=!filter.selections[card]
+        this.filter=filter
+        SESSIONSTORAGE.set(filter)
+        start(false)
     }
 }
 
 const HTML = {
-    modalOverlay: document.querySelector('div.modal-overlay'),
-    modalTask: document.querySelector('div.modal.tasks'),
-    modalFilter: document.querySelector('div.modal.filter'), //filter
-    modals: document.querySelectorAll('div.modal'),
-    tbodyTasks: document.querySelector('tbody.tbody-tasks'),
-    cardArrearsCount: document.querySelector('p#cardArrearsCount'),
-    cardWarningCount: document.querySelector('p#cardWarningCount'),
-    cardPendingCount: document.querySelector('p#cardPendingCount'),
+    modalOverlay: document.querySelector('.modal-overlay'),
+    modalTask: document.querySelector('.modal.tasks'),
+    modalFilter: document.querySelector('.modal.filter'),
+    modals: document.querySelectorAll('.modal'),
+    cardArrears: document.querySelector('#cardArrears'),
+    cardWarning: document.querySelector('#cardWarning'),
+    cardPending: document.querySelector('#cardPending'),
+    cardArrearsCount: document.querySelector('#cardArrearsCount'),
+    cardWarningCount: document.querySelector('#cardWarningCount'),
+    cardPendingCount: document.querySelector('#cardPendingCount'),
+    tbodyTasks: document.querySelector('.tbody-tasks'),
+    taskLeft: document.querySelector('#paginate #left'),
+    taskRight: document.querySelector('#paginate #right'),
+    taskCurrent: document.querySelector('#paginate #current'),
+    taskLast: document.querySelector('#paginate #last'),
 
     clearTaskTable() {
         this.tbodyTasks.innerHTML=''
@@ -202,37 +283,47 @@ const HTML = {
     },
 
     webElements(){
-        const tasks = FILTER.apply()['toShow']
-        //FILTER TO COUNT
+        const tasks = FILTER.apply()
         this.clearTaskTable()
-        if (tasks.length > 0) {
-            let counter = {
-                "arrears": 0,
-                "warning": 0,
-                "pending": 0
-            }
-            tasks.forEach(task => {
-                const status=UTILS.checkStatus(task)
-                counter=UTILS.updateCounter(counter, status)
-
+        if (tasks['toShow'].length>0){
+            tasks['toShow'].forEach(task => {
                 const tr = document.createElement('tr')
-                tr.classList.add("tr-tasks")
-                tr.appendChild(this.addTdsToTr("status", status, "⬤"))
-                tr.appendChild(this.addTdsToTr("description", status, task.description))
-                tr.appendChild(this.addTdsToTr("date", status, UTILS.formatDateToDisplay(task.date)))
+                tr.classList.add("tr-tasks")                
+                tr.appendChild(this.addTdsToTr("status", task.status, "⬤"))
+                tr.appendChild(this.addTdsToTr("description", task.status, task.description))
+                tr.appendChild(this.addTdsToTr("date", task.status, UTILS.formatDateToDisplay(task.date)))
                 tr.appendChild(this.addTdCommandToTr("commands", task))
                 this.tbodyTasks.appendChild(tr)
-                
             });
-            this.cardArrearsCount.innerText=counter['arrears']
-            this.cardWarningCount.innerText=counter['warning']
-            this.cardPendingCount.innerText=counter['pending']
         }
+        this.cardArrearsCount.innerText=tasks['counters']['arrears']
+        this.cardWarningCount.innerText=tasks['counters']['warning']
+        this.cardPendingCount.innerText=tasks['counters']['pending']
+        if (!tasks['selections']['arrears']){
+            this.cardArrears.classList.add('notSelected')
+        }
+        else {
+            this.cardArrears.classList.remove('notSelected')
+        }
+        if (!tasks['selections']['warning']){
+            this.cardWarning.classList.add('notSelected')
+        }
+        else {
+            this.cardWarning.classList.remove('notSelected')
+        }
+        if (!tasks['selections']['pending']){
+            this.cardPending.classList.add('notSelected')
+        }
+        else {
+            this.cardPending.classList.remove('notSelected')
+        }
+        this.taskCurrent.innerText=tasks['currentPage']
+        this.taskLast.innerText=tasks['pages']
     },
 
     addLinksAddTask(){
         const ul = document.querySelector('ul#menuTask');
-        ul.addEventListener('click', evt => MODAL.open('task', evt.target.id, evt.target.id));
+        ul.addEventListener('click', evt => MODAL.open('task', evt.target.id));
     },
 
     addLinksButtonsInTable(){
@@ -241,60 +332,69 @@ const HTML = {
             const td = tr.querySelectorAll('td')[3]
             td.addEventListener('click', evt => UTILS.checkHTMLOrder(evt.target.id));
         });
-    }
-}
-
-const FILTER = {
-    filter: SESSIONSTORAGE.get("filter"),
-
-    start(){
-        const filter={
-            // 'startDate': '',
-            // 'finalDate': '',
-            'itensPerPage': 5,
-            'page': 1,
-            // 'codOrder': 0,
-            // 'order': ''
-        }
-        SESSIONSTORAGE.set("filter", filter)
     },
-
-    apply(){
-        const tasks= TASK.tratamentToShow()
-        lenTasks=tasks.length()
-        pages=Math.ceil(lenTasks/this.filter['itensPerPage'])
-        const firstItem=(filter['page']-1)*15
-        const lastItem=(filter['page']-1)*15
-        return {"toCount": tasks, "toShow": tasks.slice(firstItem, lastItem)}
-    }
-
 }
 
 const FORM = {
-    id: document.querySelector('input#task_id'),
-    do: document.querySelector('input#task_do'),
-    repetition: document.querySelector('input#task_repetition'),
-    description: document.querySelector('input#task_description'),
-    date: document.querySelector('input#task_date'),
-    observation: document.querySelector('textarea#task_observation'),
-    btnSubmit: document.querySelector('.input-group.actions button'),
-    btnCancel: document.querySelector('.button.cancel'),
-
-    getValues(form){
-        if (form=='task'){
+    getElements(formHtml){
+        if (formHtml=='task'){
             return {
-                id: this.id.value,
-                repetition: this.repetition.value,
-                description: this.description.value,
-                date: this.date.value,
-                observation: this.observation.value
+                taskTitle: document.querySelector('#task_title'),
+                id: document.querySelector('input#task_id'),
+                do: document.querySelector('input#task_do'),
+                repetition: document.querySelector('input#task_repetition'),
+                description: document.querySelector('input#task_description'),
+                date: document.querySelector('input#task_date'),
+                observation: document.querySelector('textarea#task_observation'),
+                btnSubmit: document.querySelector('#task_submit'),
+                btnCancel: document.querySelector('#task_cancel')
+            }
+        }
+        else if (formHtml=='filter'){
+            return{
+                itensPerPage: document.querySelector('#filter_itensPerPage'),
+                checkArrear: document.querySelector('#filter_checkArrear'),
+                checkWarning: document.querySelector('#filter_checkWarning'),
+                checkPending: document.querySelector('#filter_checkPending'),
+                checkDone: document.querySelector('#filter_checkDone'),
+                start_date: document.querySelector('#filter_start_date'),
+                end_date: document.querySelector('#filter_end_date'),
+                btnSubmit: document.querySelector('#filter_submit'),
+                btnCancel: document.querySelector('#filter_cancel')
             }
         }
     },
 
-    validateFields(form) {
-        if (form=='task'){
-            const formValues = this.getValues(form)    
+    getValues(formHtml){
+        if (formHtml=='task'){
+            const taskElements = this.getElements(formHtml)
+            return {
+                taskTitle: taskElements.taskTitle.innerText,
+                id: taskElements.id.value,
+                do: taskElements.do.value,
+                repetition: taskElements.repetition.value,
+                description: taskElements.description.value,
+                date: taskElements.date.value,
+                observation: taskElements.observation.value
+            }
+        }
+        else if (formHtml=='filter'){
+            const taskElements = this.getElements(formHtml)
+            return {
+                itensPerPage: taskElements.itensPerPage.value,
+                checkArrear: taskElements.checkArrear.checked,
+                checkWarning: taskElements.checkWarning.checked,
+                checkPending: taskElements.checkPending.checked,
+                checkDone: taskElements.checkDone.checked,
+                start_date: taskElements.start_date.value,
+                end_date: taskElements.end_date.value
+            }
+        }
+    },
+
+    validateFields(formHtml) {
+        if (formHtml=='task'){
+            const formValues = this.getValues(formHtml)    
             if( formValues.repetition.trim() === "" || 
                 formValues.description.trim() === "" || 
                 formValues.date.trim() === "") 
@@ -302,113 +402,186 @@ const FORM = {
                 throw new Error("Por favor, preencha os campos repetição, descrição e data.")
             }
             else{
+                
+                return formValues;
+            }
+        }
+        else if (formHtml=='filter'){
+            const formValues = this.getValues(formHtml)    
+            if( formValues.itensPerPage.trim() === "") 
+            {
+                throw new Error("Por favor, preencha o campo de itens por página.")
+            }
+            else{
+                
                 return formValues;
             }
         }
     },
 
-    clearFields() {
-        this.id.value = ""
-        this.repetition.value = ""
-        this.description.value = ""
-        this.date.value = ""
-        this.observation.value = ""
+    clearFields(formHtml) {
+        if (formHtml=='task'){
+            const taskElements = this.getElements(formHtml)
+            taskElements.taskTitle.innerText = ""
+            taskElements.id.value = ""
+            taskElements.do.value = ""
+            taskElements.repetition.value = ""
+            taskElements.description.value = ""
+            taskElements.date.value = ""
+            taskElements.observation.value = ""
+        }
+        else if (formHtml=='filter'){
+            const filterElements = this.getElements(formHtml)
+            filterElements.itensPerPage.value = ""
+            filterElements.checkArrear.checked = false
+            filterElements.checkWarning.checked = false
+            filterElements.checkPending.checked = false
+            filterElements.checkDone.checked = false
+            filterElements.start_date.value = ""
+            filterElements.end_date.value = ""
+        }
     },
 
-    configFields(formHtml, formDo, optional) {  
+    configFields(formHtml, formDo) {  
         if (formHtml==="task"){
+            const taskElements = this.getElements(formHtml)
             if (formDo==="simple" || formDo==="week" || formDo==="month"){
                 if(formDo==="simple"){
-                    this.repetition.readOnly = true;
-                    this.repetition.min=String(1);
+                    taskElements.repetition.readOnly = true;
+                    taskElements.repetition.min=String(1);
                 }
                 else{
-                    this.repetition.readOnly = false;
-                    this.repetition.min=String(2);
+                    taskElements.repetition.readOnly = false;
+                    taskElements.repetition.min=String(2);
                 }
-                this.description.readOnly=false
-                this.date.readOnly=false
-                this.observation.readOnly=false
-                this.btnSubmit.hidden=false
+                taskElements.description.readOnly=false
+                taskElements.date.readOnly=false
+                taskElements.observation.readOnly=false
+                taskElements.btnSubmit.hidden=false
             }
             else if(formDo==="edit"){
-                this.repetition.readOnly = true;
-                this.repetition.min=String(1);
-                this.description.readOnly=false
-                this.date.readOnly=false
-                this.observation.readOnly=false
-                this.btnSubmit.hidden=false
+                taskElements.repetition.readOnly = true;
+                taskElements.repetition.min=String(1);
+                taskElements.description.readOnly=false
+                taskElements.date.readOnly=false
+                taskElements.observation.readOnly=false
+                taskElements.btnSubmit.hidden=false
             }
             else if(formDo==="view"){
-                this.repetition.readOnly=true
-                this.repetition.min=String(1);
-                this.description.readOnly=true
-                this.date.readOnly=true
-                this.observation.readOnly=true
-                this.btnSubmit.hidden=true
+                taskElements.repetition.readOnly=true
+                taskElements.repetition.min=String(1);
+                taskElements.description.readOnly=true
+                taskElements.date.readOnly=true
+                taskElements.observation.readOnly=true
+                taskElements.btnSubmit.hidden=true
             }
         }
-
     },
 
-    valueFields(formHtml, formDo, optional) {
+    valueFields(formHtml, formDo, elementId) {
         if (formHtml==="task"){
-            this.do.value=formDo
-            if (formDo==="simple" || formDo==="week" || formDo==="month"){                
+            const taskElements = this.getElements(formHtml)
+            taskElements.do.value=formDo   
+            if (formDo==="simple" || formDo==="week" || formDo==="month"){
                 if(formDo==="simple"){
-                    this.repetition.value = String(1);
+                    taskElements.taskTitle.innerText = "TAREFA"
+                    taskElements.repetition.value
+                    taskElements.repetition.value = String(1);
                 }
-                else{
-                    this.repetition.value = String(2);
+                else if (formDo==="week"){
+                    taskElements.taskTitle.innerText = "TAREFAS SEMANAIS"
+                    taskElements.repetition.value = String(2);
                 }
-                this.btnSubmit.innerText="Criar"
-                this.btnCancel.innerText="Cancelar"
+                else if (formDo==="month"){
+                    taskElements.taskTitle.innerText = "TAREFAS MENSAIS"
+                    taskElements.repetition.value = String(2);
+                }
+                taskElements.btnSubmit.innerText="Criar"
+                taskElements.btnCancel.innerText="Cancelar"
             }
-            else{          
+            else{     
+                const task=TASK.catch(elementId)
                 if(formDo==="edit"){
-                    this.btnSubmit.innerText="Salvar"
-                    this.btnCancel.innerText="Cancelar"
+                    taskElements.taskTitle.innerText = "EDITAR TAREFA"
+                    taskElements.btnSubmit.innerText="Salvar"
+                    taskElements.btnCancel.innerText="Cancelar"
                 }          
                 if(formDo==="view"){
-                    this.btnCancel.innerText="Fechar"
+                    taskElements.taskTitle.innerText = "TAREFA"
+                    taskElements.btnCancel.innerText="Fechar"
                 } 
-                this.id.value=optional.id
-                this.repetition.value=optional.repetition
-                this.description.value=optional.description
-                this.date.value=optional.date
-                this.observation.value=optional.observation
+                taskElements.id.value=task.id  
+                taskElements.repetition.value=task.repetition
+                taskElements.description.value=task.description
+                taskElements.date.value=task.date
+                taskElements.observation.value=task.observation
             }
+        }
+        else if (formHtml==="filter"){
+            const filterElements = this.getElements(formHtml)
+            const filter = FILTER.filter
+            filterElements.itensPerPage.value=filter.itensPerPage
+            filterElements.checkArrear.checked=filter.selections.arrears
+            filterElements.checkWarning.checked=filter.selections.warning
+            filterElements.checkPending.checked=filter.selections.pending
+            filterElements.checkDone.checked=filter.selections.done
+            filterElements.start_date.value=filter.dates.start
+            filterElements.end_date.value=filter.dates.end
+            filterElements.btnSubmit.innerText="Filtrar"
+            filterElements.btnCancel.innerText="Cancelar"
         }
     },
     
     buttonSubmit(event, form){
         event.preventDefault()
-        try {
+        // try {
             const formValues = this.validateFields(form)
             MODAL.closeOverlay()
             if (form=='task'){
-                if (this.do.value==="simple"){
-                    TASK.createTask(formValues)
-                }
-                else if (this.do.value==="week" || this.do.value==="month"){
-                    let repetition=0
-                    const maxPeriod=parseInt(formValues.repetition)
-                    const originalDate=formValues.date
-                    while (repetition<maxPeriod){
-                        let formToCreate=formValues
-                        formToCreate.date=UTILS.calculatePeriod(originalDate, this.do.value, repetition)
-                        TASK.createTask(formToCreate)                        
-                        repetition=repetition+1
-                    }
-                }
-                else if(this.do.value=='edit'){
-                    TASK.saveTask(formValues)
+                if (formValues.do==="simple" || formValues.do==="week" || formValues.do==="month"){
+                    // setTimeout(() => {  
+                        let repetition=0
+                        const maxPeriod=parseInt(formValues.repetition)
+                        const originalDate=formValues.date
+                        while (repetition<maxPeriod){
+                            let formToCreate=formValues
+                            formToCreate.date=UTILS.calculatePeriod(originalDate, formValues.do, repetition)
+                            console.log(formToCreate)
+                            TASK.create(formToCreate) 
+                            if (repetition+1==maxPeriod){
+                                start(false)
+                            }
+                            repetition=repetition+1
+                        }
+                    // }, 2000);
                 }
             }
-            start(false)
-        } catch (error) {
-            alert(error.message)
-        }
+            else if(form=='filter'){
+                let formToFilter=formValues
+                const itensPerPage=parseInt(formToFilter.itensPerPage) 
+                const selections={
+                    'arrears': formToFilter.checkArrear,
+                    'warning': formToFilter.checkWarning,
+                    'pending': formToFilter.checkPending,
+                    'done': formToFilter.checkDone
+                }
+                const dates={
+                    'start': formToFilter.start_date,
+                    'end': formToFilter.end_date
+                }
+
+                FILTER.create(itensPerPage, 1, selections, dates) 
+                start(false)    
+            }
+        // } catch (error) {
+        //     alert(error.message)
+        // }
+    },
+    
+    buttonCancel(form){
+        this.clearFields(form)
+        MODAL.closeOverlay()
+        start(false)
     }
 }
 
@@ -457,32 +630,17 @@ const UTILS = {
     
     checkHTMLOrder(idElement){
         const infoElement=idElement.split("_")
-        idTask=parseInt(infoElement[1])
-        if (infoElement[0]=="view"){
-            TASK.viewTask(idTask)
-        }
-        else if (infoElement[0]=="edit"){
-            TASK.editTask(idTask)
+        const idTask=parseInt(infoElement[1])
+        if (infoElement[0]=="view" || infoElement[0]=="edit"){
+            
+            MODAL.open("task", infoElement[0], idTask)
         }
         else if (infoElement[0]=="delete"){
-            TASK.deleteTask(idTask)
+            TASK.delete(idTask)
         }
         else if (infoElement[0]=="changeDone"){
-            TASK.changeDoneTask(idTask)
+            TASK.changeDone(idTask)
         }
-    },
-
-    updateCounter(counter, status){
-        if (status == "arrears"){
-            counter["arrears"]= counter["arrears"]+1
-        }
-        else if (status == "warning"){
-            counter["warning"]= counter["warning"]+1
-        }
-        else if (status == "pending"){
-            counter["pending"]= counter["pending"]+1
-        }
-        return counter
     },
 
     formatDateToDisplay(date){
@@ -503,12 +661,18 @@ const UTILS = {
             }
             count=count+1
         }
+        console.log(internalDate)
+        console.log(this.extractOnlyDate(internalDate))
+        console.log(this.formatSystemDateToStringSystemDate(this.extractOnlyDate(internalDate)))
         return this.formatSystemDateToStringSystemDate(this.extractOnlyDate(internalDate))
     },
 }
 
 function start(newSession){
     if (newSession){
+        if (!FILTER.filter){
+            FILTER.create()
+        }
         HTML.addLinksAddTask()
     }
     HTML.webElements()

@@ -15,21 +15,17 @@
                 <h1>TO DO LIST</h1>
             </header>
             <main>
-                <selection class="about-user">
-                    <span>Saudações</span>
-                    <!-- <span>Sair</span> -->
-                </selection>
                 <selection class="abstract">
                     <h2 class="sr-only">Resumo</h2>
-                    <div class="card" id="cardArrears">
+                    <div class="card" id="cardArrears" onclick="FILTER.changeCardSelection('arrears')">
                         <h3><span class="arrears">Atraso</span></h3>
                         <p class="arrears" id="cardArrearsCount"></p>
                     </div>
-                    <div class="card" id="cardWarning">
+                    <div class="card" id="cardWarning" onclick="FILTER.changeCardSelection('warning')">
                         <h3><span class="warning">Alertas</span></h3>
                         <p class="warning" id="cardWarningCount"></p>
                     </div>
-                    <div class="card" id="cardPending">
+                    <div class="card" id="cardPending" onclick="FILTER.changeCardSelection('pending')">
                         <h3><span class="pending">Pendentes</span></h3>
                         <p class="pending" id="cardPendingCount"></p>
                     </div>
@@ -45,7 +41,7 @@
                                     <li><a class="addTask" id="month" href="#">Mensal</a></li>
                                 </ul>
                             </li>
-                            <!-- <li><a class="menuOption" href="#" onclick="MODAL.open('filter')">Filtrar</a></li> -->
+                            <li><a class="menuOption" href="#" onclick="MODAL.open('filter')">Filtrar</a></li>
                         </ul>
                     </nav>
                 </selection>
@@ -65,16 +61,27 @@
                             </tbody>
                         </table>
                     </div>
+                    <div id="paginate" class="paginate">
+                        <div id="left" class="command left">   
+                            <a href="#" id="btn-left" onclick="FILTER.navigate('previous')" class="btn"><</a>
+                        </div>
+                        <div id="center" class="display">
+                            <span id="current"></span>/<span id="last"></span>
+                        </div>
+                        <div id="right" class="command right">  
+                            <a href="#" id="btn-right" onclick="FILTER.navigate('next')" class="btn">></a>       
+                        </div>
+                    </div>
                 </selection>
             </main>
-            <footer>
-                Footer
+            <footer id="footer">
+                Created by: Gustavo Brietzig
             </footer>
         </div>
         <div class="modal-overlay">
             <div class="modal tasks">
                 <div id="form">
-                    <h2>TAREFA</h2>
+                    <h2 id="task_title">TAREFA</h2>
                     <form action="" onsubmit="FORM.buttonSubmit(event, 'task')">
                         <div class="input-group">
                             <input 
@@ -93,10 +100,10 @@
                             />
                         </div>
                         <div class="input-group">
-                            <label 
-                                class="sr-only" 
+                            <label
                                 for="task_repetition">Repetições</label>
                             <input 
+                                class="form-input"
                                 type="number"
                                 step="1"
                                 id="task_repetition" 
@@ -109,6 +116,7 @@
                                 class="sr-only" 
                                 for="task_description">Descrição</label>
                             <input 
+                                class="form-input"
                                 type="text" 
                                 id="task_description" 
                                 name="task_description"
@@ -120,6 +128,7 @@
                                 class="sr-only" 
                                 for="task_date">Data</label>
                             <input 
+                                class="form-input"
                                 type="date" 
                                 id="task_date" 
                                 name="task_date"
@@ -129,21 +138,111 @@
                             <label 
                                 class="sr-only" 
                                 for="task_observation">Observação</label>
-                            <textarea name="task_observation" id="task_observation" placeholder="Observação"></textarea>
+                            <textarea name="task_observation" class="form-input" id="task_observation" placeholder="Observação"></textarea>
                         </div>
                         <div class="input-group actions">
                             <a 
-                            onclick="MODAL.closeOverlay()"
+                            onclick="FORM.buttonCancel('task')"
                             href="#" 
-                            class="button cancel">Cancelar</a>
-                            <button></button>
+                            class="button cancel" 
+                            id="task_cancel">Cancelar</a>
+                            <button id="task_submit"></button>
                         </div>
                     </form>
                 </div>
             </div>
             <div class="modal filter">
-                FILTER
-                <a href="#" onclick="MODAL.close()">Fechar</a>
+                <div id="form">
+                    <h2>FILTRO</h2>
+                    <form action="" onsubmit="FORM.buttonSubmit(event, 'filter')">
+                        <div class="input-group">
+                            <label
+                                for="filter_itensPerPage">Itens por página</label>
+                            <input 
+                                class="form-input"
+                                type="number"
+                                step="1"
+                                id="filter_itensPerPage" 
+                                name="filter_itensPerPage"
+                            />
+                        </div>
+                        <div class="input-group">
+                            <div class="checkbox-group arrears">
+                                <input 
+                                    class="form-checkbox"
+                                    type="checkbox" 
+                                    id="filter_checkArrear" 
+                                    name="filter_checkArrear"
+                                />
+                                <label 
+                                    for="filter_checkArrear">Mostrar atrasos
+                                </label>
+                            </div>
+                            <div class="checkbox-group warning">
+                                <input 
+                                    class="form-checkbox"
+                                    type="checkbox" 
+                                    id="filter_checkWarning" 
+                                    name="filter_checkWarning"
+                                />
+                                <label 
+                                    for="filter_checkWarning">Mostrar alertas
+                                </label>
+                            </div>
+                            <div class="checkbox-group pending">
+                                <input 
+                                    class="form-checkbox"
+                                    type="checkbox" 
+                                    id="filter_checkPending" 
+                                    name="filter_checkPending"
+                                />
+                                <label 
+                                    for="filter_checkPending">Mostrar pendentes
+                                </label>
+                            </div>
+                            <div class="checkbox-group">
+                                <input 
+                                    class="form-checkbox"
+                                    type="checkbox" 
+                                    id="filter_checkDone" 
+                                    name="filter_checkDone"
+                                />
+                                <label 
+                                    for="filter_checkDone">Mostrar pendentes
+                                </label>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label
+                                for="filter_start_date">Data inicial</label>
+                            <input 
+                                class="form-input"
+                                type="date" 
+                                id="filter_start_date" 
+                                name="filter_start_date"
+                            />
+                            <label
+                                for="filter_end_date">Data final</label>
+                            <input 
+                                class="form-input"
+                                type="date" 
+                                id="filter_end_date" 
+                                name="filter_end_date"
+                            />
+                        </div>
+                        <div class="input-group actions">
+                            <a 
+                                onclick="FORM.buttonCancel('filter')"
+                                href="#" 
+                                class="button cancel"
+                                id="filter_cancel"
+                            >
+                                Cancelar
+                            </a>
+                            <button id="filter_submit"></button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
         <script src="scripts.js"></script>
