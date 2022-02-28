@@ -1,8 +1,5 @@
-# Lets Code - WebFullStack Módulo 5: JS Vanilla
+# Lets Code - Módulo 5: JS Vanilla - Matheus Silva Chagas
 # <i>To-do-list challenge</i>
-
-
-# to-do-list-challenge
 
 ## Proposta de Teste
 
@@ -18,7 +15,7 @@ Criar uma to-do list que consiste em adicionar elementos a uma lista e poder mar
 - Cada elemento da lista deverá apresentar 2 estados diferentes, um pra item a se fazer e um para item feito e tem que ter uma diferença visual entre eles
 - Ao clicar no item da lista o mesmo deve mudar se estado, feito -> a fazer ou a fazer -> feito
 - Deve ser possível armazenar quantos items o usuario quiser a lista
-- A lista deve ser armazenada de uma forma que se o usuario entrar novamente na pagina ele poderá ver todos os itens ja cadastrados e seus respectivos estados
+- A lista deve ser armazenada de uma forma que se o usuario entrar novamente na pagina ele poderá ver todos os itens ja cadastrados e seus respectivos estados (único que não consegui cumprir) 
 - Criar uma boa documentação para a solução (README).
 
 
@@ -43,6 +40,29 @@ Para a entrega o aluno deverá criar um pull request(PR) para esse repositório.
 - Não será aceito trabalhos após essa data
 - Se o sistema não rodar o aluno ficará com a nota 0
 - Não será permitido copias e se isso for detectado os alunos envolvidos ficarão com a nota 0
+
+## Ferramentas que foram utilizadas para elaboração dá pagina: 
+ 
+ - addEventListener -> Para "escutar" o que foi feito
+ - SetTimeout -> para o delay de 2 segundos 
+ - LocalStorage -> Para armazenamento
+ - parentELement
+ - toggle (css)
+
+## Estrutura do código 
+
+- A estrutura do código é feitar por 3 arquivos, um html, um css e um Javascript. 
+- No html estão o input para colocação das novas tarefas bem como o botão de adicionar nova tarefa. 
+- No css, por sua vez, está a estilização utlizada na pagina. Melhorias ocorrerão posteriormente.
+- No Javascript, está a parte de interação e comportamento da pagina. Formada em sua maioria por funções para cada evento que o usuario quiser. Exemplo: Adicionar uma tarefa, armazenar os dados no LocalStorage, lista-la como feita e criação de div dinâmica para a lista de tarefas.
+
+## OBS: 
+Não cumpri um requisito obrigatorio que foi o de atualização da pagina e os dados continuarem na pagina para o usuário. 
+
+## Aluno:
+- Matheus Silva Chagas
+
+
 
 
 
