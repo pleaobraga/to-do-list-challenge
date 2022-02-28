@@ -1,0 +1,121 @@
+:root {
+  --primary-color: #64A5AE;
+  --secondary-color: #72EFE9;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: var(--primary-color);
+  font: bold 2rem 'Oswald', 'Roboto Serif', sans-serif;
+}
+
+  .task {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 0 auto;
+    width: 50vw;
+  }
+
+  .task__title {
+    align-items: center;
+    background-color: var(--secondary-color);
+    box-shadow: 1px 1px 5px var(--secondary-color);
+    color: black;
+    display: flex;
+    font-size: 2rem;
+    height: 80px;
+    justify-content: center;
+    margin-top: 50px;
+    text-shadow: 5px 5px 5px var(--primary-color);
+    width: 100%;
+  }
+
+  .task__list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .task__item{
+    align-items: center;
+    box-shadow: 1px 1px 5px var(--secondary-color);
+    display: flex;
+    height: 60px;
+    padding: 5px;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .task__item > div {
+    width: 80%;
+  }
+
+  .task__item:hover {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    cursor: pointer;
+    transition: all .5s ease;
+  }
+
+  .task__item > input[type='text'] {
+    border: none;
+    font: inherit;
+    width: 80%;
+  }
+
+  .task__item > input[type='button'],
+  .task__item > input[type='checkbox'] {
+    background-color: var(--secondary-color);
+    border: black 2px solid;
+    font: 'Roboto Serif';
+    font-size: 2rem;
+    height: 30px;
+    width: 90px;
+  }
+
+  .task__item > input[type='checkbox']:checked  + div {
+    color: blue;
+    font: 'Roboto Serif';
+    font-size: 2rem;
+    text-decoration:line-through;
+  }
+
+  .task__newItem{
+    background-color: var(--secondary-color);
+    box-shadow: 1px 1px 5px var(--secondary-color);
+    display: flex;
+    font: 'Roboto Serif';
+    font-size: 2.5rem;
+    height: 70px;
+    justify-content: space-evenly;
+    margin: 10px;
+    padding: 10px 0;
+    width: 100%;
+  }
+
+  .task__newItem > input{
+    background-color: var(--secondary-color);
+    border: none;
+    font: 'Roboto Serif';
+    font-size: 1.5rem;
+    outline: none;
+    width: 80%;
+  }
+
+  .task__newItem > input::placeholder {
+    font-style: italic;
+    font-weight: normal;
+    text-align: center;
+  }
