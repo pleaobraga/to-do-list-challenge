@@ -45,11 +45,11 @@ O projeto teve como os Requisitos Origatórios, os demonstrados abaixo:
 
 Todos estes foram concluidos, logo pode-se afirmar que as funcionalidades do projeto se resumem em:
 
-- `Adicionar Tarefa`: adicionar tarefa com o click no botão
-- `Set Timeout`: Após o botão ser clicado, uma espera de dois segundos é necessária, comporvando assim a utilização desta funcionalidade
-- `Status da Tarefa`: Através de um input estilo Checkbox, pode-se marcar o andamento da tarefa em realizada ou não. Ao marcá-la o estilo do texto muda
-- `Deletar Tarefa`: Ao aoretar no botão de deletar tarefa a tarefa á deletada
-- `Armazenar Tarefa`: As informaçãoes da lista de tarefas são armazenadas no LocalStorage do Browser
+- `Adicionar Tarefa`: adicionar tarefa com o click no botão;
+- `Set Timeout`: Após o botão ser clicado, uma espera de dois segundos é necessária, comprovando assim a utilização desta funcionalidade;
+- `Status da Tarefa`: Através de um input estilo Checkbox, pode-se marcar o andamento da tarefa em realizada ou não. Ao marcá-la o estilo do texto muda;
+- `Deletar Tarefa`: Ao clicar no botão de deletar, tarefa a tarefa é removida da lista;
+- `Armazenar Tarefa`: As informaçãoes da lista de tarefas são armazenadas no LocalStorage do Browser, que ainda continuarão salvas caso a página seja recarregada.
 
 
 <h2 id='acesso-ao-projeto'>📁 Acesso ao projeto</h2> 
