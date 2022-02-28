@@ -261,11 +261,13 @@ const HTML = {
         td.classList.add("td-tasks")
         td.classList.add(category)
 
+        console.log(task)
+
         td.appendChild(this.addSpanToTdCommand("view", task, "👁"))
         td.appendChild(this.addSpanToTdCommand("edit", task, "🖉"))
         td.appendChild(this.addSpanToTdCommand("delete", task, "🗑"))
         let text=""
-        if(task.done){
+        if(task.status==="done"){
             text="x"
         }
         else{
@@ -408,9 +410,11 @@ const FORM = {
         }
         else if (formHtml=='filter'){
             const formValues = this.getValues(formHtml)    
-            if( formValues.itensPerPage.trim() === "") 
-            {
+            if( formValues.itensPerPage.trim() === ""){
                 throw new Error("Por favor, preencha o campo de itens por página.")
+            }
+            else if(formValues.start_date!="" && formValues.end_date!="" && formValues.start_date>formValues.end_date){
+                throw new Error("Data inicial maior do que a data final.")
             }
             else{
                 
@@ -534,26 +538,29 @@ const FORM = {
     
     buttonSubmit(event, form){
         event.preventDefault()
-        // try {
+        try {
             const formValues = this.validateFields(form)
             MODAL.closeOverlay()
             if (form=='task'){
                 if (formValues.do==="simple" || formValues.do==="week" || formValues.do==="month"){
-                    // setTimeout(() => {  
+                    setTimeout(() => {  
                         let repetition=0
                         const maxPeriod=parseInt(formValues.repetition)
                         const originalDate=formValues.date
                         while (repetition<maxPeriod){
                             let formToCreate=formValues
                             formToCreate.date=UTILS.calculatePeriod(originalDate, formValues.do, repetition)
-                            console.log(formToCreate)
                             TASK.create(formToCreate) 
                             if (repetition+1==maxPeriod){
                                 start(false)
                             }
                             repetition=repetition+1
                         }
-                    // }, 2000);
+                    }, 2000);
+                }
+                else if (formValues.do==="edit"){
+                    TASK.save(formValues)
+                    start(false)
                 }
             }
             else if(form=='filter'){
@@ -573,9 +580,9 @@ const FORM = {
                 FILTER.create(itensPerPage, 1, selections, dates) 
                 start(false)    
             }
-        // } catch (error) {
-        //     alert(error.message)
-        // }
+        } catch (error) {
+            alert(error.message)
+        }
     },
     
     buttonCancel(form){
@@ -661,9 +668,6 @@ const UTILS = {
             }
             count=count+1
         }
-        console.log(internalDate)
-        console.log(this.extractOnlyDate(internalDate))
-        console.log(this.formatSystemDateToStringSystemDate(this.extractOnlyDate(internalDate)))
         return this.formatSystemDateToStringSystemDate(this.extractOnlyDate(internalDate))
     },
 }
