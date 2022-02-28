@@ -1,3 +1,7 @@
+# Lets Code - WebFullStack Módulo 5: JS Vanilla
+# <i>To-do-list challenge</i>
+
+
 # to-do-list-challenge
 
 ## Proposta de Teste
@@ -39,3 +43,6 @@ Para a entrega o aluno deverá criar um pull request(PR) para esse repositório.
 - Não será aceito trabalhos após essa data
 - Se o sistema não rodar o aluno ficará com a nota 0
 - Não será permitido copias e se isso for detectado os alunos envolvidos ficarão com a nota 0
+
+
+
