@@ -17,7 +17,6 @@ Criar uma to-do list que consiste em adicionar elementos a uma lista e poder mar
 - A lista deve ser armazenada de uma forma que se o usuario entrar novamente na pagina ele poderá ver todos os itens ja cadastrados e seus respectivos estados
 - Criar uma boa documentação para a solução (README).
 
-
 ## Requisitos Opcionais (Plus)
 
 - Implementar uma solução otimizada
@@ -26,16 +25,50 @@ Criar uma to-do list que consiste em adicionar elementos a uma lista e poder mar
 - Publicar a aplicação em algum ambiente (GitHub Pages,...)
 - caso o aluno queira implementar mais alguma funcionalidade fique a vontade, mas deixe explicado no README
 
+## Author
+ 
+ Bianca de Albuquerque Viana
+ Turma: 816 Full Stack Degree
 
-## Entrega
+## Descrição do Projeto
 
-A entrega deverá ser feita ate o dia 28/02/2022
+ Este projeto servirá para a avaliação do módulo de FrontEnd Dinâmico do curso de Web Full Stack.
+ O projeto é uma Todo list que recebe uma tarefa, armazena em uma lista e renderiza essa tarefa na tela. Esta tarefa poderá ser marcada como concluida ao clicar no ckeckbox e poderá ser excluida ao clicar no botão de excluir. Ao final, ao recaregar a página, a informação inserida ateriormente continua aparecendo na tela até que seja excluida pelo usuário.
 
-Para a entrega o aluno deverá criar um pull request(PR) para esse repositório.
+ ## Status do Projeto
+ 
+ Concluído para entrega, com 9 dos 10 Requisitos Obrigatórios cumpridos.
+ Dos requisitos adicionais foi adicionada 1 funcionalidade.
+
+ ## Manual do usuário:
+
+1 - Abra Lista de tarefas;
+
+2 - Insira a tarefa no campo 'New todo..' e clique no botão de adicionar: ' + ' para adicionar a tarefa;
+(Note que caso o usuário tente inserir uma tarefa em branco, um alerta aparecerá informando que é nescessário uma entrada para prosseguir com a aplicação e nenhuma ação será feita)
+
+3 - Cada nova tafera possui um checkbox e um botão de excluir que aparece ao passar o mouse na tarefa.
+
+4- Tarefas adicionadas tem por padrão o estado de 'não feito' que muda ao clicar no checkbox, e a alteração de estado fica visivel. Essa alteração é reversível ao clicar novamente no checkbox.
+
+5 -A lista com as tarefas permanece salva mesmo após o usuário fechar ou recarregar a página atual.
+
+## Resolução do Problema
+
+.O projeto possui 3 arquivos principais: HTML, JS e CSS.
+
+.Criasse a função para capturar e renderizar os dados fornecido pelo input HTML. Essa função contém elementos criados dinamicamente que farão parte da estrutura de cada tarefa. É nessa função que se encontra a chamada para a função que salva a tarefa no localStorage.
+
+.Também há uma função para fazer a verificaão de status da tarefa, e juntamente com o CSS, ocorre a mudança visual da tarefa quando marcada.
+
+.Ao final, as funções para salvar e renderizar a lista no localStorage. Assim, mesmo que a pagina seja recarregada, os dados inseridos permanecem na pagina.
+
+## Requisitos não concluidos e bugs:
+
+1 - A lista deve ser armazenada de uma forma que se o usuario entrar novamente na pagina ele poderá ver todos os itens ja cadastrados e seus respectivos estados.
+
+Justificativa: Eu consigo pegar o objeto, renderizar na tela e salvar no localStorage para que ao atualizar a tarefa permaneça porém a animação de 'checked' não renderiza com ela.
+O status em si (true ou false) ficão salvos no localStorage, mas não no documento renderizado.
 
 
-## Observações
-
-- Não será aceito trabalhos após essa data
-- Se o sistema não rodar o aluno ficará com a nota 0
-- Não será permitido copias e se isso for detectado os alunos envolvidos ficarão com a nota 0
+2 - Quando não há tarefa o console mostra um erro do forEach porque ele não tem ninguém pra iterar antes da pagina ser atualizada, mas quando é adicionado um item esse erro some.
