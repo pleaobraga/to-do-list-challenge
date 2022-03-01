@@ -46,11 +46,9 @@ Criar uma to-do list que consiste em adicionar elementos a uma lista e poder mar
 2 - Insira a tarefa no campo 'New todo..' e clique no botão de adicionar: ' + ' para adicionar a tarefa;
 (Note que caso o usuário tente inserir uma tarefa em branco, um alerta aparecerá informando que é nescessário uma entrada para prosseguir com a aplicação e nenhuma ação será feita)
 
-3 - Cada nova tafera possui um checkbox e um botão de excluir que aparece ao passar o mouse na tarefa.
+3 - Tarefas adicionadas tem por padrão o estado de 'não feito' que muda ao clicar no checkbox, e a alteração de estado fica visivel. Essa alteração é reversível ao clicar novamente no checkbox.
 
-4- Tarefas adicionadas tem por padrão o estado de 'não feito' que muda ao clicar no checkbox, e a alteração de estado fica visivel. Essa alteração é reversível ao clicar novamente no checkbox.
-
-5 -A lista com as tarefas permanece salva mesmo após o usuário fechar ou recarregar a página atual.
+4 - A lista com as tarefas permanece salva mesmo após o usuário fechar ou recarregar a página atual.
 
 ## Resolução do Problema
 
