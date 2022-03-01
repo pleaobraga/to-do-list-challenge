@@ -9,7 +9,7 @@
 
 
 <p align="center">
-  <img alt="STATUS" src="https://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=49AA26&labelColor=000000">
+  <img alt="STATUS" src="https://img.shields.io/static/v1?label=STATUS&message=ENTREGUE&color=49AA26&labelColor=000000">
   <img alt="AUTOR" src="https://img.shields.io/static/v1?label=AUTOR&message=GBRIETZIG&color=49AA26&labelColor=000000">
 </p>
 
