@@ -20,6 +20,8 @@
 
 Um projeto desenvolvido pelo aluno <b>Gustavo Brietzig</b>
 
+<a href="https://gbrietzig.github.io/to-do-list-challenge/">Clique para acessar o projeto</a>
+
 O projeto foi proposto como uma avaliação de conclusão do módulo 05 do curso Degree - WEB da Let's Code.
 
 O Desafio consiste em desenvolver um "to do list" utilizando apenas HTML, CSS e JAVASCRIPT. O projeto possui os seguintes requisitos obrigatórios e complementares sendo eles:
@@ -42,8 +44,8 @@ Complmentares:
 - [X] Implementar uma solução otimizada
 - [X] Em cada elemento da lista apresentar um botao de deletar e caso o usuario aperte esse botao o item some da lista
 - [X] Implementar uma boa interface gráfica para a solução
-- [ ] Publicar a aplicação em algum ambiente (GitHub Pages,...)
-- [ ] caso o aluno queira implementar mais alguma funcionalidade fique a vontade, mas deixe explicado no README
+- [X] Publicar a aplicação em algum ambiente (GitHub Pages,...)
+- [X] caso o aluno queira implementar mais alguma funcionalidade fique a vontade, mas deixe explicado no README
 
 Por conta do último requisito complementar, foram elencados algumas possíveis melhorias, mas nem todas foram implementadas, deixando uma lacuna para evolução do código:
 
