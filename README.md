@@ -40,7 +40,7 @@ Criar uma to-do list que consiste em adicionar elementos a uma lista e poder mar
  Concluído para entrega, com 9 dos 10 Requisitos Obrigatórios cumpridos.
  Dos requisitos adicionais foi adicionada 1 funcionalidade.
 
- ## Manual do usuário:
+ ## Manual do usuário
 
 1 - Abra Lista de tarefas;
 
@@ -63,7 +63,7 @@ Criar uma to-do list que consiste em adicionar elementos a uma lista e poder mar
 
 .Ao final, as funções para salvar e renderizar a lista no localStorage. Assim, mesmo que a pagina seja recarregada, os dados inseridos permanecem na pagina.
 
-## Requisitos não concluidos e bugs:
+## Requisitos não concluidos e bugs
 
 1 - A lista deve ser armazenada de uma forma que se o usuario entrar novamente na pagina ele poderá ver todos os itens ja cadastrados e seus respectivos estados.
 
