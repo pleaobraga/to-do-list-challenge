@@ -38,7 +38,6 @@ Criar uma to-do list que consiste em adicionar elementos a uma lista e poder mar
  ## Status do Projeto
  
  Concluído para entrega, com 9 dos 10 Requisitos Obrigatórios cumpridos.
- Dos requisitos adicionais foi adicionada 1 funcionalidade.
 
  ## Manual do usuário
 
